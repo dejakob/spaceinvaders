@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>Space invaders</title>
     <script src="lib/require.js"></script>
+    <script src="lib/polymer.js"></script>
+    <script src="lib/webcomponents/webcomponents.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="import" href="components/qrcode.htm">
 </head>
 <body>
     <h1>invaders.js</h1>
+
+    <qr-code></qr-code>
 
     <script>
         require(["script"]);

@@ -11,6 +11,7 @@ module.exports = function(request, response) {
     var compileFile = function(folder, file) {
         fs.readFile(folder + file, function(err,content) {
             if (err) {
+                console.log(500, folder, file);
                 compileFile(folder, '/500.html');
             } else {
                 var template = handlebars.compile(content.toString());
@@ -22,27 +23,31 @@ module.exports = function(request, response) {
 
     return {
         'compile': function() {
-            var file;
-            if (isMobile) {
-                url += "/phone";
+            if (request.originalUrl.endsWith('.htm')) {
+                compileFile(url, request.originalUrl);
             } else {
-                url += "/screen";
-            }
-
-            fs.exists(url + request.originalUrl + '.html', function(exists) {
-                if (exists) {
-                    file = request.originalUrl;
+                var file;
+                if (isMobile) {
+                    url += "/phone";
                 } else {
-                    if (request.originalUrl === '/') {
-                        file = '/index.html';
+                    url += "/screen";
+                }
+
+                fs.exists(url + request.originalUrl, function(exists) {
+                    if (exists) {
+                        if (fs.lstatSync(url + request.originalUrl).isDirectory()) {
+                            file = '/index.html';
+                        } else {
+                            file = request.originalUrl;
+                        }
                     } else {
                         file = '/404.html';
                     }
-                }
 
-                compileFile(url, file);
+                    compileFile(url, file);
 
-            });
+                });
+            }
         }
     };
 };
