@@ -7,10 +7,11 @@ module.exports = function(request, response) {
     var url = GLOBAL.rootpath + '/clientscript';
 
     var compileFile = function(folder, file) {
-        fs.readFile(folder + file, function(err,content) {;
+        fs.readFile(folder + '/' + file, function(err,content) {
             if (err) {
                 response.send('');
             } else {
+                response.setHeader('content-type', 'text/javascript');
                 response.send(content.toString());
             }
         });
@@ -20,9 +21,9 @@ module.exports = function(request, response) {
         'compile': function() {
             var file;
 
-            fs.exists(url + request.originalUrl + '.js', function(exists) {
+            fs.exists(url + '/' + request.originalUrl, function(exists) {
                 if (exists) {
-                    compileFile(url, file);
+                    compileFile(url, request.originalUrl);
                 } else {
                     compileFile(url, isMobile ? 'phone.js' : 'screen.js');
                 }

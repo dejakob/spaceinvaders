@@ -4,6 +4,8 @@ module.exports = function(request) {
 
     if (/mobile/i.test(ua))
         $.mobile = true;
+    else
+        $.mobile = false;
 
     if (/like Mac OS X/.test(ua)) {
         $.iOS = /CPU( iPhone)? OS ([0-9\._]+) like Mac OS X/.exec(ua)[2].replace(/_/g, '.');
