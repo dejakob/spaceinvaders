@@ -13,6 +13,15 @@ app.use(function(req, res, next) {
             var cssRequest = require(GLOBAL.rootpath + '/server/cssrequest.js')(req, res);
             cssRequest.compile();
             break;
+        case req.originalUrl.toLowerCase().endsWith('.jpg'):
+        case req.originalUrl.toLowerCase().endsWith('.jpeg'):
+        case req.originalUrl.toLowerCase().endsWith('.gif'):
+        case req.originalUrl.toLowerCase().endsWith('.png'):
+        case req.originalUrl.toLowerCase().endsWith('.mp4'):
+        case req.originalUrl.toLowerCase().endsWith('.ico'):
+            var mediaRequest = require(GLOBAL.rootpath + '/server/mediarequest.js')(req, res);
+            mediaRequest.compile();
+            break;
         default:
             var htmlRequest = require(GLOBAL.rootpath + '/server/htmlrequest.js')(req, res);
             res.set('content-type', 'text/html');
