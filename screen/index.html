@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space invaders</title>
+    <script src="lib/require.js"></script>
+    <script src="lib/polymer/polymer.min.js"></script>
+    <script src="lib/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="import" href="components/loader.htm">
+    <link rel="import" href="components/singlegame.htm">
+</head>
+<body>
+    {{test}}
+    <article id="home">
+        <h1>invaders.js</h1>
+        <ul id="main">
+            <li data-view="single">Single player</li>
+            <li data-view="multi">Multi player</li>
+            <li data-view="highscores">Highscores</li>
+        </ul>
+    </article>
+
+    <view-loader></view-loader>
+
+    <script>
+        require(["script"]);
+    </script>
+</body>
+</html>

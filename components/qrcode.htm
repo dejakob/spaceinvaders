@@ -1,0 +1,28 @@
+<polymer-element name="qr-code" attributes="color bgColor value">
+    <template>
+        <div id="qrcode"></div>
+        <style>
+            img {
+                border: 1px solid [[bgColor]];
+            }
+        </style>
+    </template>
+    <script>
+       require(['lib/qrcode'], function() {
+            Polymer('qr-code', {
+                color: '#000000',
+                bgColor: '#ffffff',
+                value: 'test test test',
+                ready: function() {
+                    var qrcode = new QRCode(this.$.qrcode, {
+                        colorDark : this.color,
+                        colorLight : this.bgColor
+                    });
+                    qrcode.makeCode(this.value);
+                    /**/
+                    console.log('POLYMER', this.color, this.bgColor, this.value);
+                }
+            });
+       });
+    </script>
+</polymer-element>

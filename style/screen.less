@@ -1,0 +1,79 @@
+@import (less) "http://fonts.googleapis.com/css?family=Press+Start+2P";
+@import (less) "http://fonts.googleapis.com/css?family=Lato:100,400";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('/CDN/bgSf2.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #333;
+  color: #fff;
+}
+
+h1 {
+  font-family: 'Press Start 2P', serif;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+article {
+  &#home {
+    height: 250px;
+    top: 50%;
+    margin-top: -125px;
+    position: absolute;
+    width: 100%;
+
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+
+    -webkit-transition: transform 1s, top 2s, display 1s; -moz-transition: transform 1s, top 2s;-ms-transition: transform 1s, top 2s;-o-transition: transform 1s, top 2s;transition: transform 1s, top 2s;
+
+    > h1 {
+      margin-bottom: 25px;
+    }
+
+    &.hide {
+      transform: rotateY(90deg) rotateZ(-45deg);
+      -webkit-transform: rotateY(90deg) rotateZ(-45deg);
+      -moz-transform: rotateY(90deg) rotateZ(-45deg);
+      top: -50%;
+    }
+  }
+}
+
+ul#main {
+
+  > li {
+    width: 300px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    position: relative;
+    border: 1px #fff solid;
+    border-radius: 10px;
+    font-size: 25px;
+    margin: 0 auto 10px auto;
+    font-family: 'Lato', serif;
+    font-weight: 100;
+    cursor: pointer;
+    background: rgba(0,0,0,0.2);
+    -webkit-transition: background 1s;-moz-transition: background 1s;-ms-transition: background 1s;-o-transition: background 1s;transition: background 1s;
+    &:hover {
+      background: rgba(255, 165, 0, 0.7);
+    }
+  }
+
+
+}

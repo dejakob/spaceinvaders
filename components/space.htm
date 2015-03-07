@@ -1,0 +1,24 @@
+<polymer-element name="space-view" attributes="height width">
+    <template>
+        SPACE...
+        <style>
+            body {
+                background-color: #000000;
+            }
+        </style>
+    </template>
+    <script>
+        //IMPORTANT: name with -
+        Polymer('space-view', {
+            height: 250,
+            width: 250,
+            ready: function() {
+                console.log('what is wrong???');
+                console.log('WHAT IS $?', this.$);
+                console.log('WHAT IS this?', this);
+                //Fire event: this.fire
+                //each: <template repeat
+            }
+        });
+    </script>
+</polymer-element>
