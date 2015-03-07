@@ -1,27 +1,22 @@
 <polymer-element name="singlegame-view" attributes="height width">
-    <template>
+    <template id="body">
+        <link rel="stylesheet" href="/components/singlegame.css"/>
         <style>
-            #content {
-                width: 100%;
-                height: 100%;
-                background-color: #000000;
-                background-image: url('/CDN/space01.jpg');
-                background-attachment: fixed;
-                background-position: bottom center;
-                background-size: cover;
-                position: absolute;
-            }
-        </style>
-        <canvas id="content">
 
-        </canvas>
-        SPACE...
+        </style>
+        <div id="wrapper">
+            <canvas class="content">
+
+            </canvas>
+            <span class="score">[[score]]</span>
+        </div>
     </template>
     <script>
         //IMPORTANT: name with -
         Polymer('singlegame-view', {
             height: 250,
             width: 250,
+            score: 100,
             ready: function() {
 
             }
