@@ -35,16 +35,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/screen/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="7" selection-start="823" selection-end="823" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="525">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="38" selection-start="1134" selection-end="1152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+            <state line="13" column="12" selection-start="451" selection-end="451" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -53,18 +44,16 @@
       <file leaf-file-name="htmlrequest.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="38" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-              <folding>
-                <element signature="e#567#846#0" expanded="false" />
-              </folding>
+            <state line="26" column="42" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1185">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.13100436" vertical-offset="0" max-vertical-offset="687">
+            <state line="8" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -79,10 +68,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
+      <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="27" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="915">
+            <state line="85" column="11" selection-start="4448" selection-end="4449" vertical-scroll-proportion="0.33333334" vertical-offset="1059" max-vertical-offset="11565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spaceinvaders.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/spaceinvaders.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -106,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phone/index.html">
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="7" selection-start="245" selection-end="245" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="240">
+            <state line="7" column="24" selection-start="168" selection-end="168" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -125,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/screen/404.html" />
         <option value="$PROJECT_DIR$/screen/500.html" />
         <option value="$PROJECT_DIR$/clientscript/angular.js" />
@@ -148,13 +145,16 @@
         <option value="$PROJECT_DIR$/components/qrcode.htm" />
         <option value="$PROJECT_DIR$/components/space.htm" />
         <option value="$PROJECT_DIR$/clientscript/lib/jquery.js" />
-        <option value="$PROJECT_DIR$/clientscript/screen.js" />
         <option value="$PROJECT_DIR$/components/loader.htm" />
         <option value="$PROJECT_DIR$/components/singlegame.htm" />
-        <option value="$PROJECT_DIR$/phone/index.html" />
-        <option value="$PROJECT_DIR$/screen/index.html" />
-        <option value="$PROJECT_DIR$/server/htmlrequest.js" />
         <option value="$PROJECT_DIR$/controllers/index.js" />
+        <option value="$PROJECT_DIR$/server/htmlrequest.js" />
+        <option value="$PROJECT_DIR$/screen/index.html" />
+        <option value="$PROJECT_DIR$/phone/index.html" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/clientscript/screen.js" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/.idea/spaceinvaders.iml" />
       </list>
     </option>
   </component>
@@ -465,20 +465,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/qrcode.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="44" selection-start="522" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phone/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="72" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="210">
@@ -601,11 +587,6 @@
         <state line="35" column="230" selection-start="18460" selection-end="18460" vertical-scroll-proportion="0.76086956" vertical-offset="0" max-vertical-offset="690" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.1988218" vertical-offset="0" max-vertical-offset="679" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703" />
@@ -690,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="27" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/space.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="18" selection-start="669" selection-end="669" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="435">
@@ -718,23 +692,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phone/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="7" selection-start="245" selection-end="245" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/string.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="17" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screen/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="7" selection-start="823" selection-end="823" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="525">
           <folding />
         </state>
       </provider>
@@ -746,18 +706,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
+    <entry file="file://$PROJECT_DIR$/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="38" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <folding>
-            <element signature="e#567#846#0" expanded="false" />
-          </folding>
+        <state line="8" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/index.js">
+    <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.13100436" vertical-offset="0" max-vertical-offset="687">
+        <state line="26" column="42" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screen/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="12" selection-start="451" selection-end="451" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phone/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="7" selection-start="245" selection-end="245" vertical-scroll-proportion="0.22624435" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="24" selection-start="168" selection-end="168" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="41" selection-start="364" selection-end="364" vertical-scroll-proportion="0.32751092" vertical-offset="0" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/spaceinvaders.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="11" selection-start="4448" selection-end="4449" vertical-scroll-proportion="0.33333334" vertical-offset="1059" max-vertical-offset="11565">
           <folding />
         </state>
       </provider>
