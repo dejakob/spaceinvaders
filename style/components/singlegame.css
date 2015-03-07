@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(http://fonts.gstatic.com/s/pressstart2p/v4/8Lg6LX8-ntOHUQnvQ0E7o3uGXJk6cuEylToZ-uuaubQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(http://fonts.gstatic.com/s/lato/v11/zJY4gsxBiSo5L7tNutxFNg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/v0SdcGFAl2aezM9Vq_aFTQ.ttf) format('truetype');
+}
+#wrapper {
+  background-color: #000000;
+  background-image: url('/CDN/space01.jpg');
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#wrapper .content {
+  height: 100%;
+  width: 100%;
+}
+#wrapper .score {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  text-align: right;
+  font-family: 'Press Start 2P';
+  font-size: 30px;
+  color: #ffa500;
+}
