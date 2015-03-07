@@ -20,7 +20,9 @@ module.exports = function(request, response) {
                     }
 
                     var template = handlebars.compile(content.toString());
-                    response.status(200).send(template(assigns));
+                    var output = template(assigns);
+                    output = output.replace(/\(\(/gi,'{{').replace(/\)\)/gi,'}}'); //Replace (( to {{ for polymer purposes
+                    response.status(200).send(output);
                 };
 
                 //TODO make recursive controller loader

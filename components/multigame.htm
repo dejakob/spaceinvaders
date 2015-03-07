@@ -1,0 +1,21 @@
+<polymer-element name="multigame-view" attributes="height width">
+    <template>
+        ((halfTheWidth))
+        <singlegame-view height="[[height]]" width="[[halfTheWidth]]"></singlegame-view>
+        <singlegame-view height="[[width]]" width="[[halfTheWidth]]"></singlegame-view>
+    </template>
+    <script>
+        //IMPORTANT: name with -
+        Polymer('multigame-view', {
+            height: 250,
+            width: 250,
+            score: 100,
+            computed: {
+                halfTheWidth: 'width / 2'
+            },
+            ready: function() {
+
+            }
+        });
+    </script>
+</polymer-element>

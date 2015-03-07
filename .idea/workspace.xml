@@ -32,28 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="string.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/string.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/screen/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="2" selection-start="983" selection-end="984" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+            <state line="15" column="23" selection-start="540" selection-end="540" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="540">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spaceinvaders.iml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/spaceinvaders.iml">
+      <file leaf-file-name="htmlrequest.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="space.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/space.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="18" selection-start="669" selection-end="669" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="435">
+            <state line="23" column="111" selection-start="926" selection-end="926" vertical-scroll-proportion="0.5021834" vertical-offset="0" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -62,7 +53,16 @@
       <file leaf-file-name="singlegame.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="23" selection-start="515" selection-end="515" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="450">
+            <state line="11" column="4" selection-start="0" selection-end="607" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loader.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/loader.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="117" selection-start="902" selection-end="902" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -80,25 +80,25 @@
       <file leaf-file-name="singlegame.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="34" selection-start="462" selection-end="462" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="465">
+            <state line="11" column="19" selection-start="285" selection-end="285" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multigame.htm" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="multigame.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/multigame.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+            <state line="2" column="22" selection-start="103" selection-end="103" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style/screen.css">
+      <file leaf-file-name="screen.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style/screen.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
+            <state line="14" column="19" selection-start="269" selection-end="269" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -144,19 +144,20 @@
         <option value="$PROJECT_DIR$/components/qrcode.htm" />
         <option value="$PROJECT_DIR$/components/space.htm" />
         <option value="$PROJECT_DIR$/clientscript/lib/jquery.js" />
-        <option value="$PROJECT_DIR$/components/loader.htm" />
         <option value="$PROJECT_DIR$/controllers/index.js" />
-        <option value="$PROJECT_DIR$/server/htmlrequest.js" />
         <option value="$PROJECT_DIR$/phone/index.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/clientscript/screen.js" />
         <option value="$PROJECT_DIR$/.idea/spaceinvaders.iml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/screen/index.html" />
         <option value="$PROJECT_DIR$/components/singlegame.htm" />
-        <option value="$PROJECT_DIR$/style/screen.less" />
         <option value="$PROJECT_DIR$/style/core.less" />
         <option value="$PROJECT_DIR$/style/components/singlegame.less" />
+        <option value="$PROJECT_DIR$/style/screen.less" />
+        <option value="$PROJECT_DIR$/screen/index.html" />
+        <option value="$PROJECT_DIR$/components/loader.htm" />
+        <option value="$PROJECT_DIR$/components/multigame.htm" />
+        <option value="$PROJECT_DIR$/server/htmlrequest.js" />
       </list>
     </option>
   </component>
@@ -231,24 +232,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="spaceinvaders" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceinvaders" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceinvaders" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screen.less" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -666,30 +649,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/loader.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="14" selection-start="69" selection-end="69" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="570">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="38" selection-start="1134" selection-end="1152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="42" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1185">
           <folding />
         </state>
       </provider>
@@ -715,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/spaceinvaders.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="11" selection-start="4471" selection-end="4471" vertical-scroll-proportion="-0.8472222" vertical-offset="1824" max-vertical-offset="11595">
@@ -729,44 +684,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/string.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="2" selection-start="983" selection-end="984" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screen/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="460" selection-end="460" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="515" selection-end="515" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/style/components/singlegame.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/screen.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="13" selection-start="1540" selection-end="1582" vertical-scroll-proportion="-19.583334" vertical-offset="595" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
@@ -780,14 +700,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="462" selection-end="462" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="465">
+        <state line="11" column="19" selection-start="285" selection-end="285" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/screen.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="19" selection-start="269" selection-end="269" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/spaceinvaders.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="0.04366812" vertical-offset="0" max-vertical-offset="687">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="2" selection-start="983" selection-end="984" vertical-scroll-proportion="0.6768559" vertical-offset="0" max-vertical-offset="687">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="0" selection-end="607" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/loader.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="117" selection-start="902" selection-end="902" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/multigame.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="687">
+        <state line="2" column="22" selection-start="103" selection-end="103" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screen/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="23" selection-start="540" selection-end="540" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/htmlrequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="111" selection-start="926" selection-end="926" vertical-scroll-proportion="0.5021834" vertical-offset="0" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
