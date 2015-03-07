@@ -1,33 +1,21 @@
-<polymer-element name="view-loader" attributes="view">
+<polymer-element name="view-loader" attributes="view height width">
     <template>
-        <div id="content"></div>
+        <template if="((view=='single'))">
+            <singlegame-view height="((height))" width="((width))"></singlegame-view>
+        </template>
+
+        <template if="((view=='multi'))">
+            <multigame-view height="((height))" width="((width))"></multigame-view>
+        </template>
     </template>
     <script>
-        var renderView = function(val, content) {
-            loadView.bind({
-                type: val,
-                content: content,
-                height: (window.innerHeight) ? window.innerHeight : document.body.clientHeight,
-                width: (window.innerWidth) ? window.innerWidth : document.body.clientWidth
-            })();
-        };
-
-        var loadView = function() {
-            switch (this.type) {
-                case 'single':
-                    this.content.innerHTML = '<singlegame-view height="' + this.height + '" width="' + this.width + '"></singlegame-view>';
-                    break;
-                case 'multi':
-                    this.content.innerHTML = '<multigame-view height="' + this.height + '" width="' + this.width + '"></multigame-view>';
-                    break;
-            }
-        };
-
         Polymer('view-loader', {
+            height: 500,
+            width: 500,
             attributeChanged: function(el, oldVal, newVal) {
                 switch (el) {
                     case 'view':
-                        renderView(newVal, this.$.content);
+                        //renderView(newVal, this.$.content);
                         break;
                 }
             }
