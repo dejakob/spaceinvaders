@@ -46,8 +46,9 @@ module.exports = function(request, response) {
 
     return {
         'compile': function() {
-            if (request.originalUrl.endsWith('.htm')) {
-                compileFile(url, request.originalUrl);
+            var originalUrl = request.originalUrl.split('?')[0];
+            if (originalUrl.endsWith('.htm')) {
+                compileFile(url, originalUrl);
             } else {
                 var file;
                 if (isMobile) {
@@ -56,12 +57,12 @@ module.exports = function(request, response) {
                     url += "/screen";
                 }
 
-                fs.exists(url + request.originalUrl, function(exists) {
+                fs.exists(url + originalUrl, function(exists) {
                     if (exists) {
-                        if (fs.lstatSync(url + request.originalUrl).isDirectory()) {
+                        if (fs.lstatSync(url + originalUrl).isDirectory()) {
                             file = '/index.html';
                         } else {
-                            file = request.originalUrl;
+                            file = originalUrl;
                         }
                     } else {
                         file = '/404.html';

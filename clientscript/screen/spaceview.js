@@ -1,10 +1,13 @@
-var SpaceView = function() {
+var SpaceView = (function() {
 
     return {
-        generateQRUrl: function(cb) {
+        generateAuthUrl: function(cb) {
             $.getJSON('/API/session.json?action=create', function(data) {
-                console.log('data', data);
+                cb({
+                    'playerId': data.player.id,
+                    'playerHash': data.player.hash
+                });
             });
         }
     };
-};
+})();

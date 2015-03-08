@@ -1,28 +1,45 @@
 <polymer-element name="singlegame-view" attributes="height width">
     <template id="body">
-        <link rel="stylesheet" href="/components/singlegame.css"/>
-        <style>
+        <link rel="stylesheet" href="/components/singlegame.css" />
 
-        </style>
         <div id="wrapper">
-            <canvas class="content">
+            <template if="((qrcode))">
+                <div class="content">
+                    <qr-code value="((qrcode))"></qr-code>
+                </div>
+            </template>
 
-            </canvas>
-            <span class="score">[[score]]</span>
+            <template if="((!qrcode))">
+                <canvas class="content">
+
+                </canvas>
+                <span class="score">((score))</span>
+            </template>
         </div>
+
     </template>
     <script>
         //IMPORTANT: name with -
-        Polymer('singlegame-view', {
-            score: 100,
-            ready: function() {
-            },
-            heightChanged: function() {
+        require([
+            'screen/spaceview.js',
+            'components/gamesocket.js'
+        ], function() {
+            Polymer('singlegame-view', {
+                qrcode: null,
+                score: 100,
+                ready: function() {
+                    GameSocket.init(function(val) {
+                        //TODO implement
+                    });
+                },
+                heightChanged: function() {
 
-            },
-            widthChanged: function() {
+                },
+                widthChanged: function() {
 
-            }
+                }
+            });
         });
+
     </script>
 </polymer-element>
