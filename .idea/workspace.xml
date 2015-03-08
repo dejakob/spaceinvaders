@@ -26,7 +26,16 @@
       <file leaf-file-name="singlegame.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="31" selection-start="531" selection-end="531" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="420">
+            <state line="12" column="15" selection-start="359" selection-end="359" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="495">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rotatedevice.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clientscript/core/rotatedevice.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="32" selection-start="631" selection-end="631" vertical-scroll-proportion="0.34934497" vertical-offset="0" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
@@ -41,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="screen.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="15" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.34497815" vertical-offset="498" max-vertical-offset="1185">
+            <state line="41" column="0" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.0" vertical-offset="498" max-vertical-offset="1185">
               <folding />
             </state>
           </provider>
@@ -145,10 +154,11 @@
         <option value="$PROJECT_DIR$/style/screen.less" />
         <option value="$PROJECT_DIR$/server/htmlrequest.js" />
         <option value="$PROJECT_DIR$/components/loader.htm" />
-        <option value="$PROJECT_DIR$/components/singlegame.htm" />
         <option value="$PROJECT_DIR$/screen/index.html" />
         <option value="$PROJECT_DIR$/components/multigame.htm" />
         <option value="$PROJECT_DIR$/clientscript/screen.js" />
+        <option value="$PROJECT_DIR$/components/singlegame.htm" />
+        <option value="$PROJECT_DIR$/clientscript/core/rotatedevice.js" />
       </list>
     </option>
   </component>
@@ -369,6 +379,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="clientscript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceinvaders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceinvaders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="CDN" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -380,7 +408,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../todomvc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chromecaststation/GameCast/chromecaststation" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="last.edited.regexp" value=".html" />
   </component>
@@ -459,13 +487,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/screen/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="423" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/qrcode.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="18" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="510">
@@ -747,13 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="31" selection-start="531" selection-end="531" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/multigame.htm">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="14" selection-start="80" selection-end="80" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="375">
@@ -763,7 +777,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="15" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.34497815" vertical-offset="498" max-vertical-offset="1185">
+        <state line="41" column="0" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.0" vertical-offset="498" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="15" selection-start="359" selection-end="359" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/core/rotatedevice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="631" selection-end="631" vertical-scroll-proportion="0.34934497" vertical-offset="0" max-vertical-offset="1095">
           <folding />
         </state>
       </provider>
