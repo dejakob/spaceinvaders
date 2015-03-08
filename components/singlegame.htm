@@ -14,6 +14,7 @@
 
                 </canvas>
                 <span class="score">((score))</span>
+                <div id="spaceship" style="((showGame ? 'display: block;' : 'display: none;')) left: ((spaceship.left))px; width: ((spaceship.width))px; bottom: ((spaceship.bottom))px; height: ((spaceship.height))px;"></div>
             </template>
         </div>
 
@@ -25,15 +26,38 @@
             'screen/spaceview.js',
             'components/gamesocket.js'
         ], function() {
+
             Polymer('singlegame-view', {
                 qrcode: null,
                 score: 100,
                 ready: function() {
-                    GameSocket.init(this, function(scope) {
-                        $.each(scope, function(k,v) {
-                           scope[k] = v;
-                        });
-                    });
+                    var self = this;
+                    var callbacks = {};
+                    callbacks['initView'] = function() {
+                        console.log('init view', self.height, self.width);
+
+                        self.showGame = true;
+                        var spaceshipWidth = self.width / 10;
+                        self.spaceship = {
+                            left: (self.width - spaceshipWidth) / 2,
+                            width: spaceshipWidth,
+                            bottom: 15,
+                            height: 1.5 * spaceshipWidth
+                        };
+
+                    };
+                    callbacks['onLeft'] = function() {
+                        if (typeof self.spaceship !== 'undefined') {
+                            self.spaceship -= 5;
+                        }
+                    };
+                    callbacks['onRight'] = function() {
+                        if (typeof self.spaceship !== 'undefined') {
+                            self.spaceship += 5;
+                        }
+                    };
+
+                    GameSocket.init(this, callbacks);
                 },
                 heightChanged: function() {
 

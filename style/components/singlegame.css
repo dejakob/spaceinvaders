@@ -41,3 +41,7 @@
   font-size: 30px;
   color: #ffa500;
 }
+#spaceship {
+  position: absolute;
+  background-color: #ffa500;
+}

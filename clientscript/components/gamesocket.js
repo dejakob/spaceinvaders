@@ -1,5 +1,5 @@
 var GameSocket = (function() {
-    var init = function(scope, viewCallback) {
+    var init = function(scope, callbacks) {
         var BASE_URL = window.location.hostname;
         SpaceView.generateAuthUrl(function(params) {
             console.log('PARAMS', params);
@@ -27,6 +27,13 @@ var GameSocket = (function() {
                     switch (data.action) {
                         case 'PHONE CONNECTED':
                             scope.qrcode = false;
+                            callbacks.initView();
+                            break;
+                        case 'MOVE SHIP LEFT':
+                            callbacks.onLeft();
+                            break;
+                        case 'MOVE SHIP RIGHT':
+                            callbacks.onRight();
                             break;
                     }
                 };
