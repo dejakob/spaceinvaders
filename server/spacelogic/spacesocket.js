@@ -4,25 +4,45 @@ var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 
 module.exports = function(ws) {
     var me;
-    var _isScreen;
+    var isScreen;
     console.log('spacesocket');
 
     //on connection
     ws.on('message', function(message) {
         console.log('MESSAGE', message);
+        message = JSON.parse(message.toString());
 
         switch (message.action) {
             case 'AUTH':
-                console.log('AUTHING!')
                 var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
                 if (message.playerHash && message.playerHash === spacePlayer.hash) {
                     me = spacePlayer;
-                    _isScreen = message.screen;
+                    isScreen = message.screen;
+
+                    if (isScreen) {
+                        SpaceLogic.updatePlayer(spacePlayer.id, 'onScreen', function(cb) {
+                           cb(ws);
+                        });
+                        if (typeof me.onPhone !== 'undefined') {
+                            me.onPhone(function(ws) {
+                                ws.send(JSON.stringify({
+                                    action: 'SCREEN CONNECTED'
+                                }));
+                            });
+                        }
+                    } else {
+                        SpaceLogic.updatePlayer(spacePlayer.id, 'onPhone', function(cb) {
+                            cb(ws);
+                        });
+                        if (typeof me.onScreen !== 'undefined') {
+                            me.onScreen(function(ws) {
+                                ws.send(JSON.stringify({
+                                    action: 'PHONE CONNECTED'
+                                }));
+                            });
+                        }
+                    }
                 }
-                ws.send({
-                    'action': 'AUTHRESPONSE',
-                    'data': spacePlayer
-                });
 
                 break;
             case 'CONTROL':

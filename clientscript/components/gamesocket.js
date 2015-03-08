@@ -1,26 +1,34 @@
 var GameSocket = (function() {
-    var init = function(viewCallback) {
-        var self = this;
+    var init = function(scope, viewCallback) {
         var BASE_URL = window.location.hostname;
         SpaceView.generateAuthUrl(function(params) {
-            var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash' + params.playerHash;
-            self.qrcode = url;
+            console.log('PARAMS', params);
+            var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash=' + params.playerHash;
+            scope.qrcode = url;
 
             var socket = new WebSocket('ws://' + BASE_URL + ':8889');
             var authenticate = function() {
-                socket.send({
+                socket.send(JSON.stringify({
                     'action': "AUTH",
                     'playerId': params['playerId'],
                     'playerHash': params['playerHash'],
-                    'screen': tru
-                });
+                    'screen': true
+                }));
             };
 
             socket.onopen = function(event) {
                 authenticate();
 
                 socket.onmessage = function(ev) {
-                    console.log('ONMESSAGE', ev);
+                    var timestamp = ev.timestamp;
+                    var data = JSON.parse(ev.data);
+                    console.log('ONMESSAGE', data);
+
+                    switch (data.action) {
+                        case 'PHONE CONNECTED':
+                            scope.qrcode = false;
+                            break;
+                    }
                 };
             };
 

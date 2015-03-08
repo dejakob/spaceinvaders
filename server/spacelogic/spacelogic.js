@@ -24,6 +24,9 @@ module.exports = (function() {
         },
         getNextPlayerId: function() {
             return ++GLOBAL.spacePlayerId;
+        },
+        updatePlayer: function(playerId, key, val) {
+            GLOBAL.spacePlayers[playerId][key] = val;
         }
     };
 })();

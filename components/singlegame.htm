@@ -21,6 +21,7 @@
     <script>
         //IMPORTANT: name with -
         require([
+            'lib/jquery.js',
             'screen/spaceview.js',
             'components/gamesocket.js'
         ], function() {
@@ -28,8 +29,10 @@
                 qrcode: null,
                 score: 100,
                 ready: function() {
-                    GameSocket.init(function(val) {
-                        //TODO implement
+                    GameSocket.init(this, function(scope) {
+                        $.each(scope, function(k,v) {
+                           scope[k] = v;
+                        });
                     });
                 },
                 heightChanged: function() {
