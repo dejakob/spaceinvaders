@@ -19,7 +19,6 @@
 #wrapper {
   background-color: #000000;
   background-image: url('/CDN/space01.jpg');
-  background-attachment: fixed;
   background-position: bottom center;
   background-size: cover;
   width: 100%;
@@ -30,6 +29,7 @@
 #wrapper .content {
   height: 100%;
   width: 100%;
+  position: relative;
 }
 #wrapper .score {
   display: block;
@@ -40,6 +40,13 @@
   font-family: 'Press Start 2P';
   font-size: 30px;
   color: #ffa500;
+}
+#wrapper qr-code {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -128px;
+  margin-left: -128px;
 }
 #spaceship {
   position: absolute;

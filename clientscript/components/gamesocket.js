@@ -22,7 +22,6 @@ var GameSocket = (function() {
                 socket.onmessage = function(ev) {
                     var timestamp = ev.timestamp;
                     var data = JSON.parse(ev.data);
-                    console.log('ONMESSAGE', data);
 
                     switch (data.action) {
                         case 'PHONE CONNECTED':

@@ -1,6 +1,12 @@
-<polymer-element name="singlegame-view" attributes="height width">
-    <template id="body">
+<polymer-element name="singlegame-view" attributes="height width left">
+    <template>
         <link rel="stylesheet" href="/components/singlegame.css" />
+        <style>
+            #wrapper {
+                width: ((width))px;
+                left: ((left))px;
+            }
+        </style>
 
         <div id="wrapper">
             <template if="((qrcode))">
@@ -29,6 +35,8 @@
 
             Polymer('singlegame-view', {
                 qrcode: null,
+                left: 0,
+                stepX: 20,
                 score: 100,
                 ready: function() {
                     var self = this;
@@ -45,15 +53,21 @@
                             height: 1.5 * spaceshipWidth
                         };
 
+                        self.stepX = self.width / 50;
+
                     };
                     callbacks['onLeft'] = function() {
                         if (typeof self.spaceship !== 'undefined') {
-                            self.spaceship -= 5;
+                            if (self.spaceship.left > 0) {
+                                self.spaceship.left -= 20;
+                            }
                         }
                     };
                     callbacks['onRight'] = function() {
                         if (typeof self.spaceship !== 'undefined') {
-                            self.spaceship += 5;
+                            if (self.spaceship.left < (self.width - self.spaceship.width) ) {
+                                self.spaceship.left += 20;
+                            }
                         }
                     };
 

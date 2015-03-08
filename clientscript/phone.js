@@ -20,8 +20,26 @@ require([
         }));
     };
 
+    var onLeft = function() {
+        socket.send(JSON.stringify({
+            'action': "CONTROL",
+            'x': -10
+        }));
+    };
+
+    //TODO remove
+    /*document.body.onclick = function() {
+        onLeft();
+    };*/
+
     socket.onopen = function(ev) {
         authenticate();
+        RotateDevice.addBetaListener(function(x) {
+            socket.send(JSON.stringify({
+                'action': "CONTROL",
+                'x': x
+            }));
+        });
 
         socket.onmessage = function(ev) {
             console.log('ONMESSAGE', ev);

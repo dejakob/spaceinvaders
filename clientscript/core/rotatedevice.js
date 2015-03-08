@@ -7,6 +7,7 @@ var RotateDevice = (function() {
     var _betaListeners = [];
     var _gammaListeners = [];
 
+
     if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', function(e) {
             if (_listeners.length || _alphaListeners.length || _betaListeners.length || _gammaListeners.length) {
@@ -27,21 +28,21 @@ var RotateDevice = (function() {
                         listener(a,b,c);
                 }
 
-                for (i = 0; i < _alphaListeners; i++) {
+                for (i = 0; i < _alphaListeners.length; i++) {
                     listener = _alphaListeners[i];
                     if (a !== null) {
                         listener(a);
                     }
                 }
 
-                for (i = 0; i < _betaListeners; i++) {
+                for (i = 0; i < _betaListeners.length; i++) {
                     listener = _betaListeners[i];
                     if (b !== null) {
                         listener(b);
                     }
                 }
 
-                for (i = 0; i < _gammaListeners; i++) {
+                for (i = 0; i < _gammaListeners.length; i++) {
                     listener = _gammaListeners[i];
                     if (c !== null) {
                         listener(c);
