@@ -2,25 +2,30 @@ var app = require('express')();
 var http = require('http').Server(app);
 
 require('./server/global.js');
+require('./server/socket.js');
 
 app.use(function(req, res, next) {
+    var originalUrl = req.originalUrl.split('?')[0];
     switch (true) {
-        case req.originalUrl.endsWith('.js'):
+        case originalUrl.endsWith('.js'):
             var javascriptRequest = require(GLOBAL.rootpath + '/server/javascriptrequest.js')(req, res);
             javascriptRequest.compile();
             break;
-        case req.originalUrl.endsWith('.css'):
+        case originalUrl.endsWith('.css'):
             var cssRequest = require(GLOBAL.rootpath + '/server/cssrequest.js')(req, res);
             cssRequest.compile();
             break;
-        case req.originalUrl.toLowerCase().endsWith('.jpg'):
-        case req.originalUrl.toLowerCase().endsWith('.jpeg'):
-        case req.originalUrl.toLowerCase().endsWith('.gif'):
-        case req.originalUrl.toLowerCase().endsWith('.png'):
-        case req.originalUrl.toLowerCase().endsWith('.mp4'):
-        case req.originalUrl.toLowerCase().endsWith('.ico'):
+        case originalUrl.toLowerCase().endsWith('.jpg'):
+        case originalUrl.toLowerCase().endsWith('.jpeg'):
+        case originalUrl.toLowerCase().endsWith('.gif'):
+        case originalUrl.toLowerCase().endsWith('.png'):
+        case originalUrl.toLowerCase().endsWith('.mp4'):
+        case originalUrl.toLowerCase().endsWith('.ico'):
             var mediaRequest = require(GLOBAL.rootpath + '/server/mediarequest.js')(req, res);
             mediaRequest.compile();
+            break;
+        case originalUrl.toLowerCase().endsWith('.json'):
+            require(GLOBAL.rootpath + '/server/apirequest.js')(req, res);
             break;
         default:
             var htmlRequest = require(GLOBAL.rootpath + '/server/htmlrequest.js')(req, res);
