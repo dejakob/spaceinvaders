@@ -5,6 +5,9 @@ var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 module.exports = function(ws) {
     var me;
     var isScreen;
+    var Level = require(GLOBAL.rootpath + '/server/spacelogic/level.js')(ws);
+
+    console.log('LEVELLEVEL', Level);
     console.log('spacesocket');
 
     //on connection
@@ -55,6 +58,9 @@ module.exports = function(ws) {
                         });
                     }
                 }
+                break;
+            case 'START LEVEL':
+                Level.startLevel(0, me);
                 break;
         }
     });

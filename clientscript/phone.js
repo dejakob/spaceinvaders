@@ -18,12 +18,23 @@ require([
             'playerId': urlQuery['playerId'],
             'playerHash': urlQuery['playerHash']
         }));
+        //TODO CHANGE
+        socket.send(JSON.stringify({
+            'action': "START LEVEL"
+        }));
     };
 
     var onLeft = function() {
         socket.send(JSON.stringify({
             'action': "CONTROL",
             'x': -10
+        }));
+    };
+
+    var onRight = function() {
+        socket.send(JSON.stringify({
+            'action': "CONTROL",
+            'x': +10
         }));
     };
 
@@ -40,6 +51,17 @@ require([
                 'x': x
             }));
         });
+
+        document.onkeydown = function(ev) {
+            switch (ev.keyCode) {
+                case 37:
+                    onLeft();
+                    break;
+                case 39:
+                    onRight();
+                    break;
+            }
+        };
 
         socket.onmessage = function(ev) {
             console.log('ONMESSAGE', ev);
