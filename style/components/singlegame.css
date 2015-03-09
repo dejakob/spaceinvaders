@@ -48,6 +48,10 @@
   margin-top: -128px;
   margin-left: -128px;
 }
+#wrapper .enemy {
+  background-color: red;
+  position: absolute;
+}
 #spaceship {
   position: absolute;
   background-color: #ffa500;
