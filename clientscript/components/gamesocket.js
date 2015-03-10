@@ -38,7 +38,7 @@ var GameSocket = (function() {
                             callbacks.onRight();
                             break;
                         case 'START LEVEL':
-                            callbacks.startLevel(data.levelId);
+                            callbacks.startLevel(data.levelId, data.speedX, data.speedY);
                             break;
                         case 'ENEMY':
                             callbacks.onEnemy(data.enemy);

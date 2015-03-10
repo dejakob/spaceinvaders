@@ -1,25 +1,25 @@
 {
-    "speedX": 1000,
-    "speedY": 1000,
+    "speedX": 3,
+    "speedY": 10,
     "timeline": [
+        {
+            "time": 100,
+            "enemy": 1
+        },
+        {
+            "time": 400,
+            "enemy": 1
+        },
+        {
+            "time": 600,
+            "enemy": 1
+        },
         {
             "time": 1000,
             "enemy": 1
         },
         {
-            "time": 1100,
-            "enemy": 1
-        },
-        {
-            "time": 1200,
-            "enemy": 1
-        },
-        {
-            "time": 1500,
-            "enemy": 1
-        },
-        {
-            "time": 1600,
+            "time": 1400,
             "enemy": 1
         },
         {

@@ -47,18 +47,28 @@ require([
                     }
                 }
             };
-            callbacks['startLevel'] = function(levelId) {
-                GameLevel.startLevel(levelId);
+            callbacks['startLevel'] = function(levelId, speedX, speedY) {
+                GameLevel.width = self.width;
+                GameLevel.height = self.height;
+                GameLevel.enemyWidth = self.enemyWidth;
+                GameLevel.startLevel(levelId, speedX, speedY);
+
+                GameLevel.onEnemiesChanged = function(enemies) {
+                    self.enemies = enemies;
+                };
             };
-            callbacks['onEnemy'] = function(enemy) {
+            callbacks['onEnemy'] = function(enemyType) {
                 //TODO CHANGE
                 var startX = self.width - 10;
                 var startY = -10;
-
-                self.enemies.push({
+                var enemy = {
                     left: startX,
+                    directionX: -1,
                     top: startY
-                });
+                };
+                self.enemies.push(enemy);
+
+                GameLevel.enemiesChanged(self.enemies);
             };
 
             GameSocket.init(this, callbacks);

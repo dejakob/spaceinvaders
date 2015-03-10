@@ -16,7 +16,9 @@ module.exports = function(ws) {
             me.onScreen(function(ws) {
                 ws.send(JSON.stringify({
                     action: 'START LEVEL',
-                    levelId: lvl
+                    levelId: lvl,
+                    speedX: data.speedX,
+                    speedY: data.speedY
                 }));
             });
 
@@ -29,16 +31,20 @@ module.exports = function(ws) {
 
                 if (currentItem.time === _ticker) {
                     me.onScreen(function(ws) {
-                        ws.send(JSON.stringify({
-                            action: 'ENEMY',
-                            enemy: currentItem.enemy
-                        }));
+                        try {
+                            ws.send(JSON.stringify({
+                                action: 'ENEMY',
+                                enemy: currentItem.enemy
+                            }));
+                        } catch (ex) {
+
+                        }
                     });
 
                     currentIndex++;
                 }
-                _ticker+=100;
-            }, 100);
+                _ticker+=1;
+            }, 40);
         },
         'endLevel': function(lvl) {
             if (_interval !== null) {

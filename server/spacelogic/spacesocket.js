@@ -52,9 +52,13 @@ module.exports = function(ws) {
                 if (me) {
                     if (typeof me.onScreen !== 'undefined') {
                         me.onScreen(function(ws) {
-                            ws.send(JSON.stringify({
-                                action: (message.x < 0) ? 'MOVE SHIP LEFT' : 'MOVE SHIP RIGHT'
-                            }));
+                            try {
+                                ws.send(JSON.stringify({
+                                    action: (message.x < 0) ? 'MOVE SHIP LEFT' : 'MOVE SHIP RIGHT'
+                                }));
+                            } catch (ex) {
+
+                            }
                         });
                     }
                 }
