@@ -1,9 +1,13 @@
 {
     "speedX": 3,
-    "speedY": 10,
+    "speedY": 30,
     "timeline": [
         {
             "time": 100,
+            "enemy": 1
+        },
+        {
+            "time": 200,
             "enemy": 1
         },
         {
@@ -11,7 +15,11 @@
             "enemy": 1
         },
         {
-            "time": 600,
+            "time": 500,
+            "enemy": 1
+        },
+        {
+            "time": 900,
             "enemy": 1
         },
         {
@@ -19,19 +27,11 @@
             "enemy": 1
         },
         {
+            "time": 1100,
+            "enemy": 1
+        },
+        {
             "time": 1400,
-            "enemy": 1
-        },
-        {
-            "time": 1700,
-            "enemy": 1
-        },
-        {
-            "time": 1800,
-            "enemy": 1
-        },
-        {
-            "time": 2000,
             "enemy": 1
         }
     ]
