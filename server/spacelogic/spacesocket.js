@@ -48,6 +48,9 @@ module.exports = function(ws) {
                 }
 
                 break;
+            case 'START LEVEL':
+                Level.startLevel(0, me);
+                break;
             case 'CONTROL':
                 if (me) {
                     if (typeof me.onScreen !== 'undefined') {
@@ -63,9 +66,21 @@ module.exports = function(ws) {
                     }
                 }
                 break;
-            case 'START LEVEL':
-                Level.startLevel(0, me);
-                break;
+            case 'FIRE':
+                try {
+                    me.onScreen(function(ws) {
+                        try {
+                            ws.send(JSON.stringify({
+                                action: 'FIRE'
+                            }));
+                        } catch (ex) {
+
+                        }
+                    });
+                } catch (ex) {
+
+                }
+                break
         }
     });
     //ws.send('something');

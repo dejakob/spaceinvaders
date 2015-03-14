@@ -38,6 +38,13 @@ require([
         }));
     };
 
+    var onSubmit = function() {
+        console.log('FIRE');
+        socket.send(JSON.stringify({
+            'action': "FIRE"
+        }));
+    };
+
     //TODO remove
     /*document.body.onclick = function() {
         onLeft();
@@ -61,6 +68,10 @@ require([
                     onRight();
                     break;
             }
+        };
+
+        document.body.onclick = function() {
+            onSubmit();
         };
 
         socket.onmessage = function(ev) {

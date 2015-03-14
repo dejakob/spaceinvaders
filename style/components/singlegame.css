@@ -52,6 +52,10 @@
   background-color: red;
   position: absolute;
 }
+#wrapper .fire {
+  background-color: #fff;
+  position: absolute;
+}
 #spaceship {
   position: absolute;
   background-color: #ffa500;

@@ -43,6 +43,9 @@ var GameSocket = (function() {
                         case 'ENEMY':
                             callbacks.onEnemy(data.enemy);
                             break;
+                        case 'FIRE':
+                            callbacks.onFire();
+                            break;
                     }
                 };
             };

@@ -10,6 +10,10 @@
                 height: ((enemyHeight))px;
                 width: ((enemyWidth))px;
             }
+            .fire {
+                height: 5px;
+                width: 5px;
+            }
         </style>
 
         <div id="wrapper">
@@ -26,6 +30,10 @@
 
                 <template repeat="((enemy in enemies))">
                     <div class="enemy" style="left: ((enemy.left))px; top: ((enemy.top))px;"></div>
+                </template>
+
+                <template repeat="((fire in fires))">
+                    <div class="fire" style="left: ((fire.left))px; bottom: ((fire.bottom))px;"></div>
                 </template>
 
                 <span class="score">((score))</span>

@@ -2,7 +2,8 @@ require([
     'lib/jquery.js',
     'screen/spaceview.js',
     'components/gamesocket.js',
-    'components/gamelevel.js'
+    'components/gamelevel.js',
+    'components/gamelevel.hittest.js'
 ], function() {
 
     Polymer('singlegame-view', {
@@ -11,6 +12,7 @@ require([
         stepX: 20,
         score: 100,
         enemies: [],
+        fires: [],
         currentLevel: null,
         ready: function() {
             var self = this;
@@ -51,7 +53,7 @@ require([
                 GameLevel.width = self.width;
                 GameLevel.height = self.height;
                 GameLevel.enemyWidth = self.enemyWidth;
-                GameLevel.startLevel(levelId, speedX, speedY);
+                GameLevel.startLevel(levelId, speedX, speedY, self);
 
                 GameLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
@@ -59,16 +61,10 @@ require([
             };
             callbacks['onEnemy'] = function(enemyType) {
                 //TODO CHANGE
-                var startX = self.width - 10;
-                var startY = -10;
-                var enemy = {
-                    left: startX,
-                    directionX: -1,
-                    top: startY
-                };
-                self.enemies.push(enemy);
-
-                GameLevel.enemiesChanged(self.enemies);
+                GameLevel.enemiesChanged(self, enemyType);
+            };
+            callbacks['onFire'] = function() {
+                GameLevel.fire(self);
             };
 
             GameSocket.init(this, callbacks);
