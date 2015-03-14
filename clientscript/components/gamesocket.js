@@ -1,7 +1,7 @@
-var GameSocket = (function() {
+var GameSocket = function(scope) {
     var socket;
 
-    var init = function(scope, callbacks) {
+    var init = function(callbacks) {
         var BASE_URL = window.location.hostname;
         SpaceView.generateAuthUrl(function(params) {
             console.log('PARAMS', params);
@@ -62,4 +62,4 @@ var GameSocket = (function() {
     return {
         init: init
     }
-})();
+};

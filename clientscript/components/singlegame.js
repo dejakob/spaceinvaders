@@ -10,13 +10,14 @@ require([
         qrcode: null,
         left: 0,
         stepX: 20,
-        score: 100,
-        enemies: [],
-        fires: [],
-        currentLevel: null,
+        score: 0,
         ready: function() {
             var self = this;
             var callbacks = {};
+
+            self.gameSocket = new GameSocket(self);
+            self.gameSocket.init(callbacks);
+
             callbacks['initView'] = function() {
                 console.log('init view', self.height, self.width);
 
@@ -50,24 +51,24 @@ require([
                 }
             };
             callbacks['startLevel'] = function(levelId, speedX, speedY) {
-                GameLevel.width = self.width;
-                GameLevel.height = self.height;
-                GameLevel.enemyWidth = self.enemyWidth;
-                GameLevel.startLevel(levelId, speedX, speedY, self);
+                self.currentLevel = new GameLevel(self);
+                self.currentLevel.width = self.width;
+                self.currentLevel.height = self.height;
+                self.currentLevel.enemyWidth = self.enemyWidth;
+                self.currentLevel.startLevel(levelId, speedX, speedY);
 
-                GameLevel.onEnemiesChanged = function(enemies) {
+                self.currentLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
                 };
             };
             callbacks['onEnemy'] = function(enemyType) {
                 //TODO CHANGE
-                GameLevel.enemiesChanged(self, enemyType);
+                self.currentLevel.enemiesChanged(enemyType);
+
             };
             callbacks['onFire'] = function() {
-                GameLevel.fire(self);
+                self.currentLevel.fire();
             };
-
-            GameSocket.init(this, callbacks);
         },
         heightChanged: function() {
 

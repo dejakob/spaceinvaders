@@ -1,4 +1,4 @@
-var GameLevel = (function() {
+var GameLevel = function(scope) {
     var _gameHeight;
     var _currentLevelId = 0;
     var _interval;
@@ -6,7 +6,7 @@ var GameLevel = (function() {
     var _fires;
 
     return {
-        'startLevel': function(lvlId, speedX, speedY, scope) {
+        'startLevel': function(lvlId, speedX, speedY) {
             _currentLevelId = lvlId;
             var self = this;
             var stepX = (self.width / speedX * 40) / 1000;
@@ -49,6 +49,7 @@ var GameLevel = (function() {
                                         if (typeof _fires[j] !== 'undefined') {
                                             if (hittest.test(_fires[j], enemy)) {
                                                 console.log('HIT');
+                                                scope.score += enemy.score;
                                                 _enemies.splice(i,1);
                                                 _fires.splice(j,1);
                                                 i--;
@@ -81,13 +82,7 @@ var GameLevel = (function() {
                 }
             }, 40);
         },
-        'endLevel': function() {
-            GameSocket.send({
-                'action': 'END LEVEL'
-            });
-        },
-        'enemiesChanged': function(scope, enemyType) {
-            _enemies = scope.enemies;
+        'enemiesChanged': function(enemyType) {
             console.log('ENEMIES', _enemies);
             var startX = scope.width - 10;
             var startY = -10;
@@ -96,12 +91,18 @@ var GameLevel = (function() {
                 directionX: -1,
                 top: startY,
                 width: scope.enemyWidth,
-                height: scope.enemyHeight
+                height: scope.enemyHeight,
+                score: 100 //TODO CHANGE on enemytype
             };
+
+            if (typeof scope.enemies === 'undefined') {
+                scope.enemies = [];
+            }
+
             scope.enemies.push(enemy);
+            _enemies = scope.enemies;
         },
-        'fire': function(scope) {
-            _fires = scope.fires;
+        'fire': function() {
             var fireWidth = 6;
             var startX = scope.spaceship.left + (scope.spaceship.width - fireWidth) / 2;
             var startY = scope.spaceship.bottom + scope.spaceship.height;
@@ -111,7 +112,13 @@ var GameLevel = (function() {
                 width: 6,
                 height: 6
             };
+
+            if (typeof scope.fires === 'undefined') {
+                scope.fires = [];
+            }
+
             scope.fires.push(fire);
+            _fires = scope.fires;
         }
     }
-})();
+};

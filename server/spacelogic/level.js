@@ -32,8 +32,6 @@ module.exports = function(ws) {
                             currentItem = timeline[currentIndex];
                         }
 
-                        console.log('TIME CHCK', currentItem.time, _ticker);
-
                         if (currentItem.time === _ticker) {
                             me.onScreen(function(ws) {
                                 try {

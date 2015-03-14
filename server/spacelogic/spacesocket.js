@@ -68,15 +68,18 @@ module.exports = function(ws) {
                 break;
             case 'FIRE':
                 try {
-                    me.onScreen(function(ws) {
-                        try {
-                            ws.send(JSON.stringify({
-                                action: 'FIRE'
-                            }));
-                        } catch (ex) {
+                    if (typeof me !== 'undefined' && typeof me.onScreen !== 'undefined') {
+                        me.onScreen(function(ws) {
+                            try {
+                                console.log('SENDING FIRE', me);
+                                ws.send(JSON.stringify({
+                                    action: 'FIRE'
+                                }));
+                            } catch (ex) {
 
-                        }
-                    });
+                            }
+                        });
+                    }
                 } catch (ex) {
 
                 }
