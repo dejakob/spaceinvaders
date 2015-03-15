@@ -57,6 +57,7 @@ module.exports = function(request, response) {
                     url += "/screen";
                 }
 
+                console.log('EXISTS?', url + originalUrl);
                 fs.exists(url + originalUrl, function(exists) {
                     if (exists) {
                         if (fs.lstatSync(url + originalUrl).isDirectory()) {

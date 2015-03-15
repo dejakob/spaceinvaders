@@ -20,6 +20,10 @@
   margin: 0;
   padding: 0;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background-image: url('/CDN/bgSf2.jpg');
   background-position: center center;

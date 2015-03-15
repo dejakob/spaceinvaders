@@ -20,47 +20,14 @@
   margin: 0;
   padding: 0;
 }
-#wrapper {
-  background-color: #000000;
-  background-image: url('/CDN/space01.jpg');
-  background-position: bottom center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+#shoot {
   position: absolute;
-  overflow: hidden;
-}
-#wrapper .content {
   height: 100%;
   width: 100%;
-  position: relative;
-}
-#wrapper .score {
-  display: block;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  text-align: right;
-  font-family: 'Press Start 2P';
-  font-size: 30px;
-  color: #ffa500;
-}
-#wrapper qr-code {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -128px;
-  margin-left: -128px;
-}
-#wrapper .enemy {
-  background-color: red;
-  position: absolute;
-}
-#wrapper .fire {
-  background-color: #fff;
-  position: absolute;
-}
-#spaceship {
-  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 48px;
+  text-align: center;
   background-color: #ffa500;
+  color: #fff;
 }
