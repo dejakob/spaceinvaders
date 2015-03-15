@@ -5,6 +5,7 @@
     "MD5": "^1.2.1",
     "express": "^4.11.2",
     "handlebars": "^3.0.0",
+    "protocol-buffers": "^2.6.1",
     "socket.io": "^1.3.4",
     "type-is": "^1.6.0",
     "ws": "^0.7.1"

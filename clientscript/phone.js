@@ -9,6 +9,8 @@ require([
         urlQuery[splitter[i].split('=')[0]] = splitter[i].split('=')[1];
     }
     var socket = new WebSocket('ws://' + BASE_URL + ':8889');
+    var action = 'START';
+    var actionButton = document.querySelector('#shoot');
 
     //TODO on click start
     var authenticate = function() {
@@ -19,9 +21,6 @@ require([
             'playerHash': urlQuery['playerHash']
         }));
         //TODO CHANGE
-        socket.send(JSON.stringify({
-            'action': "START LEVEL"
-        }));
     };
 
     var onLeft = function() {
@@ -39,10 +38,19 @@ require([
     };
 
     var onSubmit = function() {
-        console.log('FIRE');
-        socket.send(JSON.stringify({
-            'action': "FIRE"
-        }));
+        if (action === 'START') {
+            actionButton.innerHTML = 'FIRE';
+            action = 'FIRE';
+            console.log('START');
+            socket.send(JSON.stringify({
+                'action': "START LEVEL"
+            }));
+        } else {
+            console.log('FIRE');
+            socket.send(JSON.stringify({
+                'action': "FIRE"
+            }));
+        }
     };
 
     //TODO remove
@@ -76,6 +84,14 @@ require([
 
         socket.onmessage = function(ev) {
             console.log('ONMESSAGE', ev);
+            var data = JSON.parse(ev.data);
+
+            switch (data.action) {
+                case 'END LEVEL':
+                    actionButton.innerHTML = 'START';
+                    action = 'START';
+                    break;
+            }
         };
     };
 

@@ -49,8 +49,6 @@ module.exports = function(ws) {
                         }, 40);
                     });
 
-
-
                 } catch (ex) {
                     console.log('CANNOT START LEVEL')
                 }
@@ -62,6 +60,21 @@ module.exports = function(ws) {
                 clearInterval(me.interval);
                 me.ticker = 0;
             }
+
+            console.log('END LEVEL');
+            me.onScreen(function(ws) {
+                ws.send(JSON.stringify({
+                    action: 'END LEVEL'
+                }));
+            });
+
+            me.onPhone(function(ws) {
+                setTimeout(function() {
+                    ws.send(JSON.stringify({
+                        action: 'END LEVEL'
+                    }));
+                }, 5000);
+            });
         }
     }
 };

@@ -4,10 +4,12 @@ var GameLevel = function(scope) {
     var _interval;
     var _enemies;
     var _fires;
+    var _levelEnded = false;
 
     return {
         'startLevel': function(lvlId, speedX, speedY) {
             _currentLevelId = lvlId;
+            _levelEnded = false;
             var self = this;
             var stepX = (self.width / speedX * 40) / 1000;
             var stepY = (self.height / speedY * 40) / 1000;
@@ -62,6 +64,11 @@ var GameLevel = function(scope) {
                             }
                         }
                         self.onEnemiesChanged(_enemies);
+
+                        if (!len && _levelEnded) {
+                            clearInterval(_interval);
+                            console.log('LEVEL ENDED!');
+                        }
                     }
 
                     if (_fires) {
@@ -121,7 +128,7 @@ var GameLevel = function(scope) {
             _fires = scope.fires;
         },
         'endLevel': function() {
-            clearInterval(_interval);
+            _levelEnded = true;
         }
     }
 };

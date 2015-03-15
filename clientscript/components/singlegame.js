@@ -69,6 +69,9 @@ require([
             callbacks['onFire'] = function() {
                 self.currentLevel.fire();
             };
+            callbacks['onEndLevel'] = function() {
+                self.currentLevel.endLevel();
+            }
         },
         heightChanged: function() {
 

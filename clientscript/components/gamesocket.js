@@ -46,6 +46,9 @@ var GameSocket = function(scope) {
                         case 'FIRE':
                             callbacks.onFire();
                             break;
+                        case 'END LEVEL':
+                            callbacks.onEndLevel();
+                            break;
                     }
                 };
             };
