@@ -11,6 +11,9 @@ module.exports = function(request, response) {
             case file.endsWith('.jpeg'):
                 return 'image/jpeg';
                 break;
+            case file.endsWith('.png'):
+                return 'image/png';
+                break;
             default:
                 return 'text/plain';
         }

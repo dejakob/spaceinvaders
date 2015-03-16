@@ -67,6 +67,7 @@ var GameLevel = function(scope) {
 
                         if (!len && _levelEnded) {
                             clearInterval(_interval);
+                            self.endLevel();
                             console.log('LEVEL ENDED!');
                         }
                     }
@@ -129,6 +130,13 @@ var GameLevel = function(scope) {
         },
         'endLevel': function() {
             _levelEnded = true;
+            try {
+                scope.gameSocket.send({
+                    'action': 'LEVEL END SCREEN'
+                });
+            } catch (ex) {
+                console.log('EXCEPTION GAMESOCKET', ex);
+            }
         }
     }
 };

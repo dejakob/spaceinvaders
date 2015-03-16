@@ -11,6 +11,7 @@ require([
     var socket = new WebSocket('ws://' + BASE_URL + ':8889');
     var action = 'START';
     var actionButton = document.querySelector('#shoot');
+    var isAuthenticated = false;
 
     //TODO on click start
     var authenticate = function() {
@@ -39,6 +40,9 @@ require([
 
     var onSubmit = function() {
         if (action === 'START') {
+            if (!isAuthenticated) {
+                authenticate();
+            }
             actionButton.innerHTML = 'FIRE';
             action = 'FIRE';
             console.log('START');
@@ -59,7 +63,6 @@ require([
     };*/
 
     socket.onopen = function(ev) {
-        authenticate();
         RotateDevice.addBetaListener(function(x) {
             socket.send(JSON.stringify({
                 'action': "CONTROL",
@@ -78,7 +81,7 @@ require([
             }
         };
 
-        document.body.onclick = function() {
+        actionButton.onclick = function() {
             onSubmit();
         };
 
@@ -87,7 +90,7 @@ require([
             var data = JSON.parse(ev.data);
 
             switch (data.action) {
-                case 'END LEVEL':
+                case 'LEVEL END SCREEN':
                     actionButton.innerHTML = 'START';
                     action = 'START';
                     break;

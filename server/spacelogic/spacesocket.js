@@ -5,6 +5,7 @@ var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 module.exports = function(ws) {
     var me;
     var isScreen;
+    var currentLevelId = 0;
     var Level = require(GLOBAL.rootpath + '/server/spacelogic/level.js')(ws);
 
     console.log('LEVELLEVEL', Level);
@@ -49,7 +50,8 @@ module.exports = function(ws) {
 
                 break;
             case 'START LEVEL':
-                Level.startLevel(0, me);
+                Level.startLevel(currentLevelId, me);
+                currentLevelId++;
                 break;
             case 'CONTROL':
                 if (me) {
@@ -83,7 +85,17 @@ module.exports = function(ws) {
                 } catch (ex) {
 
                 }
-                break
+                break;
+            case 'LEVEL END SCREEN':
+                console.log('>>>>>>>>> LEVEL END SCREEN');
+                me.onPhone(function(ws) {
+                    setTimeout(function() {
+                        ws.send(JSON.stringify({
+                            action: 'LEVEL END SCREEN'
+                        }));
+                    }, 5000);
+                });
+                break;
         }
     });
     //ws.send('something');

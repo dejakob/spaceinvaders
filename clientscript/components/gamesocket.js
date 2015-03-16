@@ -57,12 +57,15 @@ var GameSocket = function(scope) {
     };
 
     var send = function(data) {
+        console.log('BEFORE SEND', socket);
         if (socket) {
             socket.send(JSON.stringify(data));
+            console.log("SENT", data);
         }
     };
 
     return {
-        init: init
+        init: init,
+        send: send
     }
 };

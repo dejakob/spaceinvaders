@@ -67,14 +67,6 @@ module.exports = function(ws) {
                     action: 'END LEVEL'
                 }));
             });
-
-            me.onPhone(function(ws) {
-                setTimeout(function() {
-                    ws.send(JSON.stringify({
-                        action: 'END LEVEL'
-                    }));
-                }, 5000);
-            });
         }
     }
 };
