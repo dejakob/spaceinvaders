@@ -12,6 +12,7 @@ require([
     var action = 'START';
     var actionButton = document.querySelector('#shoot');
     var isAuthenticated = false;
+    var fireJson = JSON.stringify({'action': "FIRE"});
 
     //TODO on click start
     var authenticate = function() {
@@ -21,6 +22,7 @@ require([
             'playerId': urlQuery['playerId'],
             'playerHash': urlQuery['playerHash']
         }));
+        isAuthenticated = true;
         //TODO CHANGE
     };
 
@@ -45,15 +47,11 @@ require([
             }
             actionButton.innerHTML = 'FIRE';
             action = 'FIRE';
-            console.log('START');
             socket.send(JSON.stringify({
                 'action': "START LEVEL"
             }));
         } else {
-            console.log('FIRE');
-            socket.send(JSON.stringify({
-                'action': "FIRE"
-            }));
+            socket.send(fireJson);
         }
     };
 
@@ -63,11 +61,19 @@ require([
     };*/
 
     socket.onopen = function(ev) {
+        var direction = 0;
+
         RotateDevice.addBetaListener(function(x) {
-            socket.send(JSON.stringify({
-                'action': "CONTROL",
-                'x': x
-            }));
+
+            if (isAuthenticated) {
+                direction = parseInt(x*100);
+                if (direction > 0) {
+                    onRight();
+                } else if (direction < 0) {
+                    onLeft();
+                }
+            }
+
         });
 
         document.onkeydown = function(ev) {
@@ -81,9 +87,11 @@ require([
             }
         };
 
-        actionButton.onclick = function() {
-            onSubmit();
-        };
+        if (actionButton.ontouchstart) {
+            actionButton.ontouchstart = onSubmit;
+        } else {
+            actionButton.onclick = onSubmit;
+        }
 
         socket.onmessage = function(ev) {
             console.log('ONMESSAGE', ev);
