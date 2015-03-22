@@ -55,7 +55,6 @@ module.exports = function(ws) {
             }
         },
         'endLevel': function(lvl, me) {
-            me.isLevelStarted = false;
             if (me.interval !== null) {
                 clearInterval(me.interval);
                 me.ticker = 0;

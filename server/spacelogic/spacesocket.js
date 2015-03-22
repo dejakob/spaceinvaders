@@ -89,6 +89,7 @@ module.exports = function(ws) {
             case 'LEVEL END SCREEN':
                 console.log('>>>>>>>>> LEVEL END SCREEN');
                 me.onPhone(function(ws) {
+                    me.isLevelStarted = false;
                     setTimeout(function() {
                         ws.send(JSON.stringify({
                             action: 'LEVEL END SCREEN'
