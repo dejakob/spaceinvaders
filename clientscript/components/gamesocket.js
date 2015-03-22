@@ -8,7 +8,7 @@ var GameSocket = function(scope) {
             var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash=' + params.playerHash;
             scope.qrcode = url;
 
-            socket = new WebSocket('ws://' + BASE_URL + ':8003');
+            socket = new WebSocket('ws://' + BASE_URL + ':8004');
             var authenticate = function() {
                 socket.send(JSON.stringify({
                     'action': "AUTH",

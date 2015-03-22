@@ -8,7 +8,7 @@ require([
         console.log('>>', splitter[i].split('=')[0], splitter[i].split('=')[1]);
         urlQuery[splitter[i].split('=')[0]] = splitter[i].split('=')[1];
     }
-    var socket = new WebSocket('ws://' + BASE_URL + ':8003');
+    var socket = new WebSocket('ws://' + BASE_URL + ':8004');
     var action = 'START';
     var actionButton = document.querySelector('#shoot');
     var isAuthenticated = false;

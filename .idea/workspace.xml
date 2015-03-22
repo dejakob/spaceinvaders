@@ -50,19 +50,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gamesocket.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gamesocket.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1140">
+            <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.3325893" vertical-offset="1" max-vertical-offset="1140">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phone.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="phone.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="58" selection-start="452" selection-end="452" vertical-scroll-proportion="0.3325893" vertical-offset="1" max-vertical-offset="1710">
+            <state line="10" column="58" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -172,8 +172,8 @@
         <option value="$PROJECT_DIR$/server/spacelogic/levels/1.json" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/server/socket.js" />
-        <option value="$PROJECT_DIR$/clientscript/components/gamesocket.js" />
         <option value="$PROJECT_DIR$/clientscript/phone.js" />
+        <option value="$PROJECT_DIR$/clientscript/components/gamesocket.js" />
       </list>
     </option>
   </component>
@@ -865,16 +865,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
+    <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1140">
+        <state line="10" column="58" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
+    <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="58" selection-start="452" selection-end="452" vertical-scroll-proportion="0.3325893" vertical-offset="1" max-vertical-offset="1710">
+        <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.3325893" vertical-offset="1" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
