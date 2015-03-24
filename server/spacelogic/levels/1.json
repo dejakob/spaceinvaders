@@ -1,0 +1,58 @@
+{
+    "speedX": 3,
+    "speedY": 40,
+    "timeline": [
+        {
+            "time": 100,
+            "enemy": 1
+        },
+        {
+            "time": 200,
+            "enemy": 1
+        },
+        {
+            "time": 400,
+            "enemy": 1
+        },
+        {
+            "time": 500,
+            "enemy": 1
+        },
+        {
+            "time": 600,
+            "enemy": 1
+        },
+        {
+            "time": 650,
+            "enemy": 1
+        },
+        {
+            "time": 900,
+            "enemy": 1
+        },
+        {
+            "time": 950,
+            "enemy": 1
+        },
+        {
+            "time": 1000,
+            "enemy": 1
+        },
+        {
+            "time": 1100,
+            "enemy": 1
+        },
+        {
+            "time": 1250,
+            "enemy": 1
+        },
+        {
+            "time": 1300,
+            "enemy": 1
+        },
+        {
+            "time": 1400,
+            "enemy": 1
+        }
+    ]
+}

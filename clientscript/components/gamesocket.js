@@ -37,6 +37,9 @@ var GameSocket = function(scope) {
                         case 'MOVE SHIP RIGHT':
                             callbacks.onRight();
                             break;
+                        case 'PARK':
+                            callbacks.onPark();
+                            break;
                         case 'START LEVEL':
                             callbacks.startLevel(data.levelId, data.speedX, data.speedY);
                             break;

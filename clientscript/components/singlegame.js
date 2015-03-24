@@ -38,16 +38,17 @@ require([
             };
             callbacks['onLeft'] = function() {
                 if (typeof self.spaceship !== 'undefined') {
-                    if (self.spaceship.left > 0) {
-                        self.spaceship.left -= 20;
-                    }
+                    self.spaceship.movement = 'LEFT';
                 }
             };
             callbacks['onRight'] = function() {
                 if (typeof self.spaceship !== 'undefined') {
-                    if (self.spaceship.left < (self.width - self.spaceship.width) ) {
-                        self.spaceship.left += 20;
-                    }
+                    self.spaceship.movement = 'RIGHT';
+                }
+            };
+            callbacks['onPark'] = function() {
+                if (typeof self.spaceship !== 'undefined') {
+                    self.spaceship.movement = 'PARK';
                 }
             };
             callbacks['startLevel'] = function(levelId, speedX, speedY) {

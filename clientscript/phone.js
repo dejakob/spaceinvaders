@@ -13,6 +13,7 @@ require([
     var actionButton = document.querySelector('#shoot');
     var isAuthenticated = false;
     var fireJson = JSON.stringify({'action': "FIRE"});
+    var movement = 'PARK';
 
     //TODO on click start
     var authenticate = function() {
@@ -27,17 +28,33 @@ require([
     };
 
     var onLeft = function() {
-        socket.send(JSON.stringify({
-            'action': "CONTROL",
-            'x': -10
-        }));
+        if (movement !== 'LEFT') {
+            socket.send(JSON.stringify({
+                'action': "CONTROL",
+                'x': -10
+            }));
+            movement = 'LEFT';
+        }
     };
 
     var onRight = function() {
-        socket.send(JSON.stringify({
-            'action': "CONTROL",
-            'x': +10
-        }));
+        if (movement !== 'RIGHT') {
+            socket.send(JSON.stringify({
+                'action': "CONTROL",
+                'x': +10
+            }));
+            movement = 'RIGHT';
+        }
+    };
+
+    var onPark = function() {
+        if (movement !== 'PARK') {
+            socket.send(JSON.stringify({
+                'action': "CONTROL",
+                'x': 0
+            }));
+            movement = 'PARK';
+        }
     };
 
     var onSubmit = function() {
@@ -67,10 +84,16 @@ require([
 
             if (isAuthenticated) {
                 direction = parseInt(x*100);
-                if (direction > 0) {
+                if (direction > 1500) {
+                    //Just to make sure, do it twice
                     onRight();
-                } else if (direction < 0) {
+                    onRight();
+                } else if (direction < -1500) {
                     onLeft();
+                    onLeft();
+                } else {
+                    onPark();
+                    onPark();
                 }
             }
 
@@ -80,6 +103,9 @@ require([
             switch (ev.keyCode) {
                 case 37:
                     onLeft();
+                    break;
+                case 38:
+                    onPark();
                     break;
                 case 39:
                     onRight();

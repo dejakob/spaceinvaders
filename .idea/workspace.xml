@@ -23,19 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phone/index.html">
+      <file leaf-file-name="phone.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+            <state line="126" column="35" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.67948717" vertical-offset="1572" max-vertical-offset="2100">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="singlegame.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
+      <file leaf-file-name="rotatedevice.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clientscript/core/rotatedevice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="23" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="900">
+            <state line="61" column="8" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,28 @@
       <file leaf-file-name="gamelevel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientscript/components/gamelevel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="8" selection-start="4994" selection-end="4994" vertical-scroll-proportion="0.0" vertical-offset="1487" max-vertical-offset="2205">
+            <state line="98" column="41" selection-start="4248" selection-end="4248" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="1440">
+              <folding>
+                <element signature="e#629#3119#0" expanded="false" />
+                <element signature="e#3153#3787#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="singlegame.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clientscript/components/singlegame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="17" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="1335">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1185">
               <folding />
             </state>
           </provider>
@@ -53,16 +74,7 @@
       <file leaf-file-name="gamesocket.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1140">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phone.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="58" selection-start="448" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1710">
+            <state line="36" column="30" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="1185">
               <folding />
             </state>
           </provider>
@@ -71,43 +83,7 @@
       <file leaf-file-name="spacesocket.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/spacelogic/spacesocket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="41" selection-start="3372" selection-end="3372" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="1635">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/spacelogic/levels/1.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="5" selection-start="961" selection-end="961" vertical-scroll-proportion="-26.625" vertical-offset="201" max-vertical-offset="945">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="18" selection-start="122" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socket.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/socket.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="43" selection-start="86" selection-end="86" vertical-scroll-proportion="0.03348214" vertical-offset="0" max-vertical-offset="448">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="0.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/spacelogic/levels/0.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="22" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="645">
+            <state line="55" column="25" selection-start="2064" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
@@ -163,17 +139,17 @@
         <option value="$PROJECT_DIR$/clientscript/lib/pbj.js" />
         <option value="$PROJECT_DIR$/screen/test.html" />
         <option value="$PROJECT_DIR$/phone/index.html" />
-        <option value="$PROJECT_DIR$/clientscript/components/gamelevel.js" />
-        <option value="$PROJECT_DIR$/clientscript/components/singlegame.js" />
         <option value="$PROJECT_DIR$/server/mediarequest.js" />
         <option value="$PROJECT_DIR$/style/components/singlegame.less" />
         <option value="$PROJECT_DIR$/server/spacelogic/level.js" />
-        <option value="$PROJECT_DIR$/server/spacelogic/spacesocket.js" />
         <option value="$PROJECT_DIR$/server/spacelogic/levels/1.json" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/clientscript/phone.js" />
-        <option value="$PROJECT_DIR$/clientscript/components/gamesocket.js" />
         <option value="$PROJECT_DIR$/server/socket.js" />
+        <option value="$PROJECT_DIR$/server/spacelogic/spacesocket.js" />
+        <option value="$PROJECT_DIR$/clientscript/components/gamesocket.js" />
+        <option value="$PROJECT_DIR$/clientscript/components/singlegame.js" />
+        <option value="$PROJECT_DIR$/clientscript/components/gamelevel.js" />
+        <option value="$PROJECT_DIR$/clientscript/phone.js" />
       </list>
     </option>
   </component>
@@ -181,7 +157,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="812" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -231,7 +207,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -508,6 +483,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,13 +531,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="807" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32839838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -574,8 +550,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -698,21 +674,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CDN/sanFrancisco.psd">
-      <provider selected="true" editor-type-id="LargeFileEditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="LargeFileEditor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CDN/sanFrancisco.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.20056102" vertical-offset="472" max-vertical-offset="1185" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/lib/webcomponentsjs/webcomponents.js">
@@ -770,11 +741,6 @@
         <state line="19" column="18" selection-start="739" selection-end="739" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="214" selection-end="214" vertical-scroll-proportion="0.5416667" vertical-offset="88" max-vertical-offset="780" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/spacelogic/spaceplayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="20" selection-start="144" selection-end="144" vertical-scroll-proportion="0.16759777" vertical-offset="0" max-vertical-offset="716" />
@@ -785,18 +751,9 @@
         <state line="27" column="8" selection-start="784" selection-end="784" vertical-scroll-proportion="0.5656425" vertical-offset="0" max-vertical-offset="716" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/components/singlegame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="33" selection-start="2479" selection-end="2489" vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="1320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phone/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="15" column="7" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/mediarequest.js">
@@ -811,18 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/components/gamelevel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="8" selection-start="4994" selection-end="4994" vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="2205">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/core/rotatedevice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="468" selection-end="468" vertical-scroll-proportion="0.28057554" vertical-offset="0" max-vertical-offset="1110" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/spacelogic/level.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="39" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.0" vertical-offset="602" max-vertical-offset="1140">
@@ -830,23 +775,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/spacelogic/spacesocket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="41" selection-start="3372" selection-end="3372" vertical-scroll-proportion="0.0" vertical-offset="1127" max-vertical-offset="1635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/spacelogic/levels/0.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="645">
+        <state line="6" column="22" selection-start="112" selection-end="112" vertical-scroll-proportion="0.13119534" vertical-offset="0" max-vertical-offset="686">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/spacelogic/levels/1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="5" selection-start="961" selection-end="961" vertical-scroll-proportion="-26.625" vertical-offset="201" max-vertical-offset="945">
+        <state line="56" column="5" selection-start="961" selection-end="961" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="945">
           <folding />
         </state>
       </provider>
@@ -858,23 +796,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
+    <entry file="file://$PROJECT_DIR$/server/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="58" selection-start="448" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1710">
+        <state line="1" column="43" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="448" selection-end="448" vertical-scroll-proportion="0.17492712" vertical-offset="90" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/screen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/components/singlegame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="17" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/components/gamelevel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="41" selection-start="4248" selection-end="4248" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="1440">
+          <folding>
+            <element signature="e#629#3119#0" expanded="false" />
+            <element signature="e#3153#3787#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="62" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1140">
+        <state line="36" column="30" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="1185">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/socket.js">
+    <entry file="file://$PROJECT_DIR$/server/spacelogic/spacesocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="43" selection-start="86" selection-end="86" vertical-scroll-proportion="0.03348214" vertical-offset="0" max-vertical-offset="448">
+        <state line="55" column="25" selection-start="2064" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/core/rotatedevice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="8" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientscript/phone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="35" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.67948717" vertical-offset="1572" max-vertical-offset="2100">
           <folding />
         </state>
       </provider>

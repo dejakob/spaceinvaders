@@ -88,6 +88,21 @@ var GameLevel = function(scope) {
                             }
                         }
                     }
+
+                    if (typeof scope.spaceship !== 'undefined' && typeof scope.spaceship.movement !== 'undefined') {
+                        switch(scope.spaceship.movement) {
+                            case 'LEFT':
+                                if (scope.spaceship.left > 0) {
+                                    scope.spaceship.left -= 20;
+                                }
+                                break;
+                            case 'RIGHT':
+                                if (scope.spaceship.left < (scope.width - scope.spaceship.width) ) {
+                                    scope.spaceship.left += 20;
+                                }
+                                break;
+                        }
+                    }
                 }, 40);
             }
         },

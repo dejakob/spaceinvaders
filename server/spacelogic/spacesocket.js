@@ -58,9 +58,20 @@ module.exports = function(ws) {
                     if (typeof me.onScreen !== 'undefined') {
                         me.onScreen(function(ws) {
                             try {
-                                ws.send(JSON.stringify({
-                                    action: (message.x < 0) ? 'MOVE SHIP LEFT' : 'MOVE SHIP RIGHT'
-                                }));
+                                if (message.x < 0) {
+                                    ws.send(JSON.stringify({
+                                        action: 'MOVE SHIP LEFT'
+                                    }));
+                                } else if (message.x > 0) {
+                                    ws.send(JSON.stringify({
+                                        action: 'MOVE SHIP RIGHT'
+                                    }));
+                                } else {
+                                    ws.send(JSON.stringify({
+                                        action: 'PARK'
+                                    }));
+                                }
+
                             } catch (ex) {
 
                             }
