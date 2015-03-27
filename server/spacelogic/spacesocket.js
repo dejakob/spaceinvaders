@@ -101,11 +101,9 @@ module.exports = function(ws) {
                 console.log('>>>>>>>>> LEVEL END SCREEN');
                 me.onPhone(function(ws) {
                     me.isLevelStarted = false;
-                    setTimeout(function() {
-                        ws.send(JSON.stringify({
-                            action: 'LEVEL END SCREEN'
-                        }));
-                    }, 5000);
+                    ws.send(JSON.stringify({
+                        action: 'LEVEL END SCREEN'
+                    }));
                 });
                 break;
         }

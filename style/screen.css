@@ -20,6 +20,9 @@
   margin: 0;
   padding: 0;
 }
+.show {
+  display: block!important;
+}
 * {
   margin: 0;
   padding: 0;

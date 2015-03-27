@@ -5,7 +5,6 @@ require([
     'components/gamelevel.js',
     'components/gamelevel.hittest.js'
 ], function() {
-
     Polymer('singlegame-view', {
         qrcode: null,
         left: 0,
@@ -61,6 +60,8 @@ require([
                 self.currentLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
                 };
+
+                callbacks.hideDialog();
             };
             callbacks['onEnemy'] = function(enemyType) {
                 //TODO CHANGE
@@ -71,7 +72,20 @@ require([
                 self.currentLevel.fire();
             };
             callbacks['onEndLevel'] = function() {
+                callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
                 self.currentLevel.endLevel();
+            };
+            callbacks['showDialog'] = function(title, content) {
+                var dialog = self.shadowRoot.querySelector('dialog-view');
+                dialog.setAttribute('title', title);
+                dialog.setAttribute('content', content);
+                dialog.setAttribute('show', '');
+            };
+            callbacks['hideDialog'] = function() {
+                var dialog = self.shadowRoot.querySelector('dialog-view');
+                if (dialog.hasAttribute('show')) {
+                    dialog.removeAttribute('show');
+                }
             }
         },
         heightChanged: function() {

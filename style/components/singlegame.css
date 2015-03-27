@@ -20,6 +20,9 @@
   margin: 0;
   padding: 0;
 }
+.show {
+  display: block!important;
+}
 #wrapper {
   background-color: #000000;
   background-image: url('/CDN/space01.jpg');
@@ -62,6 +65,32 @@
 #wrapper .fire {
   background-color: #fff;
   position: absolute;
+  -webkit-animation: spinAround 2s infinite;
+  animation: spinAround 2s infinite;
+}
+@-webkit-keyframes spinAround {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinAround {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 #spaceship {
   position: absolute;

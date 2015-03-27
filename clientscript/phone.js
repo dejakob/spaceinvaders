@@ -99,6 +99,7 @@ require([
 
         });
 
+        //Test madness
         document.onkeydown = function(ev) {
             switch (ev.keyCode) {
                 case 37:
@@ -125,8 +126,17 @@ require([
 
             switch (data.action) {
                 case 'LEVEL END SCREEN':
-                    actionButton.innerHTML = 'START';
-                    action = 'START';
+                    var i = 10;
+                    var interval = setInterval(function() {
+                        if (i === 0) {
+                            clearInterval(interval);
+                            actionButton.innerHTML = 'START';
+                            action = 'START';
+                        } else {
+                            actionButton.innerHTML = i;
+                        }
+                        i--;
+                    }, 1000);
                     break;
             }
         };
