@@ -4,7 +4,6 @@ var GameSocket = function(scope) {
     var init = function(callbacks) {
         var BASE_URL = window.location.hostname;
         SpaceView.generateAuthUrl(function(params) {
-            console.log('PARAMS', params);
             var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash=' + params.playerHash;
             scope.qrcode = url;
 
@@ -22,7 +21,6 @@ var GameSocket = function(scope) {
                 authenticate();
 
                 socket.onmessage = function(ev) {
-                    console.log('INCOMING MESSAGE', ev.data);
                     var timestamp = ev.timestamp;
                     var data = JSON.parse(ev.data);
 
@@ -41,6 +39,7 @@ var GameSocket = function(scope) {
                             callbacks.onPark();
                             break;
                         case 'START LEVEL':
+                            console.log('INCOMING: START LEVEL');
                             callbacks.startLevel(data.levelId, data.speedX, data.speedY);
                             break;
                         case 'ENEMY':
@@ -50,7 +49,7 @@ var GameSocket = function(scope) {
                             callbacks.onFire();
                             break;
                         case 'END LEVEL':
-                            callbacks.onEndLevel();
+                            callbacks.onPrepareEndLevel();
                             break;
                     }
                 };
@@ -60,7 +59,6 @@ var GameSocket = function(scope) {
     };
 
     var send = function(data) {
-        console.log('BEFORE SEND', socket);
         if (socket) {
             socket.send(JSON.stringify(data));
             console.log("SENT", data);

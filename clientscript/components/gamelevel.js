@@ -5,6 +5,7 @@ var GameLevel = function(scope) {
     var _enemies;
     var _fires;
     var _levelEnded = false;
+    var _triggeredEnd = false;
 
     return {
         'startLevel': function(lvlId, speedX, speedY) {
@@ -50,7 +51,6 @@ var GameLevel = function(scope) {
                                             if (typeof _fires[j] !== 'undefined') {
                                                 var hittest = new Hittest(scope);
                                                 if (hittest.test(_fires[j], enemy)) {
-                                                    console.log('HIT');
                                                     scope.score += enemy.score;
                                                     _enemies.splice(i,1);
                                                     _fires.splice(j,1);
@@ -66,9 +66,14 @@ var GameLevel = function(scope) {
                         self.onEnemiesChanged(_enemies);
 
                         if (!len && _levelEnded) {
-                            clearInterval(_interval);
-                            self.endLevel();
-                            console.log('LEVEL ENDED!');
+                            if (scope.multiplayer !== false && !_triggeredEnd) {
+                                _triggeredEnd = true;
+                                scope.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEnd');
+                            }
+                            else if (scope.multiplayer === false) {
+                                clearInterval(_interval);
+                                self.onEndLevel();
+                            }
                         }
                     }
 
@@ -143,8 +148,25 @@ var GameLevel = function(scope) {
             scope.fires.push(fire);
             _fires = scope.fires;
         },
-        'endLevel': function() {
+        'otherUsersEnded': function() {
+
+            if (scope.multiplayer !== false && _levelEnded) {
+                this.onEndLevel();
+                scope.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEndSafe');
+                Web.MultiplayerGames.setPlayersEnded(scope.multiplayer, 0);
+                _triggeredEnd = false;
+                clearInterval(_interval);
+                console.log('MULTIPLAYER LEVEL ENDED!');
+            }
+        },
+        'otherUsersEndedSafe': function() {
+            clearInterval(_interval);
+            this.onEndLevel();
+        },
+        'prepareEndLevel': function() {
             _levelEnded = true;
+        },
+        'endLevel': function() {
             try {
                 scope.gameSocket.send({
                     'action': 'LEVEL END SCREEN'

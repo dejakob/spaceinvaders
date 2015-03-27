@@ -10,6 +10,7 @@ require([
         left: 0,
         stepX: 20,
         score: 0,
+        multiplayer: false,
         ready: function() {
             var self = this;
             var callbacks = {};
@@ -34,6 +35,13 @@ require([
 
                 self.stepX = self.width / 50;
 
+                if (self.multiplayer !== false) {
+                    self.multiplayerGame = Web.MultiplayerGames.getMultiplayerGame(self.multiplayer);
+                    self.multiplayerPlayer = Web.MultiplayerGames.addPlayerToGame(self.multiplayer);
+                    self.multiplayerPlayer.addListener('otherUserEnd', callbacks.onOtherUserEndLevel);
+                    self.multiplayerPlayer.addListener('otherUserEndSafe', callbacks.onOtherUserEndLevelSafe);
+                }
+
             };
             callbacks['onLeft'] = function() {
                 if (typeof self.spaceship !== 'undefined') {
@@ -56,12 +64,39 @@ require([
                 self.currentLevel.height = self.height;
                 self.currentLevel.enemyWidth = self.enemyWidth;
                 self.currentLevel.startLevel(levelId, speedX, speedY);
+                self.currentLevel.onEndLevel = function() {
+                    callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
+                    self.currentLevel.endLevel();
+                };
 
                 self.currentLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
                 };
 
                 callbacks.hideDialog();
+            };
+            callbacks['onOtherUserEndLevel'] = function() {
+                console.log('onOtherUserEndLevel', self.multiplayerPlayer);
+                if (self.multiplayer !== false && typeof self.multiplayerGame !== 'undefined') {
+                    var otherPlayersCount = Web.MultiplayerGames.getPlayerCount(self.multiplayer);
+                    var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(self.multiplayer);
+                    otherPlayersEnded++;
+                    Web.MultiplayerGames.setPlayersEnded(self.multiplayer, otherPlayersEnded);
+
+                    console.log('CHECK in onOtherUserEndLevel', otherPlayersEnded, otherPlayersCount);
+                    if (otherPlayersEnded === otherPlayersCount) {
+                        self.currentLevel.otherUsersEnded();
+                    }
+                }
+            };
+            callbacks['onOtherUserEndLevelSafe'] = function() {
+                self.currentLevel.otherUsersEndedSafe();
+            };
+            callbacks['onPrepareEndLevel'] = function() {
+                self.currentLevel.prepareEndLevel();
+                if (self.multiplayer === false) {
+                    self.currentLevel.otherUsersEnded();
+                }
             };
             callbacks['onEnemy'] = function(enemyType) {
                 //TODO CHANGE
@@ -70,10 +105,6 @@ require([
             };
             callbacks['onFire'] = function() {
                 self.currentLevel.fire();
-            };
-            callbacks['onEndLevel'] = function() {
-                callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
-                self.currentLevel.endLevel();
             };
             callbacks['showDialog'] = function(title, content) {
                 var dialog = self.shadowRoot.querySelector('dialog-view');

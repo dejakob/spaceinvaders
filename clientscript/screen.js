@@ -69,6 +69,86 @@ var Web = (function() {
                     }
                 }
             }
-        }
+        },
+        'MultiplayerGames': (function() {
+            var _multiplayergames = {};
+
+            return {
+                add: function() {
+                    var key = 'GAME_' + (Object.keys(_multiplayergames).length + 1);
+                    _multiplayergames[key] = {
+                        players: {},
+                        playersEnded: 0
+                    };
+
+                    return key;
+                },
+                addPlayerToGame: function(gameKey) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        var key = 'PLAYER_' + (Object.keys(game.players).length + 1);
+                        var player = new MultiGamePlayer(gameKey, key);
+                        _multiplayergames[gameKey].players[key] = player;
+                        return player;
+                    }
+                    return false;
+                },
+                getMultiplayerGame: function(key) {
+                    if (typeof _multiplayergames[key] !== 'undefined') {
+                        return _multiplayergames[key];
+                    }
+                    return false;
+                },
+                getPlayerCount: function(gameKey) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        if (typeof game.players !== 'undefined') {
+                            return Object.keys(game.players).length;
+                        }
+                    }
+                    return 0;
+                },
+                getPlayersEnded: function(gameKey) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        return game.playersEnded;
+                    }
+                    return 0;
+                },
+                setPlayersEnded: function(gameKey, playersEnded) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        game.playersEnded = playersEnded;
+                    }
+                }
+            }
+        })()
     }
 })();
+
+var MultiGamePlayer = function(gameKey, userKey) {
+    var _listeners = {};
+
+    return {
+        addListener: function(name, func) {
+            _listeners[name] = func;
+        },
+        trigger: function(name) {
+            if (typeof _listeners[name] === 'function') {
+                _listeners[name]();
+            }
+        },
+        triggerForAllOtherPlayersInGame: function(name) {
+            var game = Web.MultiplayerGames.getMultiplayerGame(gameKey);
+            var players = game.players;
+            var len = Object.keys(players).length;
+            for (var i = 0; i < len; i++) {
+                var otherUserKey = Object.keys(players)[i];
+                if (userKey !== otherUserKey) {
+                    var otherPlayer = players[otherUserKey];
+                    otherPlayer.trigger(name);
+                }
+            }
+        }
+    }
+};
