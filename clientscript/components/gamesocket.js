@@ -24,6 +24,7 @@ var GameSocket = function(scope) {
                     var timestamp = ev.timestamp;
                     var data = JSON.parse(ev.data);
 
+                    console.log('DATA ACTION', data.action);
                     switch (data.action) {
                         case 'PHONE CONNECTED':
                             scope.qrcode = false;

@@ -11,3 +11,70 @@
   background-color: @orange;
   color: #fff;
 }
+
+#content {
+  transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.relative {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#phoneTitle {
+  font-size: 50px;
+  text-align: center;
+  font-family: 'Press Start 2P', serif;
+}
+
+#fixedButtons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  > button {
+    width: 68%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+    margin: 1%;
+    color: #fff;
+    &+button {
+      width: 29%;
+      margin-left: 0;
+      background-color: #A3FFA5;
+      color: rgb(1, 86, 1);
+    }
+    &.twitter {
+      background-color: #55ACEE;
+    }
+  }
+}
+
+body {
+  color: #fff;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(/CDN/bgSpace.jpg);
+}
+
+#clickableArea {
+  > .statusContent {
+    font-family: 'Press Start 2P', serif;
+    font-size: 50px;
+    text-align: center;
+    display: block;
+  }
+}
