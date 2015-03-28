@@ -68,15 +68,18 @@ require([
                     callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
                     self.currentLevel.endLevel();
                 };
+                self.currentLevel.showStamp = callbacks.showStamp;
 
                 self.currentLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
                 };
 
                 callbacks.hideDialog();
+                callbacks.hideStamp();
             };
             callbacks['onOtherUserEndLevel'] = function() {
                 console.log('onOtherUserEndLevel', self.multiplayerPlayer);
+                self.multiplayerPlayer.score = self.score;
                 if (self.multiplayer !== false && typeof self.multiplayerGame !== 'undefined') {
                     var otherPlayersCount = Web.MultiplayerGames.getPlayerCount(self.multiplayer);
                     var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(self.multiplayer);
@@ -117,7 +120,22 @@ require([
                 if (dialog.hasAttribute('show')) {
                     dialog.removeAttribute('show');
                 }
-            }
+            };
+            callbacks['showStamp'] = function(amIWinner) {
+                var gameStamp = self.shadowRoot.querySelector('game-stamp');
+                gameStamp.setAttribute('show', '');
+                if (amIWinner) {
+                    gameStamp.setAttribute('type', 'win');
+                } else {
+                    gameStamp.setAttribute('type', 'lose');
+                }
+            };
+            callbacks['hideStamp'] = function() {
+                var gameStamp = self.shadowRoot.querySelector('game-stamp');
+                if (gameStamp.hasAttribute('show')) {
+                    gameStamp.removeAttribute('show');
+                }
+            };
         },
         heightChanged: function() {
 

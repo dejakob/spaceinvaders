@@ -149,6 +149,7 @@ var GameLevel = function(scope) {
             _fires = scope.fires;
         },
         'otherUsersEnded': function() {
+            this.determineWinner();
 
             if (scope.multiplayer !== false && _levelEnded) {
                 this.onEndLevel();
@@ -160,6 +161,7 @@ var GameLevel = function(scope) {
             }
         },
         'otherUsersEndedSafe': function() {
+            this.determineWinner();
             clearInterval(_interval);
             this.onEndLevel();
         },
@@ -174,6 +176,33 @@ var GameLevel = function(scope) {
             } catch (ex) {
                 console.log('EXCEPTION GAMESOCKET', ex);
             }
+        },
+        'determineWinner': function() {
+            function amIWinner() {
+                var players = scope.multiplayerGame.players;
+                var keys = Object.keys(players);
+                var len = keys.length;
+                var scores = [];
+                for(var i = 0; i < len; i++) {
+                    var k = keys[i];
+                    var v = players[k];
+                    var score = v.score;
+                    if (typeof score !== 'undefined') {
+                        scores.push(score);
+                        console.log('PLAYER', v);
+                    }
+                }
+                if (scores.length) {
+                    var max = Math.max.apply(null, scores);
+                    if (scope.score === max) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            this.showStamp(amIWinner());
         }
     }
 };
