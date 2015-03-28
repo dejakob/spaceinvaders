@@ -149,7 +149,10 @@ var GameLevel = function(scope) {
             _fires = scope.fires;
         },
         'otherUsersEnded': function() {
-            this.determineWinner();
+            if (scope.multiplayer !== false)
+            {
+                this.determineWinner();
+            }
 
             if (scope.multiplayer !== false && _levelEnded) {
                 this.onEndLevel();

@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 
 require('./server/global.js');
 require('./server/socket.js');
+require('./server/SECRET.js'); //File is ignored on github, it contains Twitter auth and couchdb auth
 
 var init = function() {
     app.use(function(req, res, next) {
