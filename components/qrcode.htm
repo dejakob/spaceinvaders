@@ -3,7 +3,8 @@
         <div id="qrcode"></div>
         <style>
             img {
-                border: 1px solid [[bgColor]];
+                border: 1px solid #ffffff; /*crossbrowser fallback*/
+                border: 1px solid ((bgColor));
             }
         </style>
     </template>

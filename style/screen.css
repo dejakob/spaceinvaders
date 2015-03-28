@@ -31,7 +31,8 @@
   margin: 0;
   padding: 0;
 }
-body {
+/* crossbrowser fix */
+#screen {
   background-image: url('/CDN/bgSf2.jpg');
   background-position: center center;
   background-attachment: fixed;
@@ -40,16 +41,16 @@ body {
   color: #fff;
   overflow: hidden;
 }
-h1 {
+#screen h1 {
   font-family: 'Press Start 2P', serif;
   font-size: 30px;
   text-align: center;
   margin: 20px;
 }
-li {
+#screen li {
   list-style: none;
 }
-article#home {
+#screen article#home {
   height: 250px;
   top: 50%;
   margin-top: -125px;
@@ -64,16 +65,16 @@ article#home {
   -o-transition: transform 1s, top 2s;
   transition: transform 1s, top 2s;
 }
-article#home > h1 {
+#screen article#home > h1 {
   margin-bottom: 25px;
 }
-article#home.hide {
+#screen article#home.hide {
   transform: rotateY(90deg) rotateZ(-45deg);
   -webkit-transform: rotateY(90deg) rotateZ(-45deg);
   -moz-transform: rotateY(90deg) rotateZ(-45deg);
   top: -50%;
 }
-ul#main > li {
+#screen ul#main > li {
   width: 300px;
   padding: 10px;
   display: block;
@@ -93,6 +94,6 @@ ul#main > li {
   -o-transition: background 1s;
   transition: background 1s;
 }
-ul#main > li:hover {
+#screen ul#main > li:hover {
   background: rgba(255, 165, 0, 0.7);
 }

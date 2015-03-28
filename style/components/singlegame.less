@@ -1,6 +1,6 @@
 @import (less) "../core.less";
 
-#wrapper {
+#singleGameWrapper {
   background-color: #000000;
   background-image: url('/CDN/bgSpaceFull.jpg');
   background-position: bottom center;
@@ -45,6 +45,15 @@
     -webkit-animation: spinAround 2s infinite;
     animation: spinAround 2s infinite;
   }
+
+  #spaceship {
+    position: absolute;
+    //background-color: @orange;
+    background-image: url('/CDN/spaceship.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }
 
 @-webkit-keyframes spinAround {
@@ -72,13 +81,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-#spaceship {
-  position: absolute;
-  //background-color: @orange;
-  background-image: url('/CDN/spaceship.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
 }

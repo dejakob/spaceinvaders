@@ -1,7 +1,4 @@
 var RotateDevice = (function() {
-    var _oldAlpha = null;
-    var _oldBeta = null;
-    var _oldGamma = null;
     var _listeners = [];
     var _alphaListeners = [];
     var _betaListeners = [];
@@ -15,12 +12,9 @@ var RotateDevice = (function() {
                 //DEGREES ARE NOT CLOCKWISE!
                 var len = _listeners.length;
                 var a, b, c;
-                if (_oldAlpha === null || Math.abs(_oldAlpha - e.alpha) > 1) a = _oldAlpha - e.alpha; else a = null;
-                if (_oldBeta === null || Math.abs(_oldBeta - e.beta) > 1) b = _oldBeta - e.beta; else b = null;
-                if (_oldGamma === null || Math.abs(_oldGamma - e.gamma) > 1) c = _oldGamma - e.gamma; else c = null;
-                if (_oldAlpha === null) _oldAlpha = e.alpha;
-                if (_oldBeta === null) _oldBeta = e.beta;
-                if (_oldGamma === null) _oldGamma = e.gamma;
+                if (Math.abs(e.alpha) > 1) a = e.alpha; else a = null;
+                if (Math.abs(e.beta) > 1) b = e.beta; else b = null;
+                if (Math.abs(e.gamma) > 1) c = e.gamma; else c = null;
 
                 for (i = 0; i < len; i++) {
                     listener = _listeners[i];

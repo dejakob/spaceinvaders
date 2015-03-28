@@ -2,20 +2,20 @@
     <template>
         <link rel="stylesheet" href="/components/singlegame.css" />
         <style>
-            #wrapper {
+            #singleGameWrapper #wrapper {
                 width: ((width))px;
             }
-            .enemy {
+            #singleGameWrapper .enemy {
                 height: ((enemyHeight))px;
                 width: ((enemyWidth))px;
             }
-            .fire {
+            #singleGameWrapper .fire {
                 height: 5px;
                 width: 5px;
             }
         </style>
 
-        <div id="wrapper">
+        <div id="singleGameWrapper">
             <template if="((qrcode))">
                 <div class="content">
                     <qr-code value="((qrcode))"></qr-code>
