@@ -53,7 +53,7 @@ var GameSocket = function(scope) {
                             callbacks.onFire();
                             break;
                         case 'END LEVEL':
-                            callbacks.onPrepareEndLevel();
+                            callbacks.onPrepareEndLevel(data.isLastLevel);
                             break;
                     }
                 };

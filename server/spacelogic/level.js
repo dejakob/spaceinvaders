@@ -63,7 +63,8 @@ module.exports = function(ws) {
             console.log('END LEVEL');
             me.onScreen(function(ws) {
                 ws.send(JSON.stringify({
-                    action: 'END LEVEL'
+                    action: 'END LEVEL',
+                    isLastLevel: (totalLevelCount === lvl + 1)
                 }));
             });
         }

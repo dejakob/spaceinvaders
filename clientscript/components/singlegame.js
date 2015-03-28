@@ -11,6 +11,7 @@ require([
         stepX: 20,
         score: 0,
         multiplayer: false,
+        isLastLevel: false,
         ready: function() {
             var self = this;
             var callbacks = {};
@@ -65,7 +66,11 @@ require([
                 self.currentLevel.enemyWidth = self.enemyWidth;
                 self.currentLevel.startLevel(levelId, speedX, speedY);
                 self.currentLevel.onEndLevel = function() {
-                    callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
+                    if (self.isLastLevel) {
+                        callbacks.showDialog('End of game', 'Congrats! You finished this game!');
+                    } else {
+                        callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
+                    }
                     self.currentLevel.endLevel();
                 };
                 self.currentLevel.showStamp = callbacks.showStamp;
@@ -95,7 +100,8 @@ require([
             callbacks['onOtherUserEndLevelSafe'] = function() {
                 self.currentLevel.otherUsersEndedSafe();
             };
-            callbacks['onPrepareEndLevel'] = function() {
+            callbacks['onPrepareEndLevel'] = function(isLastLevel) {
+                self.isLastLevel = isLastLevel;
                 self.currentLevel.prepareEndLevel();
                 if (self.multiplayer === false) {
                     self.currentLevel.otherUsersEnded();
