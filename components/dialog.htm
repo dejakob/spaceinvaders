@@ -1,0 +1,22 @@
+<polymer-element name="dialog-view" attributes="title content show">
+    <template>
+        <link rel="stylesheet" href="/components/dialog.css" />
+
+        <div id="dialogOverlay" class="((show ? 'show' : ''))">
+            <div id="wrapper">
+                <h1>((title))</h1>
+                <p>((content))</p>
+            </div>
+        </div>
+
+    </template>
+    <script>
+        Polymer('dialog-view', {
+            title: 'Dialog title',
+            content: 'Dialog content...',
+            show: false,
+            ready: function() {
+            }
+        });
+    </script>
+</polymer-element>

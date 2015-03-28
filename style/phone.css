@@ -90,6 +90,9 @@ body {
   background-size: cover;
   background-image: url(/CDN/bgSpace.jpg);
 }
+#clickableArea .hover {
+  background-color: rgba(124, 191, 226, 0.5);
+}
 #clickableArea > .statusContent {
   font-family: 'Press Start 2P', serif;
   font-size: 50px;

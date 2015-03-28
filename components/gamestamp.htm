@@ -1,0 +1,40 @@
+<polymer-element name="game-stamp" attributes="type show">
+    <template>
+        <link rel="stylesheet" href="/components/dialog.css" />
+
+        <style>
+            .bgImage {
+                background-size: 100px 100px;
+                background-repeat: no-repeat;
+                height: 100px;
+                width: 100px;
+                position: absolute;
+                top: 50%;
+                margin-top: 10px;
+                left: 50%;
+                margin-left: 160px;
+                -webkit-animation: crazySlide 1s;
+                -moz-animation: crazySlide 1s;
+                animation: crazySlide 1s;
+            }
+            .win {
+                background-image: url(/CDN/youWin.png);
+            }
+            .lose {
+                background-image: url(/CDN/youLose.png);
+            }
+            .hide {
+                display: none;
+            }
+        </style>
+        <div class="bgImage ((type)) ((show ? '' : 'hide'))"></div>
+    </template>
+    <script>
+        Polymer('game-stamp', {
+            type: 'lose',
+            show: false,
+            ready: function() {
+            }
+        });
+    </script>
+</polymer-element>

@@ -28,7 +28,10 @@ var GameSocket = function(scope) {
                     switch (data.action) {
                         case 'PHONE CONNECTED':
                             scope.qrcode = false;
-                            callbacks.initView();
+                            callbacks.initView(data);
+                            break;
+                        case 'TWITTER ABOUT':
+                            scope.twitterInfo = data.twitterInfo;
                             break;
                         case 'MOVE SHIP LEFT':
                             callbacks.onLeft();

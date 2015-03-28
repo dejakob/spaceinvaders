@@ -7,6 +7,7 @@ module.exports = function(ws) {
     var isScreen;
     var currentLevelId = 0;
     var Level = require(GLOBAL.rootpath + '/server/spacelogic/level.js')(ws);
+    var twitterService = require('twitter');
 
     console.log('LEVELLEVEL', Level);
     console.log('spacesocket');
@@ -39,10 +40,44 @@ module.exports = function(ws) {
                             cb(ws);
                         });
                         if (typeof me.onScreen !== 'undefined') {
+
+                            console.log("###\n\nSPACEPLAYER", spacePlayer);
+
                             me.onScreen(function(ws) {
+
                                 ws.send(JSON.stringify({
                                     action: 'PHONE CONNECTED'
                                 }));
+
+                                var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
+                                if (typeof spacePlayer.twitterAuthToken !== 'undefined' && typeof spacePlayer.twitterAuthSecret !== 'undefined') {
+
+
+                                    var Twitter = new twitterService({
+                                        consumer_key: TWITTER_CONSUMER_KEY,
+                                        consumer_secret: TWITTER_CONSUMER_SECRET,
+                                        access_token_key: spacePlayer.twitterAuthToken,
+                                        access_token_secret: spacePlayer.twitterAuthSecret
+                                    });
+
+                                    Twitter.get('/statuses/user_timeline', function(err, res) {
+
+                                        if (!err) {
+                                            res = res[0];
+
+                                            ws.send(JSON.stringify({
+                                                action: 'TWITTER ABOUT',
+                                                twitterInfo: {
+                                                    userName: res.user.screen_name,
+                                                    userId: res.user.id_str,
+                                                    image: res.user.profile_image_url.replace(/normal/gi, 'bigger')
+                                                }
+                                            }));
+                                        }
+
+                                    });
+                                }
+
                             });
                         }
                     }

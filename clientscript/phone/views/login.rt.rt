@@ -1,0 +1,9 @@
+<div class="relative">
+    <article class="m10">
+        <h1 id="phoneTitle">Space<br />invaders</h1>
+    </article>
+    <aside id="fixedButtons">
+        <button class="twitter" id="btnTwitter"><i class="fa fa-twitter"></i> Connect with Twitter</button>
+        <button id="btnPlay">Just play</button>
+    </aside>
+</div>

@@ -1,0 +1,3 @@
+<div id="clickableArea" class="relative">
+    <span id="status" class="statusContent">{this.status}</span>
+</div>

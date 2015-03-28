@@ -35,6 +35,11 @@
                     <div class="fire" style="left: ((fire.left))px; bottom: ((fire.bottom))px;"></div>
                 </template>
 
+                <template if="((twitterInfo))">
+                    <div class="twitterProfilePic">
+                        <img src="((twitterInfo.image))" alt="((twiterInfo.userName))" title="((twiterInfo.userName))" height="73" width="73"/>
+                    </div>
+                </template>
                 <span class="score">((score))</span>
 
                 <dialog-view title="test" content="123"></dialog-view>

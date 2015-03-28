@@ -1,0 +1,16 @@
+TODO
+remove all console.log
+Author mentioning graphics
+highscores
+twitter
+expand patheticrenderer
+presentation! (tell people to lock fucked up default rotation phone/install qr-code app/author attr)
+extra security
+reactJS on phone
+design
+selfie bonus level
+more levels
+different kind of enemies
+different kind of scores
+spaceship.die
+remove jquery
