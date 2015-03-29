@@ -8,7 +8,6 @@ module.exports = function(ws) {
             if (typeof me !== 'undefined' && !me.isLevelStarted) {
                 var self = this;
                 var data = this.loadLevel(lvl);
-                console.log('LOAD DATA', data);
                 var timeline = data.timeline;
                 var currentIndex = 0;
                 var currentItem;
@@ -60,7 +59,6 @@ module.exports = function(ws) {
                 me.ticker = 0;
             }
 
-            console.log('END LEVEL');
             me.onScreen(function(ws) {
                 ws.send(JSON.stringify({
                     action: 'END LEVEL',

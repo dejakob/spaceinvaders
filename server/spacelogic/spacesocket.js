@@ -9,9 +9,6 @@ module.exports = function(ws) {
     var Level = require(GLOBAL.rootpath + '/server/spacelogic/level.js')(ws);
     var twitterService = require('twitter');
 
-    console.log('LEVELLEVEL', Level);
-    console.log('spacesocket');
-
     //on connection
     ws.on('message', function(message) {
         message = JSON.parse(message.toString());
@@ -39,8 +36,6 @@ module.exports = function(ws) {
                             cb(ws);
                         });
                         if (typeof me.onScreen !== 'undefined') {
-
-                            console.log("###\n\nSPACEPLAYER", spacePlayer);
 
                             me.onScreen(function(ws) {
 
@@ -133,14 +128,9 @@ module.exports = function(ws) {
                 }
                 break;
             case 'LEVEL END SCREEN':
-                try {//TODO BLOCKING
-                console.log('>>>>>>>>> LEVEL END SCREEN');
                 var procedureScore = require(GLOBAL.rootpath + '/server/procedures/scores.js');
-                console.log('PROCEDURE SCORE', procedureScore);
                 var score = message.score;
                 SpaceLogic.updatePlayer(me.id, 'score', score);
-
-                console.log(SpaceLogic.getPlayerById(me.id));
 
                 procedureScore.addItem(SpaceLogic.getPlayerById(me.id), score, function() {
                     me.onPhone(function(ws) {
@@ -150,7 +140,6 @@ module.exports = function(ws) {
                         }));
                     });
                 });
-                } catch (ex) {console.log('EX EX', ex);}
 
                 break;
         }

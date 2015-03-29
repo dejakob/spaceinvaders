@@ -1,12 +1,12 @@
 TODO
 remove all console.log
 Author mentioning graphics
-highscores
-twitter
+highscores CHECK
+twitter CHECK
 expand patheticrenderer
 presentation! (tell people to lock fucked up default rotation phone/install qr-code app/author attr)
 extra security
-reactJS on phone
+reactJS on phone CHECK
 design
 selfie bonus level
 more levels
@@ -14,3 +14,7 @@ different kind of enemies
 different kind of scores
 spaceship.die
 remove jquery
+
+remove dev code
+
+deploy: don't forget to add the passwords seperately

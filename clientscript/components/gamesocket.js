@@ -24,7 +24,6 @@ var GameSocket = function(scope) {
                     var timestamp = ev.timestamp;
                     var data = JSON.parse(ev.data);
 
-                    console.log('DATA ACTION', data.action);
                     switch (data.action) {
                         case 'PHONE CONNECTED':
                             scope.qrcode = false;
@@ -43,7 +42,6 @@ var GameSocket = function(scope) {
                             callbacks.onPark();
                             break;
                         case 'START LEVEL':
-                            console.log('INCOMING: START LEVEL');
                             callbacks.startLevel(data.levelId, data.speedX, data.speedY);
                             break;
                         case 'ENEMY':
@@ -65,7 +63,6 @@ var GameSocket = function(scope) {
     var send = function(data) {
         if (socket) {
             socket.send(JSON.stringify(data));
-            console.log("SENT", data);
         }
     };
 

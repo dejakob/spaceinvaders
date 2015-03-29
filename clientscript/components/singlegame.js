@@ -20,7 +20,6 @@ require([
             self.gameSocket.init(callbacks);
 
             callbacks['initView'] = function() {
-                console.log('init view', self.height, self.width);
 
                 self.showGame = true;
                 var spaceshipWidth = self.width / 10;
@@ -86,7 +85,6 @@ require([
                 callbacks.hideStamp();
             };
             callbacks['onOtherUserEndLevel'] = function() {
-                console.log('onOtherUserEndLevel', self.multiplayerPlayer);
                 self.multiplayerPlayer.score = self.score;
                 if (self.multiplayer !== false && typeof self.multiplayerGame !== 'undefined') {
                     var otherPlayersCount = Web.MultiplayerGames.getPlayerCount(self.multiplayer);
@@ -94,7 +92,6 @@ require([
                     otherPlayersEnded++;
                     Web.MultiplayerGames.setPlayersEnded(self.multiplayer, otherPlayersEnded);
 
-                    console.log('CHECK in onOtherUserEndLevel', otherPlayersEnded, otherPlayersCount);
                     if (otherPlayersEnded === otherPlayersCount) {
                         self.currentLevel.otherUsersEnded();
                     }

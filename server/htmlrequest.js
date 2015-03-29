@@ -11,7 +11,6 @@ module.exports = function(request, response) {
     var compileFile = function(folder, file) {
         fs.readFile(folder + file, function(err,content) {
             if (err) {
-                console.log(500, folder, file);
                 compileFile(folder, '/500.html');
             } else {
                 var compileMe = function(assigns) {
@@ -57,7 +56,6 @@ module.exports = function(request, response) {
                     url += "/screen";
                 }
 
-                console.log('EXISTS?', url + originalUrl);
                 fs.exists(url + originalUrl, function(exists) {
                     if (exists) {
                         if (fs.lstatSync(url + originalUrl).isDirectory()) {

@@ -160,7 +160,6 @@ var GameLevel = function(scope) {
                 Web.MultiplayerGames.setPlayersEnded(scope.multiplayer, 0);
                 _triggeredEnd = false;
                 clearInterval(_interval);
-                console.log('MULTIPLAYER LEVEL ENDED!');
             }
         },
         'otherUsersEndedSafe': function() {
@@ -193,7 +192,6 @@ var GameLevel = function(scope) {
                     var score = v.score;
                     if (typeof score !== 'undefined') {
                         scores.push(score);
-                        console.log('PLAYER', v);
                     }
                 }
                 if (scores.length) {

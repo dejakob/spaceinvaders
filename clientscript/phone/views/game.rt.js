@@ -104,7 +104,6 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                         }
                     };
 
-                    console.log('TRIGGER', key);
                     if (typeof _triggers[key] !== 'undefined') {
                         _triggers[key]();
                     }

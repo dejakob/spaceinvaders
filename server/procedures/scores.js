@@ -3,11 +3,9 @@ module.exports = {
         db.get('spaceinvaders', '_design/highscores/_view/by_score', {
             descending: true
         }, function(err, results) {
-            console.log('ERRRES', err, results);
             var items = [];
             if (!err) {
                 //TODO BLOCKING
-                console.log('RESULTS', results);
                 if (results.data.rows) {
                     var rows = results.data.rows;
                     var filter = [];
@@ -43,11 +41,9 @@ module.exports = {
         });
     },
     'addItem': function(spacePlayer, score, callback) {
-        console.log('ADDING ITEM');
         var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 
         var insertScore = function(scoreId) {
-            console.log('INSERT');
             spacePlayer.score = score;
             spacePlayer._id = scoreId;
             spacePlayer.type = 'score';
@@ -62,17 +58,14 @@ module.exports = {
         };
 
         var updateScore = function(scoreId, _rev) {
-            console.log('UPDATE');
             spacePlayer.score = score;
             spacePlayer._id = scoreId;
             spacePlayer._rev = _rev;
             spacePlayer.type = 'score';
 
-            console.log('UPDATING TO', spacePlayer);
 
             db.update('spaceinvaders', spacePlayer, function(err, res) {
                 if (err) {
-                    console.log('EXCEPTION', err);
                     callback(false);
                 } else {
                     callback(true);
@@ -82,7 +75,6 @@ module.exports = {
 
         if (typeof spacePlayer.scoreId !== 'undefined') {
             db.get('spaceinvaders', 'SCORE_' + spacePlayer.scoreId, function(err,res) {
-                console.log('RES RES RES', res);
                 if (err) {
                     insertScore('SCORE_' + spacePlayer.scoreId);
                 } else {
@@ -107,11 +99,8 @@ module.exports = {
             if (err) {
                 callback(false);
             } else {
-                console.log('IDS');
                 callback(ids);
             }
-
-            console.dir('IDS', ids);
         });
     }
 

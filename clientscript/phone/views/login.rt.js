@@ -14,9 +14,8 @@ define(['lib/react.js', './login.rt.rt.js', 'lib/jquery.js'], function (React, t
                     var queryParams = UrlHelper.getQuery();
                     queryParams.action = 'auth';
                     var baseUrl = '/API/twitter.json' + UrlHelper.paramsToString(queryParams);
-                    console.log('baseUrl', baseUrl);
+
                     $.getJSON(baseUrl, function(data) {
-                        console.log('DATA', data);
                         if (data.url !== false) {
                             window.location.href = data.url;
                         }

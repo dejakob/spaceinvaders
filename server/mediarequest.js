@@ -36,7 +36,6 @@ module.exports = function(request, response) {
             var file;
 
             fs.exists(url + request.originalUrl, function(exists) {
-                console.log('PATH', url + request.originalUrl);
                 if (exists) {
                     compileFile(url, request.originalUrl);
                 } else {
