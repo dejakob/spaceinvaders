@@ -14,7 +14,6 @@ module.exports = function(ws) {
 
     //on connection
     ws.on('message', function(message) {
-        console.log('MESSAGE', message);
         message = JSON.parse(message.toString());
 
         switch (message.action) {
@@ -64,6 +63,8 @@ module.exports = function(ws) {
 
                                         if (!err) {
                                             res = res[0];
+
+                                            SpaceLogic.updatePlayer(spacePlayer.id, 'twitterInfo', res);
 
                                             ws.send(JSON.stringify({
                                                 action: 'TWITTER ABOUT',
@@ -119,7 +120,6 @@ module.exports = function(ws) {
                     if (typeof me !== 'undefined' && typeof me.onScreen !== 'undefined') {
                         me.onScreen(function(ws) {
                             try {
-                                console.log('SENDING FIRE', me);
                                 ws.send(JSON.stringify({
                                     action: 'FIRE'
                                 }));
@@ -133,13 +133,25 @@ module.exports = function(ws) {
                 }
                 break;
             case 'LEVEL END SCREEN':
+                try {//TODO BLOCKING
                 console.log('>>>>>>>>> LEVEL END SCREEN');
-                me.onPhone(function(ws) {
-                    me.isLevelStarted = false;
-                    ws.send(JSON.stringify({
-                        action: 'LEVEL END SCREEN'
-                    }));
+                var procedureScore = require(GLOBAL.rootpath + '/server/procedures/scores.js');
+                console.log('PROCEDURE SCORE', procedureScore);
+                var score = message.score;
+                SpaceLogic.updatePlayer(me.id, 'score', score);
+
+                console.log(SpaceLogic.getPlayerById(me.id));
+
+                procedureScore.addItem(SpaceLogic.getPlayerById(me.id), score, function() {
+                    me.onPhone(function(ws) {
+                        me.isLevelStarted = false;
+                        ws.send(JSON.stringify({
+                            action: 'LEVEL END SCREEN'
+                        }));
+                    });
                 });
+                } catch (ex) {console.log('EX EX', ex);}
+
                 break;
         }
     });

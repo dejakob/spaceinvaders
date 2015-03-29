@@ -7,11 +7,24 @@
         <template if="((view=='multi'))">
             <multigame-view height="((height))" width="((width))"></multigame-view>
         </template>
+
+        <template if="((view=='highscores'))">
+            <highscores-view></highscores-view>
+        </template>
     </template>
     <script>
         Polymer('view-loader', {
             height: 500,
             width: 500,
+            ready: function() {
+                var self = this;
+
+                Web.LoaderCallbacks = {
+                    'changeView': function(viewName) {
+                        self.view = viewName;
+                    }
+                };
+            },
             attributeChanged: function(el, oldVal, newVal) {
                 switch (el) {
                     case 'view':

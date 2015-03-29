@@ -24,7 +24,7 @@ var Web = (function() {
 
                         setTimeout(function() {
                             _homeArticle.hide();
-                            _viewLoader.attr('view', $(item).data('view'));
+                            Web.LoaderCallbacks.changeView($(item).data('view'));
 
                         }, 1000);
                     }
@@ -122,7 +122,8 @@ var Web = (function() {
                     }
                 }
             }
-        })()
+        })(),
+        'LoaderCallbacks': null
     }
 })();
 

@@ -5,6 +5,7 @@
     "MD5": "^1.2.1",
     "express": "^4.11.2",
     "handlebars": "^3.0.0",
+    "node-couchdb": "^0.3.1",
     "passport": "^0.2.1",
     "passport-twitter": "^1.0.3",
     "protocol-buffers": "^2.6.1",

@@ -68,6 +68,9 @@ require([
                 self.currentLevel.onEndLevel = function() {
                     if (self.isLastLevel) {
                         callbacks.showDialog('End of game', 'Congrats! You finished this game!');
+                        setTimeout(function() {
+                            Web.LoaderCallbacks.changeView('highscores');
+                        }, 4000);
                     } else {
                         callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
                     }

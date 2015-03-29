@@ -174,7 +174,8 @@ var GameLevel = function(scope) {
         'endLevel': function() {
             try {
                 scope.gameSocket.send({
-                    'action': 'LEVEL END SCREEN'
+                    'action': 'LEVEL END SCREEN',
+                    'score': scope.score
                 });
             } catch (ex) {
                 console.log('EXCEPTION GAMESOCKET', ex);

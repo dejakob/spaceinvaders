@@ -1,0 +1,39 @@
+<polymer-element name="highscores-view">
+    <template>
+        <link rel="stylesheet" href="/components/highscores.css" />
+
+        <div id="highscoreList">
+            <h1>HIGHSCORES</h1>
+
+            <template repeat="((item in items))">
+                <highscores-card name="((item.user.screen_name))" img="((item.user.profile_image_url))" score="((item.score))" url="((item.user.url))" bg="((item.user.profile_background_image_url))"></highscores-card>
+            </template>
+        </div>
+
+        <div id="closeButton" class="closeButton">
+            <i class="fa fa-close"></i>
+        </div>
+
+    </template>
+    <script>
+        require(['lib/jquery.js'], function() {
+            Polymer('highscores-view', {
+                items: [],
+                ready: function() {
+                    var scope = this;
+                    $.getJSON('/API/highscores.json?action=getList', function(data) {
+                        scope.items = data.items;
+                    });
+
+                    this.$.closeButton.onclick = function() {
+                        Web.LoaderCallbacks.changeView('');
+                        var homeArticle = $('#home');
+                        homeArticle.removeClass('hide');
+                        homeArticle.show();
+                    };
+                }
+            });
+        });
+
+    </script>
+</polymer-element>
