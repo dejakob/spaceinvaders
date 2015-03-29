@@ -28,7 +28,7 @@
                 <div id="spaceship" style="((showGame ? 'display: block;' : 'display: none;')) left: ((spaceship.left))px; width: ((spaceship.width))px; bottom: ((spaceship.bottom))px; height: ((spaceship.height))px;"></div>
 
                 <template repeat="((enemy in enemies))">
-                    <div class="enemy" style="left: ((enemy.left))px; top: ((enemy.top))px;"></div>
+                    <div class="enemy ((enemy.css))" style="left: ((enemy.left))px; top: ((enemy.top))px;"></div>
                 </template>
 
                 <template repeat="((fire in fires))">

@@ -33,11 +33,28 @@
   }
   .enemy {
     //background-color: red;
-    background-image: url('/CDN/asteroid.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
+    height: 160px;
+    width: 160px;
+
+    &.enemy1 {
+      background-image: url('/CDN/asteroid.png');
+    }
+    &.enemy2 {
+      background-image: url('/CDN/twitter.png');
+    }
+    &.enemy3 {
+      background-image: url('/CDN/android.png');
+    }
+    &.enemy4 {
+      background-image: url('/CDN/bomb.png');
+      -webkit-animation: glow 3s ease-in-out infinite;
+      animation: glow 3s ease-in-out infinite;
+      border-radius: 50%;
+    }
   }
   .fire {
     background-color: #fff;
@@ -92,3 +109,13 @@
     transform: rotate(360deg);
   }
 }
+
+@-webkit-keyframes glow
+{
+  50% { box-shadow: 0 0 60px red; }
+}
+
+@keyframes glow
+{
+  50% { box-shadow: 0 0 60px red; }
+} 

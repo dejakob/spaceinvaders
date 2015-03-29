@@ -1,3 +1,10 @@
+var EnumEnemy = {
+   'ENEMY_DEFAULT': 1,
+   'ENEMY_TWITTER': 2,
+   'ENEMY_ANDROID': 3,
+   'ENEMY_BOMB': 4
+};
+
 var GameLevel = function(scope) {
     var _gameHeight;
     var _currentLevelId = 0;
@@ -6,6 +13,11 @@ var GameLevel = function(scope) {
     var _fires;
     var _levelEnded = false;
     var _triggeredEnd = false;
+
+    var startsWith = function(str, txt) {
+        var regex = new RegExp('^\\' + txt + '+');
+        return (str.replace(regex,'')!==str.toString());
+    };
 
     return {
         'startLevel': function(lvlId, speedX, speedY) {
@@ -37,6 +49,9 @@ var GameLevel = function(scope) {
                                 }
 
                                 if (enemy.top >= scope.height) {
+                                    if (enemy.type !== 4) {
+                                        scope.score = ((scope.score - 100) <= 0) ? 0 : (scope.score - 100);
+                                    }
                                     _enemies.splice(i,1);
                                     i--;
                                 } else {
@@ -51,11 +66,15 @@ var GameLevel = function(scope) {
                                             if (typeof _fires[j] !== 'undefined') {
                                                 var hittest = new Hittest(scope);
                                                 if (hittest.test(_fires[j], enemy)) {
-                                                    scope.score += enemy.score;
+                                                    if (typeof enemy.score === 'number') {
+                                                        scope.score += enemy.score;
+                                                    } else if (typeof enemy.score === 'string' && startsWith(enemy.score, '*')) {
+                                                        scope.score *= enemy.score.replace('*','');
+                                                    }
                                                     _enemies.splice(i,1);
                                                     _fires.splice(j,1);
-                                                    i--;
-                                                    j--;
+                                                    //i--;
+                                                    //j--;
                                                 }
                                             }
                                         }
@@ -86,7 +105,7 @@ var GameLevel = function(scope) {
 
                                 if (fire.bottom >= scope.height) {
                                     _fires.splice(i,1);
-                                    i--;
+                                    //i--;
                                 } else {
                                     _fires[i] = fire;
                                 }
@@ -120,8 +139,27 @@ var GameLevel = function(scope) {
                 top: startY,
                 width: scope.enemyWidth,
                 height: scope.enemyHeight,
-                score: 100 //TODO CHANGE on enemytype
+                type: enemyType
             };
+
+            switch (enemyType) {
+                case EnumEnemy.ENEMY_DEFAULT:
+                    enemy.score = 100;
+                    enemy.css = 'enemy1';
+                    break;
+                case EnumEnemy.ENEMY_TWITTER:
+                    enemy.score = '*2';
+                    enemy.css = 'enemy2';
+                    break;
+                case EnumEnemy.ENEMY_ANDROID:
+                    enemy.score = 300;
+                    enemy.css = 'enemy3';
+                    break;
+                case EnumEnemy.ENEMY_BOMB:
+                    enemy.score = '*0';
+                    enemy.css = 'enemy4';
+                    break;
+            }
 
             if (typeof scope.enemies === 'undefined') {
                 scope.enemies = [];

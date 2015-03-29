@@ -16,5 +16,6 @@ spaceship.die
 remove jquery
 
 remove dev code
+(firefox? :( )
 
 deploy: don't forget to add the passwords seperately

@@ -39,8 +39,16 @@
             "enemy": 1
         },
         {
+            "time": 1050,
+            "enemy": 2
+        },
+        {
             "time": 1100,
             "enemy": 1
+        },
+        {
+            "time": 150,
+            "enemy": 4
         },
         {
             "time": 1250,

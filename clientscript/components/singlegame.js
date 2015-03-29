@@ -65,6 +65,7 @@ require([
                 self.currentLevel.enemyWidth = self.enemyWidth;
                 self.currentLevel.startLevel(levelId, speedX, speedY);
                 self.currentLevel.onEndLevel = function() {
+                    self.fires = [];
                     if (self.isLastLevel) {
                         callbacks.showDialog('End of game', 'Congrats! You finished this game!');
                         setTimeout(function() {

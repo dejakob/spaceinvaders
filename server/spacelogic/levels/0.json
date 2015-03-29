@@ -8,6 +8,10 @@
         },
         {
             "time": 200,
+            "enemy": 4
+        },
+        {
+            "time": 300,
             "enemy": 1
         },
         {
@@ -23,11 +27,23 @@
             "enemy": 1
         },
         {
+            "time": 950,
+            "enemy": 3
+        },
+        {
             "time": 1000,
             "enemy": 1
         },
         {
+            "time": 1050,
+            "enemy": 1
+        },
+        {
             "time": 1100,
+            "enemy": 1
+        },
+        {
+            "time": 1200,
             "enemy": 1
         },
         {
