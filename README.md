@@ -2,6 +2,7 @@
 <h2>About</h2>
 <p>
   This repository contains all the source code of my spaceinvaders experiment.
+  Note that due to this is experimental, it only works stable in the newer versions of Google Chrome.
   It's a multiplayer game that can be controlled by fysically moving a smartphone.
   This project was made especially for the Annual Belgian SFHTML Meeting of 2015.
   (http://www.meetup.com/sfhtml5/events/219966697)
