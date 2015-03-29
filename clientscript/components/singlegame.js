@@ -72,6 +72,7 @@ require([
                             Web.LoaderCallbacks.changeView('highscores');
                         }, 4000);
                     } else {
+                        console.log('IS NOT LAST LEVEL');
                         callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
                     }
                     self.currentLevel.endLevel();

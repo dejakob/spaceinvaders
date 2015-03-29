@@ -27,6 +27,9 @@
 .show {
   display: block!important;
 }
+.tac {
+  text-align: center;
+}
 #shoot {
   position: absolute;
   height: 100%;

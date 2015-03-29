@@ -27,6 +27,9 @@
 .show {
   display: block!important;
 }
+.tac {
+  text-align: center;
+}
 * {
   margin: 0;
   padding: 0;
@@ -95,5 +98,21 @@
   transition: background 1s;
 }
 #screen ul#main > li:hover {
+  background: rgba(255, 165, 0, 0.7);
+}
+#screen #infoButton {
+  margin-top: 5px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px #fff solid;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -ms-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
+}
+#screen #infoButton:hover {
   background: rgba(255, 165, 0, 0.7);
 }

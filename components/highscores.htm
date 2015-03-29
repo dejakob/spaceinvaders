@@ -2,8 +2,12 @@
     <template>
         <link rel="stylesheet" href="/components/highscores.css" />
 
-        <div id="highscoreList">
-            <h1>HIGHSCORES</h1>
+        <div class="tac">
+            <h1 class="beautyTitle">HIGHSCORES</h1>
+        </div>
+
+
+        <div id="highscoreList" style="height: ((scoreListHeight))px">
 
             <template repeat="((item in items))">
                 <highscores-card name="((item.user.screen_name))" img="((item.user.profile_image_url))" score="((item.score))" url="((item.user.url))" bg="((item.user.profile_background_image_url))"></highscores-card>
@@ -18,6 +22,7 @@
     <script>
         require(['lib/jquery.js'], function() {
             Polymer('highscores-view', {
+                scoreListHeight: 500,
                 items: [],
                 ready: function() {
                     var scope = this;
@@ -31,6 +36,8 @@
                         homeArticle.removeClass('hide');
                         homeArticle.show();
                     };
+
+                    this.scoreListHeight = $(window).height() - 200;
                 }
             });
         });

@@ -30,3 +30,38 @@
 .tac {
   text-align: center;
 }
+#about p,
+#about ol {
+  font-size: 14px;
+}
+#about h2 {
+  font-family: 'Press Start 2P';
+  font-size: 18px;
+  margin-top: 20px;
+}
+#about ol > li {
+  margin-left: 15px;
+}
+#about .cc {
+  height: 30px;
+  overflow: hidden;
+}
+#about .cc > li {
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+}
+#about .cc > li a {
+  color: #333;
+  font-size: 14px;
+}
+#about .github {
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 35px;
+  border: none;
+  color: #999;
+}
+#about .github:hover {
+  color: #000;
+}

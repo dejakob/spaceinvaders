@@ -27,21 +27,28 @@
 .show {
   display: block!important;
 }
-#highscoreList {
-  position: relative;
-  margin: 100px auto;
-  display: block;
-  width: 300px;
+.tac {
+  text-align: center;
 }
-#highscoreList h1 {
+h1.beautyTitle {
   font-size: 48px;
   font-family: 'Lato', serif;
   font-weight: 100;
   text-align: center;
   color: #fff;
   padding-bottom: 10px;
-  margin-bottom: 50px;
+  margin: 50px auto;
   border-bottom: 1px #fff solid;
+  display: inline-block;
+  position: relative;
+}
+#highscoreList {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  width: 300px;
+  overflow-x: visible;
+  overflow-y: scroll;
 }
 .closeButton {
   color: #fff;

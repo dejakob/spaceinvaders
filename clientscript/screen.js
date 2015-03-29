@@ -5,6 +5,8 @@ var Web = (function() {
     var _homeArticle;
     var _mainMenu;
     var _viewLoader;
+    var _infoButton;
+    var _screenDialog;
 
     require([
         "lib/qrcode.js",
@@ -14,6 +16,8 @@ var Web = (function() {
         _homeArticle = _body.find('#home');
         _mainMenu = _homeArticle.find('#main');
         _viewLoader = _body.find('view-loader');
+        _infoButton = _body.find('#infoButton');
+        _screenDialog = _body.find('#screenDialog');
 
         var init = (function() {
             var _initMainMenu = function() {
@@ -25,12 +29,22 @@ var Web = (function() {
                         setTimeout(function() {
                             _homeArticle.hide();
                             Web.LoaderCallbacks.changeView($(item).data('view'));
-
                         }, 1000);
+                    },
+                    showInfo: function() {
+                        _screenDialog.attr('title', 'About');
+                        _screenDialog.attr('height', '400');
+                        _screenDialog.attr('width', '400');
+                        _screenDialog.attr('content', '<about-view></about-view>');
+                        if (_screenDialog[0].hasAttribute('show')) {
+                            _screenDialog[0].removeAttribute('show', '');
+                        }
+                        _screenDialog.attr('show', '');
                     }
                 };
 
-                _mainMenu.delegate('>li', 'click', _events.itemClick)
+                _mainMenu.delegate('>li', 'click', _events.itemClick);
+                _infoButton.click(_events.showInfo);
             };
 
             var _setLoader = function() {

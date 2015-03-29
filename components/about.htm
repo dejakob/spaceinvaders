@@ -1,0 +1,50 @@
+<polymer-element name="about-view">
+    <template>
+        <link rel="stylesheet" href="/components/about.css" />
+
+        <div id="about">
+            <p>This project was made especially for the Annual Belgian <a href="http://www.meetup.com/sfhtml5/events/219966697" target="_blank">SFHTML Meeting</a> of 2015.</p>
+            <h2>Creative commons</h2>
+            <p>Some of the graphics you see are not mine. They are labelled under a creative commons license. Special thanks to the authors:</p>
+            <ul class="cc">
+                <li>
+                    <a href="http://www.freepik.com/free-vector/flying-rocket-success-diagram-vector_760539.htm" target="_blank">Freepik</a>
+                </li>
+                <li>
+                    <a href="http://www.freeimages.com/photo/1398161?forcedownload=1" target="_blank">Free images</a>
+                </li>
+                <li>
+                    <a href="https://www.flickr.com/photos/58782395@N03/" target="_blank">Sweetie187</a>
+                </li>
+            </ul>
+            <h2>How to play the game</h2>
+            <ol>
+                <li>Connect your phone by reading the qr-code on the screen.</li>
+                <li>Connect with Twitter if you want to be able to get into the highscores.</li>
+                <li>Lock the rotation of your device (recommended).</li>
+                <li>Move the ship by rotating your phone and shoot by tapping the phone.</li>
+                <li>Watch out for the bombs!</li>
+            </ol>
+            <div class="tac">
+                <a href="http://github.com/dejakob/spaceinvaders" class="github" target="_blank">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="http://dejakob.com" class="github" target="_blank">
+                    <i class="fa fa-chain"></i>
+                </a>
+                <a href="https://twitter.com/home?status=Checkout%20this%20amazing%20Chrome%20experiment!%20((windowLocation))" class="github" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+    </template>
+    <script>
+        Polymer('about-view', {
+            ready: function() {
+                this.windowLocation = window.location.href.split('?')[0];
+            }
+        });
+
+    </script>
+</polymer-element>
