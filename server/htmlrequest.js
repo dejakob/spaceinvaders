@@ -59,7 +59,10 @@ module.exports = function(request, response) {
                 fs.exists(url + originalUrl, function(exists) {
                     if (exists) {
                         if (fs.lstatSync(url + originalUrl).isDirectory()) {
-                            file = '/index.html';
+                            if (!originalUrl.endsWith('/')) {
+                                originalUrl += '/';
+                            }
+                            file = originalUrl + 'index.html';
                         } else {
                             file = originalUrl;
                         }

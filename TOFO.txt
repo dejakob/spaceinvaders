@@ -1,18 +1,18 @@
 TODO
 remove all console.log
-Author mentioning graphics
+Author mentioning graphics CHECK
 highscores CHECK
 twitter CHECK
-expand patheticrenderer
+expand patheticrenderer NO
 presentation! (tell people to lock fucked up default rotation phone/install qr-code app/author attr)
 extra security
 reactJS on phone CHECK
 design
 selfie bonus level
 more levels
-different kind of enemies
-different kind of scores
-spaceship.die
+different kind of enemies CHECK
+different kind of scores CHECK
+spaceship.die INSTEAD LESS SCORE
 remove jquery
 
 remove dev code
