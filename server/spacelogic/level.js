@@ -15,12 +15,11 @@ module.exports = function(ws) {
                 try {
                     me.onScreen(function(ws) {
                         me.isLevelStarted = true;
-                        ws.send(JSON.stringify({
-                            action: 'START LEVEL',
+                        ws.emit('START LEVEL', {
                             levelId: lvl,
                             speedX: data.speedX,
                             speedY: data.speedY
-                        }));
+                        });
 
                         me.ticker = 0;
                         me.interval = setInterval(function() {
@@ -30,10 +29,9 @@ module.exports = function(ws) {
 
                             if (currentItem.time === me.ticker) {
                                 try {
-                                    ws.send(JSON.stringify({
-                                        action: 'ENEMY',
+                                    ws.emit('ENEMY', {
                                         enemy: currentItem.enemy
-                                    }));
+                                    });
                                 } catch (ex) {
 
                                 }
@@ -49,7 +47,7 @@ module.exports = function(ws) {
                     });
 
                 } catch (ex) {
-                    console.log('CANNOT START LEVEL')
+                    console.log('CANNOT START LEVEL', ex, ex.stack);
                 }
             }
         },
@@ -60,10 +58,9 @@ module.exports = function(ws) {
             }
 
             me.onScreen(function(ws) {
-                ws.send(JSON.stringify({
-                    action: 'END LEVEL',
+                ws.emit('END LEVEL', {
                     isLastLevel: (totalLevelCount === lvl + 1)
-                }));
+                });
             });
         }
     }

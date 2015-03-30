@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').Server(app);
 
 require('./server/global.js');
-require('./server/socket.js');
+require('./server/socket.js')(http);
 require('./server/SECRET.js'); //File is ignored on github, it contains Twitter auth and couchdb auth
 
 var init = function() {
@@ -40,8 +40,8 @@ var init = function() {
             //next();
         });
 
-        http.listen(8003, function(){
-            console.log('listening on *:8003');
+        http.listen(GLOBAL.serverPort, function(){
+            console.log('listening on *:' + GLOBAL.serverPort);
         });
     });
 

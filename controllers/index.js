@@ -4,6 +4,9 @@ module.exports = function(cb) {
     var agent = require(GLOBAL.rootpath + '/server/agent')(_request);
     var isMobile = agent.mobile;
 
+    var assigns = {};
+    assigns['serverPort'] = GLOBAL.serverPort;
+
     if (isMobile && typeof _request.query !== 'undefined' && typeof _request.query.oauth_verifier !== 'undefined') {
         try {
             var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
@@ -31,14 +34,13 @@ module.exports = function(cb) {
             oauth.getOAuthAccessToken(player.twitterTempToken, player.twitterTempSecret, _request.query.oauth_verifier, function(err, access_token, access_secret) {
                 SpaceLogic.updatePlayer(player.id, 'twitterAuthToken', access_token);
                 SpaceLogic.updatePlayer(player.id, 'twitterAuthSecret', access_secret);
-                cb({});
+                cb(assigns);
             });
         } catch (ex) {
             console.log('EXCEPTION', ex);
-            cb({});
+            cb(assigns);
         }
     } else {
-        var assigns = {};
         assigns['test'] = 123;
         cb(assigns);
     }

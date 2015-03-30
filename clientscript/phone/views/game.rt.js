@@ -1,4 +1,10 @@
-define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], function (React, template) {
+define([
+    'lib/react.js',
+    'phone/views/game.rt.rt',
+    'lib/socketio.js',
+    'core/rotatedevice.js'
+    ],
+    function (React, template, io) {
     'use strict';
 
     return React.createClass({
@@ -14,10 +20,6 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
 
             //TODO BLOCKING
             statusEl.setAttribute('style', 'line-height: ' + screenWidth + 'px;');
-
-            WebSocket.prototype.sendJSON = function(obj) {
-                this.send(JSON.stringify(obj));
-            };
 
             var EnumMovement = {
                 'MOVEMENT_PARK': 'PARK',
@@ -48,8 +50,7 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                             require(['phone/helpers/url.js'], function(UrlHelper) {
                                 var urlQuery = UrlHelper.getQuery();
 
-                                socket.sendJSON({
-                                    'action': EnumAction.ACTION_AUTH,
+                                socket.emit(EnumAction.ACTION_AUTH, {
                                     'playerId': urlQuery['playerId'],
                                     'playerHash': urlQuery['playerHash']
                                 });
@@ -59,8 +60,7 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                         },
                         onLeft: function() {
                             if (Game.Controller.movement !== EnumMovement.MOVEMENT_LEFT) {
-                                socket.sendJSON({
-                                    'action': EnumAction.ACTION_CONTROL,
+                                socket.emit(EnumAction.ACTION_CONTROL, {
                                     'x': -10
                                 });
                                 Game.Controller.movement = EnumMovement.MOVEMENT_LEFT;
@@ -68,8 +68,7 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                         },
                         onRight: function() {
                             if (Game.Controller.movement !== EnumMovement.MOVEMENT_RIGHT) {
-                                socket.sendJSON({
-                                    'action': EnumAction.ACTION_CONTROL,
+                                socket.emit(EnumAction.ACTION_CONTROL, {
                                     'x': +10
                                 });
                                 Game.Controller.movement = EnumMovement.MOVEMENT_RIGHT;
@@ -77,8 +76,7 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                         },
                         onPark: function() {
                             if (Game.Controller.movement !== EnumMovement.MOVEMENT_PARK) {
-                                socket.sendJSON({
-                                    'action': EnumAction.ACTION_CONTROL,
+                                socket.emit(EnumAction.ACTION_CONTROL, {
                                     'x': 0
                                 });
                                 Game.Controller.movement = EnumMovement.MOVEMENT_PARK;
@@ -91,15 +89,11 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                             scope.status = EnumStatus.STATUS_FIRE;
                             statusEl.innerHTML = scope.status;
                             scope.render();
-                            socket.sendJSON({
-                               'action': EnumAction.ACTION_START
-                            });
+                            socket.emit(EnumAction.ACTION_START);
                         },
                         onFire: function() {
                             if (Game.isAuthenticated) {
-                                socket.sendJSON({
-                                    'action': EnumAction.ACTION_FIRE
-                                });
+                                socket.emit(EnumAction.ACTION_FIRE);
                             }
                         }
                     };
@@ -109,9 +103,10 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                     }
                 },
                 init: function() {
-                    socket = new WebSocket('ws://' + BASE_URL + ':8004');
-                    socket.onopen = function() {
 
+                    socket = io.connect('http://'+ BASE_URL + ':' + serverPort);
+
+                    socket.on('connect', function() {
                         RotateDevice.addBetaListener(function(x) {
                             var direction;
 
@@ -143,26 +138,20 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                             }
                         };
 
-                        socket.onmessage = function(ev) {
-                            var data = JSON.parse(ev.data);
-
-                            switch (data.action) {
-                                case 'LEVEL END SCREEN':
-                                    var i = 10;
-                                    var interval = setInterval(function() {
-                                        if (i === 0) {
-                                            clearInterval(interval);
-                                            scope.status = EnumStatus.STATUS_START;
-                                        } else {
-                                            scope.status = i;
-                                        }
-                                        statusEl.innerHTML = scope.status;
-                                        scope.render();
-                                        i--;
-                                    }, 1000);
-                                    break;
-                            }
-                        };
+                        socket.on('LEVEL END SCREEN', function(data) {
+                            var i = 10;
+                            var interval = setInterval(function() {
+                                if (i === 0) {
+                                    clearInterval(interval);
+                                    scope.status = EnumStatus.STATUS_START;
+                                } else {
+                                    scope.status = i;
+                                }
+                                statusEl.innerHTML = scope.status;
+                                scope.render();
+                                i--;
+                            }, 1000);
+                        });
 
                         Game.trigger('authenticate');
 
@@ -189,7 +178,8 @@ define(['lib/react.js', 'phone/views/game.rt.rt', 'core/rotatedevice.js'], funct
                                 clickableArea.className = '';
                             };
                         } catch (ex) {}
-                    };
+                    });
+
                 }
             };
             Game.init();

@@ -1,4 +1,4 @@
-var GameSocket = function(scope) {
+var GameSocket = function(scope, io) {
     var socket;
 
     var init = function(callbacks) {
@@ -7,62 +7,65 @@ var GameSocket = function(scope) {
             var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash=' + params.playerHash;
             scope.qrcode = url;
 
-            socket = new WebSocket('ws://' + BASE_URL + ':8004');
+            socket = io('http://'+ BASE_URL + ':' + serverPort, {forceNew: true});
+
             var authenticate = function() {
-                socket.send(JSON.stringify({
-                    'action': "AUTH",
+                socket.emit('AUTH', {
                     'playerId': params['playerId'],
                     'playerHash': params['playerHash'],
                     'screen': true
-                }));
+                });
             };
 
-            socket.onopen = function(event) {
+            socket.on('connect', function() {
                 authenticate();
 
-                socket.onmessage = function(ev) {
-                    var timestamp = ev.timestamp;
-                    var data = JSON.parse(ev.data);
+                socket.on('PHONE CONNECTED', function(data) {
+                    scope.qrcode = false;
+                    callbacks.initView(data);
+                });
 
-                    switch (data.action) {
-                        case 'PHONE CONNECTED':
-                            scope.qrcode = false;
-                            callbacks.initView(data);
-                            break;
-                        case 'TWITTER ABOUT':
-                            scope.twitterInfo = data.twitterInfo;
-                            break;
-                        case 'MOVE SHIP LEFT':
-                            callbacks.onLeft();
-                            break;
-                        case 'MOVE SHIP RIGHT':
-                            callbacks.onRight();
-                            break;
-                        case 'PARK':
-                            callbacks.onPark();
-                            break;
-                        case 'START LEVEL':
-                            callbacks.startLevel(data.levelId, data.speedX, data.speedY);
-                            break;
-                        case 'ENEMY':
-                            callbacks.onEnemy(data.enemy);
-                            break;
-                        case 'FIRE':
-                            callbacks.onFire();
-                            break;
-                        case 'END LEVEL':
-                            callbacks.onPrepareEndLevel(data.isLastLevel);
-                            break;
-                    }
-                };
-            };
+                socket.on('TWITTER ABOUT', function(data) {
+                    scope.twitterInfo = data.twitterInfo;
+                });
+
+                socket.on('MOVE SHIP LEFT', function() {
+                    callbacks.onLeft();
+                });
+
+                socket.on('MOVE SHIP RIGHT', function() {
+                    callbacks.onRight();
+                });
+
+                socket.on('PARK', function() {
+                    callbacks.onPark();
+                });
+
+                socket.on('START LEVEL', function(data) {
+                    callbacks.startLevel(data.levelId, data.speedX, data.speedY);
+                });
+
+                socket.on('ENEMY', function(data) {
+                    callbacks.onEnemy(data.enemy);
+                });
+
+                socket.on('FIRE', function() {
+                    callbacks.onFire();
+                });
+
+                socket.on('END LEVEL', function(data) {
+                    callbacks.onPrepareEndLevel(data.isLastLevel);
+                });
+            });
 
         });
     };
 
     var send = function(data) {
         if (socket) {
-            socket.send(JSON.stringify(data));
+            var action = data.action;
+            delete data.action;
+            socket.emit(action, data);
         }
     };
 

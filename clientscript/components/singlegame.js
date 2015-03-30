@@ -1,10 +1,11 @@
 require([
+    'lib/socketio.js',
     'lib/jquery.js',
     'screen/spaceview.js',
     'components/gamesocket.js',
     'components/gamelevel.js',
     'components/gamelevel.hittest.js'
-], function() {
+], function(io) {
     Polymer('singlegame-view', {
         qrcode: null,
         left: 0,
@@ -16,7 +17,7 @@ require([
             var self = this;
             var callbacks = {};
 
-            self.gameSocket = new GameSocket(self);
+            self.gameSocket = new GameSocket(self, io);
             self.gameSocket.init(callbacks);
 
             callbacks['initView'] = function() {

@@ -8002,7 +8002,7 @@
          * jQuery(window).on('scroll', _.throttle(updatePosition, 100));
          *
          * // invoke `renewToken` when the click event is fired, but not more than once every 5 minutes
-         * jQuery('.interactive').on('click', _.throttle(renewToken, 300000, {
+         * jQuery('.interactive').on('click', _.throttle(renewToken, 8000, {
      *   'trailing': false
      * }));
          *
