@@ -35,7 +35,16 @@
       <file leaf-file-name="SECRET.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/SECRET.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="86" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+            <state line="4" column="22" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="20" selection-start="417" selection-end="417" vertical-scroll-proportion="0.3684971" vertical-offset="0" max-vertical-offset="692">
               <folding />
             </state>
           </provider>
@@ -97,19 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gamelevel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientscript/components/gamelevel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="37" selection-start="8370" selection-end="8370" vertical-scroll-proportion="-122.30769" vertical-offset="0" max-vertical-offset="3795">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="global.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="24" selection-start="248" selection-end="248" vertical-scroll-proportion="0.083798885" vertical-offset="0" max-vertical-offset="716">
+            <state line="3" column="50" selection-start="223" selection-end="249" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -125,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/clientscript/phone/controllers/login.js" />
         <option value="$PROJECT_DIR$/clientscript/core/rotatedevice.js" />
         <option value="$PROJECT_DIR$/components/multigame.htm" />
         <option value="$PROJECT_DIR$/server/services/couchdb.js" />
@@ -168,7 +167,6 @@
         <option value="$PROJECT_DIR$/clientscript/lodash.js" />
         <option value="$PROJECT_DIR$/server/socket.js" />
         <option value="$PROJECT_DIR$/server/spacelogic/level.js" />
-        <option value="$PROJECT_DIR$/server/SECRET.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/screen/index.html" />
         <option value="$PROJECT_DIR$/phone/index.html" />
@@ -176,6 +174,8 @@
         <option value="$PROJECT_DIR$/clientscript/phone/views/game.rt.js" />
         <option value="$PROJECT_DIR$/controllers/index.js" />
         <option value="$PROJECT_DIR$/server/global.js" />
+        <option value="$PROJECT_DIR$/server/SECRET.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -555,13 +555,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/API/twitter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="2" selection-start="2322" selection-end="2322" vertical-scroll-proportion="0.0" vertical-offset="539" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/react/addons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9856" column="12" selection-start="365379" selection-end="365379" vertical-scroll-proportion="0.33188722" vertical-offset="147687" max-vertical-offset="323685">
@@ -828,23 +821,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/SECRET.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="86" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/components/gamelevel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="212" column="37" selection-start="8370" selection-end="8370" vertical-scroll-proportion="-122.30769" vertical-offset="0" max-vertical-offset="3795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/socket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.076923" vertical-offset="0" max-vertical-offset="300">
           <folding />
         </state>
       </provider>
@@ -879,13 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="18" selection-start="122" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="24" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
@@ -893,9 +865,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="18" selection-start="122" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.076923" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="248" selection-end="248" vertical-scroll-proportion="0.083798885" vertical-offset="0" max-vertical-offset="716">
+        <state line="3" column="50" selection-start="223" selection-end="249" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/SECRET.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="20" selection-start="417" selection-end="417" vertical-scroll-proportion="0.3684971" vertical-offset="0" max-vertical-offset="692">
           <folding />
         </state>
       </provider>
