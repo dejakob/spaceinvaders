@@ -93,6 +93,13 @@ body #fixedButtons > button + button {
 body #fixedButtons > button.twitter {
   background-color: #55acee;
 }
+body #fixedButtons.onlyTwitter > button {
+  width: 98%;
+  display: none;
+}
+body #fixedButtons.onlyTwitter > button.twitter {
+  display: block;
+}
 body #clickableArea .hover {
   background-color: rgba(124, 191, 226, 0.5);
 }
@@ -142,6 +149,9 @@ body .connect li > span.msg {
 }
 body .connect li > span.nearby {
   font-style: italic;
+}
+body .p5 {
+  padding: 5px;
 }
 body[orient="landscape"] #content,
 body[orient="landscape"] #clickableArea {

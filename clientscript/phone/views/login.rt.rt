@@ -2,8 +2,8 @@
     <article class="m10">
         <h1 id="phoneTitle">Space<br />invaders</h1>
     </article>
-    <aside id="fixedButtons">
-        <button class="twitter" id="btnTwitter"><i class="fa fa-twitter"></i> Connect with Twitter</button>
-        <button id="btnPlay">Just play</button>
+    <aside id="fixedButtons" class="{onlyTwitter ? 'onlyTwitter' : ''}">
+        <button onClick={this.handleTwitterButton.bind(this)} class="twitter"><i class="fa fa-twitter"></i> Connect with Twitter</button>
+        <button onClick={this.handlePlayButton.bind(this)}>Just play</button>
     </aside>
 </div>

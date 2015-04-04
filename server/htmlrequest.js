@@ -18,6 +18,8 @@ module.exports = function(request, response) {
                         assigns = {};
                     }
 
+                    var handlebarsHelpers = require(GLOBAL.rootpath + '/server/helpers/handlebarshelpers.js');
+                    handlebars = handlebarsHelpers(handlebars, assigns);
                     var template = handlebars.compile(content.toString());
                     var output = template(assigns);
                     output = output.replace(/\(\(/gi,'{{').replace(/\)\)/gi,'}}'); //Replace (( to {{ for polymer purposes

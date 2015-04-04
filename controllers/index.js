@@ -47,6 +47,9 @@ module.exports = function(cb) {
             locationProcedure.getList(null, function(results) {
                 console.log('JSON', JSON.stringify(results));
                 assigns['locationServers'] = JSON.stringify(results);
+                if (GLOBAL.TWITTER_ONLY) {
+                    assigns['onlyTwitter'] = true;
+                }
                 cb(assigns);
             });
         }

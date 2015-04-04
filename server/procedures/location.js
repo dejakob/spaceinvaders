@@ -64,7 +64,6 @@ module.exports = {
             var request = require('request');
             request.get(url, function (err, response, body) {
                 body = JSON.parse(body);
-                console.log('FOURSQUARE', body);
                 if (!err) {
                     data.foursquare = body;
                     db.update('spaceinvaders', data, function(err, res) {

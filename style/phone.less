@@ -67,6 +67,16 @@ body {
         background-color: @twitterBlue;
       }
     }
+
+    &.onlyTwitter {
+      > button {
+        width: 98%;
+        display: none;
+        &.twitter {
+          display: block;
+        }
+      }
+    }
   }
 
   #clickableArea {
@@ -126,6 +136,10 @@ body {
         }
       }
     }
+  }
+
+  .p5 {
+    padding: 5px;
   }
 }
 
