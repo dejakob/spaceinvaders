@@ -15,10 +15,25 @@ var GameSocket = function(scope, io) {
                     'playerHash': params['playerHash'],
                     'screen': true
                 });
+
+                require([
+                    'core/geolocation.js'
+                ],function(Geolocation) {
+                    Geolocation(function(data) {
+                        console.log('LOCATION', data);
+                        socket.emit('OPEN LOCATION PLAYER', {
+                            location: data
+                        });
+                    });
+                });
             };
 
             socket.on('connect', function() {
                 authenticate();
+
+                socket.on('PING', function(msg) {
+                    socket.emit('PONG');
+                });
 
                 socket.on('PHONE CONNECTED', function(data) {
                     scope.qrcode = false;
@@ -58,7 +73,10 @@ var GameSocket = function(scope, io) {
                 });
             });
 
+            scope.socket = socket;
+
         });
+
     };
 
     var send = function(data) {

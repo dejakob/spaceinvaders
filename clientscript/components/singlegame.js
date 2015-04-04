@@ -71,6 +71,10 @@ require([
                         callbacks.showDialog('End of game', 'Congrats! You finished this game!');
                         setTimeout(function() {
                             Web.LoaderCallbacks.changeView('highscores');
+                            try {
+                                self.socket.emit('DISCONNECT');
+                                self.socket.disconnect();
+                            } catch (ex) {console.log('EX', ex)}
                         }, 4000);
                     } else {
                         console.log('IS NOT LAST LEVEL');

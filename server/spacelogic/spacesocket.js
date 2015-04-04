@@ -2,7 +2,7 @@
 
 var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 
-module.exports = function(ws) {
+module.exports = function(ws, pingpong) {
     var me;
     var isScreen;
     var currentLevelId = 0;
@@ -13,6 +13,8 @@ module.exports = function(ws) {
             var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
             if (message.playerHash && message.playerHash === spacePlayer.hash) {
                 me = spacePlayer;
+                var procedureLocation = require(GLOBAL.rootpath + '/server/procedures/location.js');
+                procedureLocation.removeByUserId(me.id);
                 isScreen = message.screen;
 
                 if (isScreen) {
@@ -24,6 +26,7 @@ module.exports = function(ws) {
                             ws.emit('SCREEN CONNECTED');
                         });
                     }
+                    pingpong.addUser(ws, me);
                 } else {
                     SpaceLogic.updatePlayer(spacePlayer.id, 'onPhone', function(cb) {
                         cb(ws);
@@ -70,6 +73,15 @@ module.exports = function(ws) {
             }
         });
 
+        ws.on('OPEN LOCATION PLAYER', function(message) {
+            if (typeof message === 'undefined') {
+            } else {
+                var procedureLocation = require(GLOBAL.rootpath + '/server/procedures/location.js');
+                message.user = me;
+                procedureLocation.addItem(message, function(bool) {});
+            }
+        });
+
         ws.on('START LEVEL', function(message) {
             Level.startLevel(currentLevelId, me);
             currentLevelId++;
@@ -101,7 +113,7 @@ module.exports = function(ws) {
                 if (typeof me !== 'undefined' && typeof me.onScreen !== 'undefined') {
                     me.onScreen(function(ws) {
                         try {
-                            ws.emit('FIRE');;
+                            ws.emit('FIRE');
                         } catch (ex) {
 
                         }
@@ -123,5 +135,10 @@ module.exports = function(ws) {
                     ws.emit('LEVEL END SCREEN');
                 });
             });
+        });
+
+        ws.on('DISCONNECT', function(msg) {
+            SpaceLogic.removePlayer(me.id);
+            ws.conn.close();
         });
 };

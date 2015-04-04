@@ -1,6 +1,12 @@
 TODO
 
-Host on heroku with socket.io
+Authentication with rooms
+Host on heroku with socket.io >> OTHER SERVER
+	Force SECRET.js to heroku >> OTHER SERVER
 Let spaceship die
 screencast
 winner determine bug
+Vibration?
+Selfie level
+
+'Graceful url change on phone'

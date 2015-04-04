@@ -8,6 +8,9 @@ var SpaceView = (function() {
                     'playerHash': data.player.hash
                 });
             });
+        },
+        addLocation: function(data) {
+            $.getJSON('/API/session.json?action=addLocation', data, function(data) {});
         }
     };
 })();

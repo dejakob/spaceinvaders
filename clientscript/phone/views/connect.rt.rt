@@ -1,0 +1,10 @@
+<div class="connect">
+    <h1>Please select a server</h1>
+    <ul>
+        <li rt-repeat="server in this.servers" onClick={this.handleServerSelect.bind(this,server)}>
+            <span class="userCircle">{server.user.id}</span>
+            <span rt-if="server.nearby" class="msg">Click to play with user {server.user.id}</span>
+            <span rt-if="server.nearby" class="nearby">Nearby {server.nearby}</span>
+        </li>
+    </ul>
+</div>

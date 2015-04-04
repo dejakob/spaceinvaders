@@ -18,7 +18,24 @@ module.exports = function() {
         callback({player: player});
     };
 
+    var getByLocation = function(callback) {
+        //TODO BLOCKING filter non-actives out of the db
+        var locationProcedure = require(GLOBAL.rootpath + '/server/procedures/location.js');
+        if (request.query.latitude === 'undefined' || request.query.longitude === 'undefined') {
+            callback(false);
+        } else {
+            locationProcedure.getList({
+                latitude: parseFloat(request.query.latitude),
+                longitude: parseFloat(request.query.longitude)
+            }, function(results) {
+               callback(results);
+            });
+        }
+
+    };
+
     return {
-        create: create
+        create: create,
+        getByLocation: getByLocation
     }
 };
