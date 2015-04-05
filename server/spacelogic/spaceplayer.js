@@ -4,6 +4,7 @@ module.exports = function() {
     var _hash;
     var _onPhone;
     var _onScreen;
+    var _isAuthenticated = false;
 
     return {
         get name() {
@@ -35,6 +36,12 @@ module.exports = function() {
         },
         set onScreen(val) {
             _onScreen = val;
+        },
+        get isAuthenticated() {
+            return _isAuthenticated;
+        },
+        set isAuthenticated(val) {
+            _isAuthenticated = val;
         }
     };
 };

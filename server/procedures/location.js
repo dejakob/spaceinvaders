@@ -48,7 +48,6 @@ module.exports = {
                         } /*else {
                             self.removeByUserId(row.value.user.id);
                         }*/
-
                     }
                     callback({servers: items});
                 } else {

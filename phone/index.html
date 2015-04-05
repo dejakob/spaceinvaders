@@ -9,9 +9,11 @@
 </head>
 <body>
 <div id="content"></div>
+<div id="warning">Please lock your phone rotation (in portrait mode) for the best experience...</div>
 
 <script>
     var serverPort = {{serverPort}};
+    {{assignVar 'onlyTwitter'}}
     require(["phone/start.js"]);
 </script>
 </body>

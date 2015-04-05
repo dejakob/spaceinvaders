@@ -2,7 +2,7 @@
 
 var SpaceLogic = require(GLOBAL.rootpath + '/server/spacelogic/spacelogic.js');
 
-module.exports = function(ws) {
+module.exports = function(ws, pingpong) {
     var me;
     var isScreen;
     var currentLevelId = 0;
@@ -13,6 +13,8 @@ module.exports = function(ws) {
             var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
             if (message.playerHash && message.playerHash === spacePlayer.hash) {
                 me = spacePlayer;
+                var procedureLocation = require(GLOBAL.rootpath + '/server/procedures/location.js');
+                procedureLocation.removeByUserId(me.id);
                 isScreen = message.screen;
 
                 if (isScreen) {
@@ -24,49 +26,68 @@ module.exports = function(ws) {
                             ws.emit('SCREEN CONNECTED');
                         });
                     }
+                    pingpong.addUser(ws, me);
                 } else {
                     SpaceLogic.updatePlayer(spacePlayer.id, 'onPhone', function(cb) {
                         cb(ws);
                     });
-                    if (typeof me.onScreen !== 'undefined') {
 
-                        me.onScreen(function(ws) {
+                    if (spacePlayer.isAuthenticated) {
+                        ws.emit('AUTH FAILED');
+                    } else {
+                        SpaceLogic.updatePlayer(spacePlayer.id, 'isAuthenticated', true);
 
-                            ws.emit('PHONE CONNECTED');
+                        if (typeof me.onScreen !== 'undefined') {
 
-                            var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
-                            if (typeof spacePlayer.twitterAuthToken !== 'undefined' && typeof spacePlayer.twitterAuthSecret !== 'undefined') {
+                            me.onScreen(function(ws) {
+
+                                ws.emit('PHONE CONNECTED');
+
+                                var spacePlayer = SpaceLogic.getPlayerById(message.playerId);
+                                if (typeof spacePlayer.twitterAuthToken !== 'undefined' && typeof spacePlayer.twitterAuthSecret !== 'undefined') {
 
 
-                                var Twitter = new twitterService({
-                                    consumer_key: TWITTER_CONSUMER_KEY,
-                                    consumer_secret: TWITTER_CONSUMER_SECRET,
-                                    access_token_key: spacePlayer.twitterAuthToken,
-                                    access_token_secret: spacePlayer.twitterAuthSecret
-                                });
+                                    var Twitter = new twitterService({
+                                        consumer_key: TWITTER_CONSUMER_KEY,
+                                        consumer_secret: TWITTER_CONSUMER_SECRET,
+                                        access_token_key: spacePlayer.twitterAuthToken,
+                                        access_token_secret: spacePlayer.twitterAuthSecret
+                                    });
 
-                                Twitter.get('/statuses/user_timeline', function(err, res) {
+                                    Twitter.get('/statuses/user_timeline', function(err, res) {
 
-                                    if (!err) {
-                                        res = res[0];
+                                        if (!err) {
+                                            res = res[0];
 
-                                        SpaceLogic.updatePlayer(spacePlayer.id, 'twitterInfo', res);
+                                            SpaceLogic.updatePlayer(spacePlayer.id, 'twitterInfo', res);
 
-                                        ws.emit('TWITTER ABOUT', {
-                                            twitterInfo: {
-                                                userName: res.user.screen_name,
-                                                userId: res.user.id_str,
-                                                image: res.user.profile_image_url.replace(/normal/gi, 'bigger')
-                                            }
-                                        });
-                                    }
+                                            ws.emit('TWITTER ABOUT', {
+                                                twitterInfo: {
+                                                    userName: res.user.screen_name,
+                                                    userId: res.user.id_str,
+                                                    image: res.user.profile_image_url.replace(/normal/gi, 'bigger')
+                                                }
+                                            });
+                                        }
 
-                                });
-                            }
+                                    });
+                                }
 
-                        });
+                            });
+                        }
                     }
+
+
                 }
+            }
+        });
+
+        ws.on('OPEN LOCATION PLAYER', function(message) {
+            if (typeof message === 'undefined') {
+            } else {
+                var procedureLocation = require(GLOBAL.rootpath + '/server/procedures/location.js');
+                message.user = me;
+                procedureLocation.addItem(message, function(bool) {});
             }
         });
 
@@ -101,7 +122,7 @@ module.exports = function(ws) {
                 if (typeof me !== 'undefined' && typeof me.onScreen !== 'undefined') {
                     me.onScreen(function(ws) {
                         try {
-                            ws.emit('FIRE');;
+                            ws.emit('FIRE');
                         } catch (ex) {
 
                         }

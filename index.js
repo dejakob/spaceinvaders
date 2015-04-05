@@ -7,6 +7,7 @@ require('./server/SECRET.js'); //File is ignored on github, it contains Twitter 
 
 var init = function() {
     couchdb.onConnect(function(db) {
+
         app.use(function(req, res, next) {
             var originalUrl = req.originalUrl.split('?')[0];
             switch (true) {
@@ -49,5 +50,6 @@ var init = function() {
 
 init();
 process.on('uncaughtException', function(err) {
+    console.log('UNCAUGHT EXCEPTION', err, err.stack);
     init();
 });
