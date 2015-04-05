@@ -13,6 +13,7 @@ var GameLevel = function(scope) {
     var _fires;
     var _levelEnded = false;
     var _triggeredEnd = false;
+    var _ticker = 0;
 
     var startsWith = function(str, txt) {
         var regex = new RegExp('^\\' + txt + '+');
@@ -26,14 +27,29 @@ var GameLevel = function(scope) {
             var self = this;
             var stepX = (self.width / speedX * 40) / 1000;
             var stepY = (self.height / speedY * 40) / 1000;
+            var levelAnimater = new Animater(scope);
+
+            scope.livesLeft = 3;
+            self.recalculateLives();
 
             if (!_interval) {
                 _interval = setInterval(function() {
                     var len;
                     var i;
 
+                    levelAnimater.tick(_ticker);
+                    _ticker++;
+
                     if (_enemies) {
                         len = _enemies.length;
+                        var hittest = new Hittest(scope);
+                        var correctedSpaceship = {
+                            'left': scope.spaceship.left + (scope.spaceship.width * 0.4),
+                            'bottom': scope.spaceship.bottom,
+                            'height': scope.spaceship.height,
+                            'width': scope.spaceship.width * 0.2
+                        };
+
                         for (i = 0; i < len; i++) {
                             var enemy = _enemies[i];
                             if (typeof enemy !== 'undefined') {
@@ -64,7 +80,6 @@ var GameLevel = function(scope) {
                                     if (fireLen) {
                                         for (var j = 0; j < fireLen; j++) {
                                             if (typeof _fires[j] !== 'undefined') {
-                                                var hittest = new Hittest(scope);
                                                 if (hittest.test(_fires[j], enemy)) {
                                                     if (typeof enemy.score === 'number') {
                                                         scope.score += enemy.score;
@@ -73,12 +88,40 @@ var GameLevel = function(scope) {
                                                     }
                                                     _enemies.splice(i,1);
                                                     _fires.splice(j,1);
-                                                    //i--;
-                                                    //j--;
                                                 }
                                             }
                                         }
                                     }
+                                }
+
+                                if (hittest.test(enemy, correctedSpaceship)) {
+                                    _enemies.splice(i,1);
+                                    scope.livesLeft--;
+                                    self.recalculateLives();
+
+                                    if (scope.livesLeft) {
+                                        levelAnimater.addAnimation({
+                                            'type': 'tiktak',
+                                            'start': _ticker,
+                                            'end': _ticker + 20,
+                                            'interval': 1,
+                                            'selector': '#spaceship',
+                                            'css': {
+                                                'opacity': 0.5
+                                            }
+                                        });
+                                    } else {
+                                        console.log('GAME OVER');
+
+                                        clearInterval(_interval);
+                                        _enemies = [];
+                                        _fires = [];
+                                        //scope.currentLevel.prepareEndLevel();
+                                        scope.showDialog('Game over', 'Your spaceship got hit by too much obstacles...');
+                                        scope.onGameOver();
+
+                                    }
+
                                 }
                             }
                         }
@@ -87,10 +130,12 @@ var GameLevel = function(scope) {
                         if (!len && _levelEnded) {
                             if (scope.multiplayer !== false && !_triggeredEnd) {
                                 _triggeredEnd = true;
+                                console.log('TRIGGER IT');
                                 scope.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEnd');
                             }
                             else if (scope.multiplayer === false) {
                                 clearInterval(_interval);
+                                levelAnimater.end();
                                 self.onEndLevel();
                             }
                         }
@@ -187,12 +232,9 @@ var GameLevel = function(scope) {
             _fires = scope.fires;
         },
         'otherUsersEnded': function() {
-            if (scope.multiplayer !== false)
-            {
-                this.determineWinner();
-            }
-
+            console.log('otherUsersEnded', _levelEnded);
             if (scope.multiplayer !== false && _levelEnded) {
+                this.determineWinner();
                 this.onEndLevel();
                 scope.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEndSafe');
                 Web.MultiplayerGames.setPlayersEnded(scope.multiplayer, 0);
@@ -210,10 +252,12 @@ var GameLevel = function(scope) {
         },
         'endLevel': function() {
             try {
-                scope.gameSocket.send({
-                    'action': 'LEVEL END SCREEN',
-                    'score': scope.score
-                });
+                if (!scope.isGameOver) {
+                    scope.gameSocket.send({
+                        'action': 'LEVEL END SCREEN',
+                        'score': scope.score
+                    });
+                }
             } catch (ex) {
                 console.log('EXCEPTION GAMESOCKET', ex);
             }
@@ -221,6 +265,7 @@ var GameLevel = function(scope) {
         'determineWinner': function() {
             function amIWinner() {
                 var players = scope.multiplayerGame.players;
+                console.log('DETERMINE WINNER', players);
                 var keys = Object.keys(players);
                 var len = keys.length;
                 var scores = [];
@@ -234,6 +279,7 @@ var GameLevel = function(scope) {
                 }
                 if (scores.length) {
                     var max = Math.max.apply(null, scores);
+                    console.log('AM I WINNER', scope.score, max);
                     if (scope.score === max) {
                         return true;
                     }
@@ -243,6 +289,16 @@ var GameLevel = function(scope) {
             }
 
             this.showStamp(amIWinner());
+        },
+        'recalculateLives': function() {
+            scope.lives = [];
+            for(var k = 0; k < 3; k++) {
+                if (k > (scope.livesLeft - 1)) {
+                    scope.lives.push(0.3);
+                } else {
+                    scope.lives.push(1);
+                }
+            }
         }
     }
 };

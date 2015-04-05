@@ -62,24 +62,41 @@
     -webkit-animation: spinAround 2s infinite;
     animation: spinAround 2s infinite;
   }
-  .twitterProfilePic {
+  .leftTopInfo {
     position: absolute;
     top: 15px;
     left: 15px;
+  }
+  .twitterProfilePic {
     height: 73px;
     width: 73px;
+    margin-bottom: 10px;
     border: 2px #fff solid;
     border-radius: 50%;
     overflow: hidden;
   }
 
-  #spaceship {
-    position: absolute;
+  #spaceship, .spaceship {
     //background-color: @orange;
     background-image: url('/CDN/spaceship.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+  }
+  #spaceship {
+    position: absolute;
+  }
+  .spaceship {
+    list-style: none;
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    float: left;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }
 

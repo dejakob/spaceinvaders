@@ -4,7 +4,8 @@ require([
     'screen/spaceview.js',
     'components/gamesocket.js',
     'components/gamelevel.js',
-    'components/gamelevel.hittest.js'
+    'components/gamelevel.hittest.js',
+    'components/gamelevel.animater.js'
 ], function(io) {
     Polymer('singlegame-view', {
         qrcode: null,
@@ -13,6 +14,8 @@ require([
         score: 0,
         multiplayer: false,
         isLastLevel: false,
+        lives: [],
+        livesLeft: 3,
         ready: function() {
             var self = this;
             var callbacks = {};
@@ -60,25 +63,39 @@ require([
                 }
             };
             callbacks['startLevel'] = function(levelId, speedX, speedY) {
+
+                if (self.multiplayer !== false) {
+                    callbacks.reCheckPlayers();
+                }
+
                 self.currentLevel = new GameLevel(self);
                 self.currentLevel.width = self.width;
                 self.currentLevel.height = self.height;
                 self.currentLevel.enemyWidth = self.enemyWidth;
                 self.currentLevel.startLevel(levelId, speedX, speedY);
                 self.currentLevel.onEndLevel = function() {
-                    self.fires = [];
-                    if (self.isLastLevel) {
-                        callbacks.showDialog('End of game', 'Congrats! You finished this game!');
-                        setTimeout(function() {
-                            Web.LoaderCallbacks.changeView('highscores');
-                        }, 4000);
-                    } else {
-                        console.log('IS NOT LAST LEVEL');
-                        callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
+                    console.log('ON END LEVEL');
+                    if (!self.isGameOver) {
+                        self.fires = [];
+                        if (self.isLastLevel) {
+                            callbacks.showDialog('End of game', 'Congrats! You finished this game!');
+                            setTimeout(function() {
+                                Web.LoaderCallbacks.changeView('highscores');
+                                try {
+                                    self.socket.emit('DISCONNECT');
+                                    self.socket.disconnect();
+                                } catch (ex) {console.log('EX', ex)}
+                            }, 4000);
+                        } else {
+                            console.log('IS NOT LAST LEVEL');
+                            callbacks.showDialog('Level complete', 'Use your fancy controller to start the next level...');
+                        }
                     }
                     self.currentLevel.endLevel();
                 };
                 self.currentLevel.showStamp = callbacks.showStamp;
+                self.showDialog = callbacks.showDialog;
+                self.onGameOver = callbacks.onGameOver;
 
                 self.currentLevel.onEnemiesChanged = function(enemies) {
                     self.enemies = enemies;
@@ -87,27 +104,53 @@ require([
                 callbacks.hideDialog();
                 callbacks.hideStamp();
             };
+            callbacks['reCheckPlayers'] = function() {
+                Web.MultiplayerGames.removeLosers(self.multiplayer);
+            };
             callbacks['onOtherUserEndLevel'] = function() {
-                self.multiplayerPlayer.score = self.score;
+                self.multiplayerPlayer.setScore(self.score);
                 if (self.multiplayer !== false && typeof self.multiplayerGame !== 'undefined') {
                     var otherPlayersCount = Web.MultiplayerGames.getPlayerCount(self.multiplayer);
                     var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(self.multiplayer);
                     otherPlayersEnded++;
                     Web.MultiplayerGames.setPlayersEnded(self.multiplayer, otherPlayersEnded);
 
+                    console.log('onOtherUserEndLevel', otherPlayersEnded, otherPlayersCount);
                     if (otherPlayersEnded === otherPlayersCount) {
                         self.currentLevel.otherUsersEnded();
                     }
                 }
             };
             callbacks['onOtherUserEndLevelSafe'] = function() {
+                self.multiplayerPlayer.setScore(self.score);
                 self.currentLevel.otherUsersEndedSafe();
             };
             callbacks['onPrepareEndLevel'] = function(isLastLevel) {
                 self.isLastLevel = isLastLevel;
                 self.currentLevel.prepareEndLevel();
-                if (self.multiplayer === false) {
+                if (self.multiplayer === false || Web.MultiplayerGames.getPlayerCount(self.multiplayer) < 2) {
                     self.currentLevel.otherUsersEnded();
+                }
+            };
+            callbacks['onGameOver'] = function() {
+                console.log('GAME FUCKING OVER!');
+                callbacks.onPrepareEndLevel(self.isLastLevel);
+                self.isGameOver = true;
+                if (self.multiplayer !== false) {
+                    self.multiplayerPlayer.setIsGameOver(self.isGameOver);
+                }
+
+                try {
+                    self.socket.emit('GAME OVER');
+                } catch (ex) {console.log('EX', ex)}
+                if (self.multiplayer) {
+                    //Web.MultiplayerGames.removePlayerFromGame(self.multiplayer, self.multiplayerPlayer.id);
+                    //Web.MultiplayerGames.updatePlayer(self.multiplayer, self.multiplayerPlayer.id, 'isGameOver', true);
+                    self.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEnd');
+                } else {
+                    setTimeout(function() {
+                        Web.LoaderCallbacks.changeView('highscores');
+                    }, 4000);
                 }
             };
             callbacks['onEnemy'] = function(enemyType) {
@@ -120,7 +163,7 @@ require([
             };
             callbacks['showDialog'] = function(title, content) {
                 var dialog = self.shadowRoot.querySelector('dialog-view');
-                dialog.setAttribute('title', title);
+                dialog.setAttribute('code', title);
                 dialog.setAttribute('content', content);
                 dialog.setAttribute('show', '');
             };

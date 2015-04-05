@@ -23,8 +23,6 @@
             </template>
 
             <template if="((!qrcode))">
-                <canvas class="content"></canvas>
-
                 <div id="spaceship" style="((showGame ? 'display: block;' : 'display: none;')) left: ((spaceship.left))px; width: ((spaceship.width))px; bottom: ((spaceship.bottom))px; height: ((spaceship.height))px;"></div>
 
                 <template repeat="((enemy in enemies))">
@@ -35,14 +33,22 @@
                     <div class="fire" style="left: ((fire.left))px; bottom: ((fire.bottom))px;"></div>
                 </template>
 
-                <template if="((twitterInfo))">
-                    <div class="twitterProfilePic">
-                        <img src="((twitterInfo.image))" alt="((twiterInfo.userName))" title="((twiterInfo.userName))" height="73" width="73"/>
-                    </div>
-                </template>
-                <span class="score">((score))</span>
+                <div class="leftTopInfo">
+                    <template if="((twitterInfo))">
+                        <div class="twitterProfilePic">
+                            <img src="((twitterInfo.image))" alt="((twiterInfo.userName))" title="((twiterInfo.userName))" height="73" width="73"/>
+                        </div>
+                    </template>
+                    <ul class="lives">
+                        <template repeat="((live in lives))">
+                            <li class="spaceship" style="opacity: ((live));"></li>
+                        </template>
+                    </ul>
+                </div>
 
-                <dialog-view title="test" content="123"></dialog-view>
+                <span id="score" class="score">((score))</span>
+
+                <dialog-view code="test" content="123"></dialog-view>
                 <game-stamp></game-stamp>
             </template>
         </div>

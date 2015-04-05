@@ -15,6 +15,16 @@ var GameSocket = function(scope, io) {
                     'playerHash': params['playerHash'],
                     'screen': true
                 });
+
+                require([
+                    'core/geolocation.js'
+                ],function(Geolocation) {
+                    Geolocation(function(data) {
+                        socket.emit('OPEN LOCATION PLAYER', {
+                            location: data
+                        });
+                    });
+                });
             };
 
             socket.on('connect', function() {

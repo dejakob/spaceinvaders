@@ -1,10 +1,10 @@
-<polymer-element name="dialog-view" attributes="title content show height width">
+<polymer-element name="dialog-view" attributes="code content show height width">
     <template>
         <link rel="stylesheet" href="/components/dialog.css" />
 
         <div id="dialogOverlay" class="((show ? 'show' : ''))">
             <div id="wrapper" style="((height===0 ? '' : 'height: ' + height + 'px; margin-top: -' + height / 2 + 'px;'))((width===0 ? '' : 'width: ' + width + 'px; margin-left: -' + width / 2 + 'px;'))">
-                <h1>((title))</h1>
+                <h1>((code))</h1>
                 <p id="content">((content))</p>
             </div>
         </div>
@@ -14,13 +14,16 @@
         Polymer('dialog-view', {
             height: 0,
             width: 0,
-            title: 'Dialog title',
+            code: 'Dialog title',
             content: 'Dialog content...',
             show: false,
             ready: function() {
                 var scope = this;
+
                 this.$.dialogOverlay.onclick = function() {
-                    scope.show = false;
+                    if (scope.code === 'About') {
+                        scope.show = false;
+                    }
                 };
             },
             contentChanged: function() {

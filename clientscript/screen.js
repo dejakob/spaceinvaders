@@ -134,6 +134,37 @@ var Web = (function() {
                     if (typeof game !== 'undefined') {
                         game.playersEnded = playersEnded;
                     }
+                },
+                updatePlayer: function(gameKey, playerId, key, val) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        _multiplayergames[gameKey].players[playerId][key] = val;
+                    }
+                },
+                removePlayer: function(gameKey, playerId) {
+                    var game = _multiplayergames[gameKey];
+                    if (typeof game !== 'undefined') {
+                        delete _multiplayergames[gameKey].players[playerId];
+                    }
+                },
+                removeLosers: function(gameKey) {
+                    var game = _multiplayergames[gameKey];
+                    console.log('REMOVE LOSERS', game);
+                    if (typeof game !== 'undefined') {
+                        var players = game.players;
+                        var keys = Object.keys(players);
+                        var len = keys.length;
+                        console.log('LEN', len);
+                        for(var i = 0; i < len; i++) {
+                            var k = keys[i];
+                            console.log('REMOVE K', players, k);
+                            console.log('REMOVE?', players[k].isGameOver);
+
+                            if (players[k].isGameOver) {
+                                delete _multiplayergames[gameKey].players[k];
+                            }
+                        }
+                    }
                 }
             }
         })(),
@@ -164,6 +195,12 @@ var MultiGamePlayer = function(gameKey, userKey) {
                     otherPlayer.trigger(name);
                 }
             }
+        },
+        setScore: function(score) {
+            Web.MultiplayerGames.updatePlayer(gameKey, userKey, 'score', score);
+        },
+        setIsGameOver: function(isGameOver) {
+            Web.MultiplayerGames.updatePlayer(gameKey, userKey, 'isGameOver', isGameOver);
         }
     }
 };

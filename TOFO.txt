@@ -4,3 +4,10 @@ Host on heroku with socket.io
 Let spaceship die
 screencast
 winner determine bug
+Vibration?
+Selfie level
+
+
+Feedback if connect does not work
+
+'Graceful url change on phone'

@@ -36,7 +36,8 @@ define([
 
             var EnumStatus = {
                 'STATUS_START': 'START',
-                'STATUS_FIRE': 'FIRE'
+                'STATUS_FIRE': 'FIRE',
+                'STATUS_GAME_OVER': 'LOSER!'
             };
 
             var Game = {
@@ -95,6 +96,11 @@ define([
                             if (Game.isAuthenticated) {
                                 socket.emit(EnumAction.ACTION_FIRE);
                             }
+                        },
+                        onGameOver: function() {
+                            var url = window.location.href.split('?')[0];
+                            this.blockRequests = true;
+                            Phone.changeModule(url);
                         }
                     };
 
@@ -153,14 +159,22 @@ define([
                             }, 1000);
                         });
 
+                        socket.on('GAME OVER', function(data) {
+                           scope.status = EnumStatus.STATUS_GAME_OVER;
+                           scope.render();
+                           scope.forceUpdate();
+                        });
+
                         Game.trigger('authenticate');
 
                         //TODO BLOCKING CHANGE
                         var onclick = function() {
                             if (scope.status === EnumStatus.STATUS_START) {
                                 Game.trigger('onStart');
-                            } else {
+                            } else if (scope.status === EnumStatus.STATUS_FIRE) {
                                 Game.trigger('onFire');
+                            } else if (scope.status === EnumStatus.STATUS_GAME_OVER) {
+                                Game.trigger('onGameOver');
                             }
                         };
                         var clickableArea = document.getElementById('clickableArea');

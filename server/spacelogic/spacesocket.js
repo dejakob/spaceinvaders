@@ -124,4 +124,25 @@ module.exports = function(ws) {
                 });
             });
         });
+
+        ws.on('GAME OVER', function(message) {
+            console.log('INCOMING', 'GAME OVER');
+            try {
+                console.log('ME');
+                me.onPhone(function(ws) {
+                    ws.emit('GAME OVER');
+                });
+                me.onScreen(function(ws) {
+                    ws.conn.close();
+                });
+                //SpaceLogic.removePlayer(me.id);
+            } catch (ex) {
+                console.log('GAME OVER EXCEPTION', ex);
+            }
+        });
+
+        ws.on('DISCONNECT', function(msg) {
+            SpaceLogic.removePlayer(me.id);
+            ws.conn.close();
+        });
 };
