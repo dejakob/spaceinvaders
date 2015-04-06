@@ -28,6 +28,7 @@ module.exports = function(ws, pingpong) {
                     }
                     pingpong.addUser(ws, me);
                 } else {
+                    spacePlayer = SpaceLogic.getPlayerById(me.id);
                     SpaceLogic.updatePlayer(spacePlayer.id, 'onPhone', function(cb) {
                         cb(ws);
                     });
@@ -77,6 +78,7 @@ module.exports = function(ws, pingpong) {
                         }
                     }
 
+                    pingpong.addMobileUser(ws, me);
 
                 }
             }

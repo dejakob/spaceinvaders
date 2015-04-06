@@ -56,6 +56,7 @@
   ul#main {
 
     > li {
+      overflow: hidden;
       width: 300px;
       padding: 10px;
       display: block;
@@ -72,6 +73,26 @@
       -webkit-transition: background 1s;-moz-transition: background 1s;-ms-transition: background 1s;-o-transition: background 1s;transition: background 1s;
       &:hover {
         background: rgba(255, 165, 0, 0.7);
+      }
+
+      > input {
+        float: right;
+        font-size: 20px;
+        width: 34px;
+        position: absolute;
+        margin-left: 27px;
+        text-align: right;
+        border-radius: 3px;
+        border: none;
+        color: #fff;
+        font-family: 'Lato', serif;
+        font-weight: 100;
+        right: 0;
+        top: 0;
+        height: 100%;
+        overflow: hidden;
+        background: none;
+        border-left: 1px #fff solid;
       }
     }
 

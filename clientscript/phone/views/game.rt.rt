@@ -1,3 +1,4 @@
-<div id="clickableArea" class="relative">
+<div id="clickableArea" class="relative click">
+    <div class="overlay error" rt-if="this.showError">Someone already took your place. Sadly enough, but life is for the quick!</div>
     <span id="status" class="statusContent">{this.status}</span>
 </div>

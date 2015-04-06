@@ -36,6 +36,8 @@ module.exports = function() {
 
                 oauth.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results) {
                     if (error) {
+                        var procedureLocation = require(GLOBAL.rootpath + '/server/procedures/location.js');
+                        procedureLocation.removeByUserId(player.id);
                         callback({url: false});
                     }
                     else {

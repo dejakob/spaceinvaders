@@ -88,6 +88,7 @@ var GameLevel = function(scope) {
                                                     }
                                                     _enemies.splice(i,1);
                                                     _fires.splice(j,1);
+                                                    break;
                                                 }
                                             }
                                         }
@@ -111,12 +112,9 @@ var GameLevel = function(scope) {
                                             }
                                         });
                                     } else {
-                                        console.log('GAME OVER');
-
                                         clearInterval(_interval);
                                         _enemies = [];
                                         _fires = [];
-                                        //scope.currentLevel.prepareEndLevel();
                                         scope.showDialog('Game over', 'Your spaceship got hit by too much obstacles...');
                                         scope.onGameOver();
 
@@ -130,7 +128,10 @@ var GameLevel = function(scope) {
                         if (!len && _levelEnded) {
                             if (scope.multiplayer !== false && !_triggeredEnd) {
                                 _triggeredEnd = true;
-                                console.log('TRIGGER IT');
+
+                                var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(scope.multiplayer);
+                                otherPlayersEnded++;
+                                Web.MultiplayerGames.setPlayersEnded(scope.multiplayer, otherPlayersEnded);
                                 scope.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEnd');
                             }
                             else if (scope.multiplayer === false) {
@@ -232,7 +233,6 @@ var GameLevel = function(scope) {
             _fires = scope.fires;
         },
         'otherUsersEnded': function() {
-            console.log('otherUsersEnded', _levelEnded);
             if (scope.multiplayer !== false && _levelEnded) {
                 this.determineWinner();
                 this.onEndLevel();
@@ -264,6 +264,10 @@ var GameLevel = function(scope) {
         },
         'determineWinner': function() {
             function amIWinner() {
+                if (scope.isGameOver) {
+                    return false;
+                }
+
                 var players = scope.multiplayerGame.players;
                 console.log('DETERMINE WINNER', players);
                 var keys = Object.keys(players);
@@ -273,13 +277,12 @@ var GameLevel = function(scope) {
                     var k = keys[i];
                     var v = players[k];
                     var score = v.score;
-                    if (typeof score !== 'undefined') {
+                    if (typeof score !== 'undefined' && !v.isGameOver) {
                         scores.push(score);
                     }
                 }
                 if (scores.length) {
                     var max = Math.max.apply(null, scores);
-                    console.log('AM I WINNER', scope.score, max);
                     if (scope.score === max) {
                         return true;
                     }

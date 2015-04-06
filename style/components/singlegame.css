@@ -38,7 +38,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow: hidden;
+  overflow: visible;
 }
 #singleGameWrapper .content {
   height: 100%;
@@ -61,6 +61,32 @@
   left: 50%;
   margin-top: -128px;
   margin-left: -128px;
+}
+#singleGameWrapper .playerId {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 150px;
+  margin-left: -35px;
+  font-size: 35px;
+  background: rgba(173, 0, 0, 0.8);
+  height: 70px;
+  line-height: 67px;
+  width: 70px;
+  border-radius: 50%;
+  font-family: 'Lato', serif;
+  font-weight: 100;
+  text-align: center;
+}
+#singleGameWrapper .connectUrl {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -185px;
+  font-family: 'Lato', serif;
+  font-size: 36px;
+  text-align: center;
 }
 #singleGameWrapper .enemy {
   background-size: contain;

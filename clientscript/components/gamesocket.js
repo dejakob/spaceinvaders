@@ -6,6 +6,8 @@ var GameSocket = function(scope, io) {
         SpaceView.generateAuthUrl(function(params) {
             var url = 'http://' + window.location.host + '?playerId=' + params.playerId + '&playerHash=' + params.playerHash;
             scope.qrcode = url;
+            scope.playerId = params.playerId;
+            scope.connectUrl = window.location.host;
 
             socket = io('http://'+ BASE_URL + ':' + serverPort, {forceNew: true});
 
@@ -20,7 +22,6 @@ var GameSocket = function(scope, io) {
                     'core/geolocation.js'
                 ],function(Geolocation) {
                     Geolocation(function(data) {
-                        console.log('LOCATION', data);
                         socket.emit('OPEN LOCATION PLAYER', {
                             location: data
                         });

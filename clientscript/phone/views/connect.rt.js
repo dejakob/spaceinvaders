@@ -27,6 +27,8 @@ define(['lib/react.js',
                 loadData();
             });
 
+            scope.serversHeight = $(window).width() - 50;
+
         },
         handleServerSelect: function(server) {
             if (typeof server.user.id !== 'undefined' && server.user.hash !== 'undefined') {

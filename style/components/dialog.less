@@ -38,10 +38,6 @@
     left: 50%;
     top: 50%;
     border-radius: 5px;
-    margin-left: -210px;
-    width: 400px;
-    height: 100px;
-    margin-top: -60px;
     -webkit-animation: crazySlide 1s;
     -moz-animation: crazySlide 1s;
     animation: crazySlide 1s;
@@ -108,3 +104,26 @@
   }
 }
 
+.min500 {
+  &#dialogOverlay {
+    #wrapper {
+      margin-left: -210px;
+      width: 400px;
+      height: 100px;
+      margin-top: -60px;
+    }
+  }
+}
+
+.max500 {
+  &#dialogOverlay {
+    #wrapper {
+      left: 0;
+      margin-left: 0;
+      width: 100%;
+      height: 130px;
+      margin-top: -75px;
+      border-radius: 0;
+    }
+  }
+}

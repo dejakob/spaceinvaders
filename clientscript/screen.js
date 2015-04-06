@@ -23,16 +23,31 @@ var Web = (function() {
             var _initMainMenu = function() {
                 var _events = {
                     itemClick: function(event) {
-                        var item = this;
-                        _homeArticle.addClass('hide');
+                        if (this === event.target) {
+                            var item = this;
+                            _homeArticle.addClass('hide');
 
-                        setTimeout(function() {
-                            _homeArticle.hide();
-                            Web.LoaderCallbacks.changeView($(item).data('view'));
-                        }, 1000);
+                            setTimeout(function() {
+                                _homeArticle.hide();
+                                var input = $(item).find('>input');
+                                if (input.length) {
+                                    var val = parseInt(input.val());
+                                    if (isNaN(val)) {
+                                        val = 3;
+                                    }
+                                    else if (val > 7) {
+                                        val = 7;
+                                    }
+                                    Web.LoaderCallbacks.changeView($(item).data('view'), val);
+                                } else {
+                                    Web.LoaderCallbacks.changeView($(item).data('view'), null);
+                                }
+                            }, 1000);
+                        }
+
                     },
                     showInfo: function() {
-                        _screenDialog.attr('title', 'About');
+                        _screenDialog.attr('code', 'About');
                         _screenDialog.attr('height', '400');
                         _screenDialog.attr('width', '400');
                         _screenDialog.attr('content', '<about-view></about-view>');
@@ -123,6 +138,7 @@ var Web = (function() {
                     return 0;
                 },
                 getPlayersEnded: function(gameKey) {
+                    console.log('MULTIPLAYERGAMES', _multiplayergames);
                     var game = _multiplayergames[gameKey];
                     if (typeof game !== 'undefined') {
                         return game.playersEnded;
@@ -149,16 +165,12 @@ var Web = (function() {
                 },
                 removeLosers: function(gameKey) {
                     var game = _multiplayergames[gameKey];
-                    console.log('REMOVE LOSERS', game);
                     if (typeof game !== 'undefined') {
                         var players = game.players;
                         var keys = Object.keys(players);
                         var len = keys.length;
-                        console.log('LEN', len);
                         for(var i = 0; i < len; i++) {
                             var k = keys[i];
-                            console.log('REMOVE K', players, k);
-                            console.log('REMOVE?', players[k].isGameOver);
 
                             if (players[k].isGameOver) {
                                 delete _multiplayergames[gameKey].players[k];

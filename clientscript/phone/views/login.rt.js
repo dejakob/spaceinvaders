@@ -4,6 +4,7 @@ define(['lib/react.js', './login.rt.rt.js', 'lib/jquery.js'], function (React, t
     return React.createClass({
         displayName: 'LoginView',
         render: template,
+        showError: false,
         componentDidMount: function() {
             var screenWidth = (window.innerWidth) ? window.innerWidth : document.body.clientWidth;
             var phoneTitle = document.getElementById('phoneTitle');
@@ -18,6 +19,8 @@ define(['lib/react.js', './login.rt.rt.js', 'lib/jquery.js'], function (React, t
             });
         },
         handleTwitterButton: function() {
+            var scope = this;
+
             require(["phone/helpers/url.js"], function(UrlHelper) {
                 var queryParams = UrlHelper.getQuery();
                 queryParams.action = 'auth';
@@ -26,6 +29,9 @@ define(['lib/react.js', './login.rt.rt.js', 'lib/jquery.js'], function (React, t
                 $.getJSON(baseUrl, function(data) {
                     if (data.url !== false) {
                         window.location.href = data.url;
+                    } else {
+                        scope.showError = true;
+                        scope.forceUpdate();
                     }
                 });
             });

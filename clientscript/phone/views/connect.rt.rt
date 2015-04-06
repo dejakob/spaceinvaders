@@ -1,7 +1,7 @@
 <div class="connect">
     <h1>Please select a server</h1>
-    <ul rt-if="this.servers">
-        <li rt-repeat="server in this.servers" onClick={this.handleServerSelect.bind(this,server)}>
+    <ul rt-if="this.servers" style="height: {this.serversHeight}px;">
+        <li rt-repeat="server in this.servers" class="click" onClick={this.handleServerSelect.bind(this,server)}>
             <span class="userCircle">{server.user.id}</span>
             <span rt-if="server.nearby" class="msg">Click to play with user {server.user.id}</span>
             <span rt-if="server.nearby" class="nearby">Nearby {server.nearby}</span>

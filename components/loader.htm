@@ -5,7 +5,7 @@
         </template>
 
         <template if="((view=='multi'))">
-            <multigame-view height="((height))" width="((width))"></multigame-view>
+            <multigame-view height="((height))" width="((width))" playercount="((playerCount))"></multigame-view>
         </template>
 
         <template if="((view=='highscores'))">
@@ -20,8 +20,11 @@
                 var self = this;
 
                 Web.LoaderCallbacks = {
-                    'changeView': function(viewName) {
+                    'changeView': function(viewName, playerCount) {
                         self.view = viewName;
+                        if (typeof playerCount !== 'undefined' && playerCount) {
+                            self.playerCount = playerCount;
+                        }
                     }
                 };
             },

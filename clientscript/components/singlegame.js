@@ -16,6 +16,7 @@ require([
         isLastLevel: false,
         lives: [],
         livesLeft: 3,
+        responsive: null,
         ready: function() {
             var self = this;
             var callbacks = {};
@@ -33,6 +34,14 @@ require([
                     bottom: 15,
                     height: 1.5 * spaceshipWidth
                 };
+
+                self.responsive = (function() {
+                    if ($('#singleGameWrapper').width() < 500) {
+                        return 'max500';
+                    } else {
+                        return 'min500';
+                    }
+                })();
 
                 self.enemyWidth = spaceshipWidth / 2;
                 self.enemyHeight = spaceshipWidth / 2;
@@ -112,8 +121,6 @@ require([
                 if (self.multiplayer !== false && typeof self.multiplayerGame !== 'undefined') {
                     var otherPlayersCount = Web.MultiplayerGames.getPlayerCount(self.multiplayer);
                     var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(self.multiplayer);
-                    otherPlayersEnded++;
-                    Web.MultiplayerGames.setPlayersEnded(self.multiplayer, otherPlayersEnded);
 
                     console.log('onOtherUserEndLevel', otherPlayersEnded, otherPlayersCount);
                     if (otherPlayersEnded === otherPlayersCount) {
@@ -146,6 +153,10 @@ require([
                 if (self.multiplayer) {
                     //Web.MultiplayerGames.removePlayerFromGame(self.multiplayer, self.multiplayerPlayer.id);
                     //Web.MultiplayerGames.updatePlayer(self.multiplayer, self.multiplayerPlayer.id, 'isGameOver', true);
+
+                    var otherPlayersEnded = Web.MultiplayerGames.getPlayersEnded(self.multiplayer);
+                    otherPlayersEnded++;
+                    Web.MultiplayerGames.setPlayersEnded(self.multiplayer, otherPlayersEnded);
                     self.multiplayerPlayer.triggerForAllOtherPlayersInGame('otherUserEnd');
                 } else {
                     setTimeout(function() {

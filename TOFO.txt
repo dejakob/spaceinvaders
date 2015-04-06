@@ -1,14 +1,15 @@
 TODO
 
-Authentication with rooms
+Authentication with location >> DONE
 Host on heroku with socket.io >> OTHER SERVER
 	Force SECRET.js to heroku >> OTHER SERVER
-Let spaceship die
+Let spaceship die >> DONE
 screencast
-winner determine bug
-Vibration?
+winner determine bug >> DONE
+Vibration? >> IMPOSSIBLE (ATM)
 Selfie level
-
-Feedback if connect does not work
-
-'Graceful url change on phone'
+Feedback if connect does not work >> DONE
+'Graceful url change on phone' >> DONE
+Fixes tripple player >> DONE
+Implement tripple player >> DONE
+Disconnect > reconnect? >> DONE

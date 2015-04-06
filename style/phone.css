@@ -63,10 +63,25 @@ body .relative {
   width: 100%;
   position: relative;
 }
+body .rel {
+  position: relative;
+}
 body #phoneTitle {
   font-size: 50px;
   text-align: center;
   font-family: 'Press Start 2P', serif;
+}
+body .overlay.error {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  padding: 5px;
+  background: rgba(149, 0, 4, 0.8);
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Lato', serif;
 }
 body #fixedButtons {
   position: absolute;
@@ -132,6 +147,9 @@ body .connect .userCircle {
   clear: both;
   margin-right: 5px;
 }
+body .connect ul {
+  overflow: auto;
+}
 body .connect li {
   height: 50px;
   background: rgba(255, 255, 255, 0.8);
@@ -152,6 +170,9 @@ body .connect li > span.nearby {
 }
 body .p5 {
   padding: 5px;
+}
+body .click {
+  cursor: pointer;
 }
 body[orient="landscape"] #content,
 body[orient="landscape"] #clickableArea {

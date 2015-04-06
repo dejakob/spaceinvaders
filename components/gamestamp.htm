@@ -1,4 +1,4 @@
-<polymer-element name="game-stamp" attributes="type show">
+<polymer-element name="game-stamp" attributes="type show responsive">
     <template>
         <link rel="stylesheet" href="/components/dialog.css" />
 
@@ -26,8 +26,12 @@
             .hide {
                 display: none;
             }
+            .max500 {
+                margin-left: -50px;
+                margin-top: -186px;
+            }
         </style>
-        <div class="bgImage ((type)) ((show ? '' : 'hide'))"></div>
+        <div class="bgImage ((type)) ((show ? '' : 'hide')) ((responsive ? responsive : ''))"></div>
     </template>
     <script>
         Polymer('game-stamp', {

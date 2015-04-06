@@ -7,6 +7,27 @@ define([
     function (React, template, io) {
     'use strict';
 
+    var EnumMovement = {
+        'MOVEMENT_PARK': 'PARK',
+        'MOVEMENT_LEFT': 'LEFT',
+        'MOVEMENT_RIGHT': 'RIGHT'
+    };
+
+    var EnumAction = {
+        'ACTION_AUTH': 'AUTH',
+        'ACTION_AUTH_FAILED': 'AUTH FAILED',
+        'ACTION_START': 'START LEVEL',
+        'ACTION_FIRE': 'FIRE',
+        'ACTION_CONTROL': 'CONTROL'
+    };
+
+    var EnumStatus = {
+        'STATUS_START': 'START',
+        'STATUS_FIRE': 'FIRE',
+        'STATUS_GAME_OVER': 'LOSER!',
+        'STATUS_ERROR': 'ERR'
+    };
+
     return React.createClass({
         render: template,
         displayName: 'GameView',
@@ -20,25 +41,6 @@ define([
 
             //TODO BLOCKING
             statusEl.setAttribute('style', 'line-height: ' + screenWidth + 'px;');
-
-            var EnumMovement = {
-                'MOVEMENT_PARK': 'PARK',
-                'MOVEMENT_LEFT': 'LEFT',
-                'MOVEMENT_RIGHT': 'RIGHT'
-            };
-
-            var EnumAction = {
-                'ACTION_AUTH': 'AUTH',
-                'ACTION_START': 'START LEVEL',
-                'ACTION_FIRE': 'FIRE',
-                'ACTION_CONTROL': 'CONTROL'
-            };
-
-            var EnumStatus = {
-                'STATUS_START': 'START',
-                'STATUS_FIRE': 'FIRE',
-                'STATUS_GAME_OVER': 'LOSER!'
-            };
 
             var Game = {
                 isAuthenticated: false,
@@ -118,12 +120,15 @@ define([
 
                             if (Game.isAuthenticated) {
                                 direction = parseInt(x*100);
-                                if (direction > 1500) {
+                                if (direction > 1000) {
                                     Game.trigger('onRight');
-                                } else if (direction < -1500) {
+                                    setTimeout(function() {Game.trigger('onRight');},100); //Fallback
+                                } else if (direction < -1000) {
                                     Game.trigger('onLeft');
+                                    setTimeout(function() {Game.trigger('onLeft');},100);
                                 } else {
                                     Game.trigger('onPark');
+                                    setTimeout(function() {Game.trigger('onPark');},100);
                                 }
                             }
 
@@ -165,38 +170,34 @@ define([
                            scope.forceUpdate();
                         });
 
-                        Game.trigger('authenticate');
+                        socket.on(EnumAction.ACTION_AUTH_FAILED, function(data) {
+                            scope.showError = true;
+                            scope.status = EnumStatus.STATUS_ERROR;
+                            scope.render();
+                            scope.forceUpdate();
+                        });
 
-                        //TODO BLOCKING CHANGE
-                        var onclick = function() {
-                            if (scope.status === EnumStatus.STATUS_START) {
-                                Game.trigger('onStart');
-                            } else if (scope.status === EnumStatus.STATUS_FIRE) {
-                                Game.trigger('onFire');
-                            } else if (scope.status === EnumStatus.STATUS_GAME_OVER) {
-                                Game.trigger('onGameOver');
-                            }
-                        };
-                        var clickableArea = document.getElementById('clickableArea');
-                        if (clickableArea.ontouchstart) {
-                            clickableArea.ontouchstart = onclick;
-                        } else {
-                            clickableArea.onclick = onclick;
-                        }
-                        clickableArea.onscroll = onclick;
-                        try {
-                            clickableArea.ontouchstart = function() {
-                                clickableArea.className = 'hover';
-                            };
-                            clickableArea.ontouchend = function() {
-                                clickableArea.className = '';
-                            };
-                        } catch (ex) {}
+                        socket.on('PING', function(data) {
+                            socket.emit('PONG');
+                        });
+
+                        Game.trigger('authenticate');
                     });
 
                 }
             };
             Game.init();
+
+            $('#clickableArea').on('touchstart', function() {
+                if (scope.status === EnumStatus.STATUS_START) {
+                    scope.Game.trigger('onStart');
+                } else if (scope.status === EnumStatus.STATUS_FIRE) {
+                    scope.Game.trigger('onFire');
+                } else if (scope.status === EnumStatus.STATUS_GAME_OVER) {
+                    scope.Game.trigger('onGameOver');
+                }
+                return true;
+            });
 
             this.Game = Game;
             this.Enums = {

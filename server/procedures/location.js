@@ -83,7 +83,7 @@ module.exports = {
 
         };
 
-        var insertScore = function(gameId) {
+        var insertGame = function(gameId) {
             data._id = gameId;
             data.type = 'game';
 
@@ -98,7 +98,7 @@ module.exports = {
             });
         };
 
-        var updateScore = function(gameId, _rev) {
+        var updateGame = function(gameId, _rev) {
             data._id = gameId;
             data._rev = _rev;
             data.type = 'game';
@@ -118,15 +118,16 @@ module.exports = {
         if (typeof data._id !== 'undefined') {
             db.get('spaceinvaders', data._id, function(err,res) {
                 if (err) {
-                    insertScore('GAME_' + data._id);
+                    console.log('ERR', err);
+                    insertGame('GAME_' + data._id);
                 } else {
-                    updateScore('GAME_' + data._id, res.data._rev);
+                    updateGame('GAME_' + data._id, res.data._rev);
                 }
             });
         } else {
             this.createNewId(function(ids) {
                 if (ids && ids.length) {
-                    insertScore('GAME_' + ids[0]);
+                    insertGame('GAME_' + ids[0]);
                 } else {
                     callback(false);
                 }
@@ -145,9 +146,9 @@ module.exports = {
                 if (rows.length)
                 {
                     result = rows[0].value;
-                    result.deleted = 1;
-                    db.update('spaceinvaders', result, function(err, res) {
-                    });
+                    result.deleted = true;
+
+                    db.update('spaceinvaders', result, function(err, res) {});
                 }
 
             }
