@@ -2,72 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d6c2627-69a6-4fa4-81c6-b8cd63231966" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/spacelogic/levels/2.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/.jscs.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/lib/objex.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/node_modules/objex/test/objex.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/.jscs.json" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/.jscs.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/CHANGELOG" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/CHANGELOG" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/README.md" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/README.md" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/README.md" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TOFO.txt" afterPath="$PROJECT_DIR$/TOFO.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/asker.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/asker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/body_encoders.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/body_encoders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt" afterPath="$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/constructor.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/constructor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components/dialog.css" afterPath="$PROJECT_DIR$/style/components/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/dialog.htm" afterPath="$PROJECT_DIR$/components/dialog.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components/dialog.less" afterPath="$PROJECT_DIR$/style/components/dialog.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/error.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/lib/error.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/execute.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/execute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/game.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/game.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/game.rt.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/game.rt.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/game.rt.rt" afterPath="$PROJECT_DIR$/clientscript/phone/views/game.rt.rt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/components/gamelevel.js" afterPath="$PROJECT_DIR$/clientscript/components/gamelevel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/components/gamesocket.js" afterPath="$PROJECT_DIR$/clientscript/components/gamesocket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/gamestamp.htm" afterPath="$PROJECT_DIR$/components/gamestamp.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screen/index.html" afterPath="$PROJECT_DIR$/screen/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/index.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/loader.htm" afterPath="$PROJECT_DIR$/components/loader.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/procedures/location.js" afterPath="$PROJECT_DIR$/server/procedures/location.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/login.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/login.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/login.rt.rt.js" afterPath="$PROJECT_DIR$/clientscript/phone/views/login.rt.rt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/phone/views/login.rt.rt" afterPath="$PROJECT_DIR$/clientscript/phone/views/login.rt.rt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/multigame.htm" afterPath="$PROJECT_DIR$/components/multigame.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/components/multigame.js" afterPath="$PROJECT_DIR$/clientscript/components/multigame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/package.json" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/contimer/package.json" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/contimer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/package.json" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/extend/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/package.json" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/phone.css" afterPath="$PROJECT_DIR$/style/phone.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/phone.less" afterPath="$PROJECT_DIR$/style/phone.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/spacelogic/pingpong.js" afterPath="$PROJECT_DIR$/server/spacelogic/pingpong.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/retries.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/retries.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/screen.css" afterPath="$PROJECT_DIR$/style/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/screen.js" afterPath="$PROJECT_DIR$/clientscript/screen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/screen.less" afterPath="$PROJECT_DIR$/style/screen.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components/singlegame.css" afterPath="$PROJECT_DIR$/style/components/singlegame.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/singlegame.htm" afterPath="$PROJECT_DIR$/components/singlegame.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientscript/components/singlegame.js" afterPath="$PROJECT_DIR$/clientscript/components/singlegame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components/singlegame.less" afterPath="$PROJECT_DIR$/style/components/singlegame.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/spacelogic/spacesocket.js" afterPath="$PROJECT_DIR$/server/spacelogic/spacesocket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/status_codes_processing.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/status_codes_processing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/lib/terror.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/lib/terror.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/test/terror.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/node_modules/terror/test/terror.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/timeouts.js" afterPath="$PROJECT_DIR$/node_modules/node-couchdb/node_modules/asker/test/timeouts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/API/twitter.js" afterPath="$PROJECT_DIR$/API/twitter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spaceinvaders.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,10 +37,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pingpong.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pingpong.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/spacelogic/pingpong.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="13" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.4225352" vertical-offset="540" max-vertical-offset="1650">
+            <state line="43" column="0" selection-start="1054" selection-end="1054" vertical-scroll-proportion="-4.0384617" vertical-offset="540" max-vertical-offset="1650">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="singlegame.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="16" selection-start="525" selection-end="525" vertical-scroll-proportion="-5.0" vertical-offset="105" max-vertical-offset="1020">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="singlegame.less" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="18" selection-start="266" selection-end="266" vertical-scroll-proportion="0.37313432" vertical-offset="0" max-vertical-offset="2535">
               <folding />
             </state>
           </provider>
@@ -131,28 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.rt.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientscript/phone/views/login.rt.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="30" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="245" max-vertical-offset="720">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="connect.rt.rt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="70" selection-start="198" selection-end="239" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientscript/phone/start.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="39" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
               <folding />
             </state>
           </provider>
@@ -242,13 +178,13 @@
         <option value="$PROJECT_DIR$/clientscript/phone/views/connect.rt.rt" />
         <option value="$PROJECT_DIR$/style/phone.less" />
         <option value="$PROJECT_DIR$/clientscript/phone/views/login.rt.rt" />
-        <option value="$PROJECT_DIR$/style/components/singlegame.less" />
         <option value="$PROJECT_DIR$/clientscript/phone/views/game.rt.rt" />
         <option value="$PROJECT_DIR$/clientscript/components/gamelevel.js" />
         <option value="$PROJECT_DIR$/clientscript/phone/views/game.rt.js" />
         <option value="$PROJECT_DIR$/server/spacelogic/spacesocket.js" />
         <option value="$PROJECT_DIR$/clientscript/components/singlegame.js" />
         <option value="$PROJECT_DIR$/server/spacelogic/pingpong.js" />
+        <option value="$PROJECT_DIR$/style/components/singlegame.less" />
       </list>
     </option>
   </component>
@@ -652,13 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="57" selection-start="688" selection-end="698" vertical-scroll-proportion="-8.125" vertical-offset="105" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clientscript/components/gamesocket.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="31" selection-start="430" selection-end="430" vertical-scroll-proportion="-5.1923075" vertical-offset="0" max-vertical-offset="1500">
@@ -795,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="16" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-5.48" vertical-offset="521" max-vertical-offset="2535">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/socket.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="47" selection-start="453" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
@@ -886,7 +808,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/spacelogic/pingpong.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="13" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.4225352" vertical-offset="540" max-vertical-offset="1650">
+        <state line="43" column="0" selection-start="1054" selection-end="1054" vertical-scroll-proportion="-4.0384617" vertical-offset="540" max-vertical-offset="1650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/singlegame.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="525" selection-end="525" vertical-scroll-proportion="-5.0" vertical-offset="105" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/components/singlegame.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="266" selection-end="266" vertical-scroll-proportion="0.37313432" vertical-offset="0" max-vertical-offset="2535">
           <folding />
         </state>
       </provider>
