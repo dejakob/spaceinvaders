@@ -174,10 +174,3 @@ body .p5 {
 body .click {
   cursor: pointer;
 }
-body[orient="landscape"] #content,
-body[orient="landscape"] #clickableArea {
-  display: none;
-}
-body[orient="landscape"] #warning {
-  display: block;
-}
