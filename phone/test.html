@@ -2,16 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>React test</title>
-    <script src="lib/require.js"></script>
-    <link rel="stylesheet" href="style.css"/>
+    <title>Fancy tests</title>
+    <script src="lib/jquery.js"></script>
+    <script src="core/rotatedevice.js"></script>
+    <script src="components/gamelevel.hittest.js"></script>
+
+    <style>
+        #hitboxA, #hitboxB {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+        }
+        #hitboxA {
+            background-color: blue;
+        }
+        #hitboxB {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <div id="content"></div>
+<section>
+    <h1>Hit test</h1>
+    <div id="hitboxA" style="top: 77px; right: 1067px;"></div>
+    <div id="hitboxB" style="bottom: 800px; left: 60px;"></div>
+    <button id="hittest">CALCULATE HITTEST</button>
+    <div id="hittestresult"></div>
 
     <script>
-        require(["phone/start.js"]);
+        var hittest = document.querySelector('#hittest');
+        hittest.onclick = function() {
+            var hittest = new Hittest({
+                height: $(window).height(),
+                width: $(window).width()
+            });
+            var result = hittest.test({
+                        top: parseInt($('#hitboxA').css('top') ),
+                        right: parseInt($('#hitboxA').css('right') ),
+                        height: 50,
+                        width: 50
+                    },
+                    {
+                        bottom: parseInt($('#hitboxB').css('bottom') ),
+                        left: parseInt($('#hitboxB').css('left') ),
+                        height: 50,
+                        width: 50
+                    });
+            $('#hittestresult').html(result? 'true' : 'false');
+        };
+
+        RotateDevice.addBetaListener(function(a) {
+            $('#rotation').html(a);
+        });
+
     </script>
+</section>
+<section>
+    <h1>Rotation tester</h1>
+    <span id="rotation">ABC</span>
+
+</section>
 </body>
 </html>

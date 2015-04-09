@@ -71,6 +71,21 @@ require([
                     self.spaceship.movement = 'PARK';
                 }
             };
+            callbacks['onUp'] = function() {
+                if (typeof self.spaceship !== 'undefined') {
+                    self.spaceship.movementY = 'UP';
+                }
+            };
+            callbacks['onDown'] = function() {
+                if (typeof self.spaceship !== 'undefined') {
+                    self.spaceship.movementY = 'DOWN';
+                }
+            };
+            callbacks['onParkY'] = function() {
+                if (typeof self.spaceship !== 'undefined') {
+                    self.spaceship.movementY = 'PARK';
+                }
+            };
             callbacks['startLevel'] = function(levelId, speedX, speedY) {
 
                 if (self.multiplayer !== false) {

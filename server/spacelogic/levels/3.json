@@ -1,0 +1,114 @@
+{
+    "speedX": 10,
+    "speedY": 80,
+    "timeline": [
+        {
+            "time": 100,
+            "enemy": 1
+        },
+        {
+            "time": 200,
+            "enemy": 4
+        },
+        {
+            "time": 300,
+            "enemy": 1
+        },
+        {
+            "time": 400,
+            "enemy": 2
+        },
+        {
+            "time": 450,
+            "enemy": 4
+        },
+        {
+            "time": 500,
+            "enemy": 3
+        },
+        {
+            "time": 550,
+            "enemy": 1
+        },
+        {
+            "time": 600,
+            "enemy": 1
+        },
+        {
+            "time": 650,
+            "enemy": 2
+        },
+        {
+            "time": 700,
+            "enemy": 4
+        },
+        {
+            "time": 750,
+            "enemy": 1
+        },
+        {
+            "time": 800,
+            "enemy": 4
+        },
+        {
+            "time": 900,
+            "enemy": 2
+        },
+        {
+            "time": 950,
+            "enemy": 3
+        },
+        {
+            "time": 1000,
+            "enemy": 3
+        },
+        {
+            "time": 1050,
+            "enemy": 1
+        },
+        {
+            "time": 1100,
+            "enemy": 1
+        },
+        {
+            "time": 1200,
+            "enemy": 1
+        },
+        {
+            "time": 1400,
+            "enemy": 1
+        },
+        {
+            "time": 1500,
+            "enemy": 4
+        },
+        {
+            "time": 1550,
+            "enemy": 2
+        },
+        {
+            "time": 1600,
+            "enemy": 1
+        },
+        {
+            "time": 1620,
+            "enemy": 1
+        },
+        {
+            "time": 1640,
+            "enemy": 1
+        },
+        {
+            "time": 1660,
+            "enemy": 1
+        },
+        {
+            "time": 1680,
+            "enemy": 1
+        },
+        {
+            "time": 1700,
+            "enemy": 1
+        }
+    ]
+}

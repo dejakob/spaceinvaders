@@ -159,18 +159,35 @@ var GameLevel = function(scope) {
                         }
                     }
 
-                    if (typeof scope.spaceship !== 'undefined' && typeof scope.spaceship.movement !== 'undefined') {
-                        switch(scope.spaceship.movement) {
-                            case 'LEFT':
-                                if (scope.spaceship.left > 0) {
-                                    scope.spaceship.left -= 20;
-                                }
-                                break;
-                            case 'RIGHT':
-                                if (scope.spaceship.left < (scope.width - scope.spaceship.width) ) {
-                                    scope.spaceship.left += 20;
-                                }
-                                break;
+                    if (typeof scope.spaceship !== 'undefined') {
+                        if (typeof scope.spaceship.movement !== 'undefined') {
+                            switch (scope.spaceship.movement) {
+                                case 'LEFT':
+                                    if (scope.spaceship.left > 0) {
+                                        scope.spaceship.left -= 20;
+                                    }
+                                    break;
+                                case 'RIGHT':
+                                    if (scope.spaceship.left < (scope.width - scope.spaceship.width) ) {
+                                        scope.spaceship.left += 20;
+                                    }
+                                    break;
+                            }
+                        }
+
+                        if (typeof scope.spaceship.movementY !== 'undefined') {
+                            switch (scope.spaceship.movementY) {
+                                case 'DOWN':
+                                    if (scope.spaceship.bottom > 0) {
+                                        scope.spaceship.bottom -= 20;
+                                    }
+                                    break;
+                                case 'UP':
+                                    if (scope.spaceship.bottom < (scope.height / 3)) {
+                                        scope.spaceship.bottom += 20;
+                                    }
+                                    break;
+                            }
                         }
                     }
                 }, 40);

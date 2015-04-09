@@ -1,10 +1,12 @@
+Presentation: important: Tell them to lock their rotation
+
 TODO
 
 Authentication with location >> DONE
 Host on heroku with socket.io >> OTHER SERVER
 	Force SECRET.js to heroku >> OTHER SERVER
 Let spaceship die >> DONE
-screencast
+screencast >> DONE
 winner determine bug >> DONE
 Vibration? >> IMPOSSIBLE (ATM)
 Selfie level

@@ -46,7 +46,7 @@ module.exports = (function() {
         if (typeof _mobileUsers[me.id] !== 'undefined') {
             var ws = _mobileUsers[me.id].ws;
             delete _mobileUsers[me.id];
-            spaceLogic.updatePlayer(me.id, 'isAuthenticated', false);
+            try { spaceLogic.updatePlayer(me.id, 'isAuthenticated', false); } catch (ex) {/* Extra check to unauthenticate user (if not removed already) */}
             if (typeof _users[me.id] !== 'undefined') {
                 var sws = _users[me.id].ws;
                 sws.emit('PHONE DISCONNECTED');

@@ -10,7 +10,9 @@ define([
     var EnumMovement = {
         'MOVEMENT_PARK': 'PARK',
         'MOVEMENT_LEFT': 'LEFT',
-        'MOVEMENT_RIGHT': 'RIGHT'
+        'MOVEMENT_RIGHT': 'RIGHT',
+        'MOVEMENT_UP': 'UP',
+        'MOVEMENT_DOWN': 'DOWN'
     };
 
     var EnumAction = {
@@ -45,7 +47,8 @@ define([
             var Game = {
                 isAuthenticated: false,
                 Controller: {
-                    movement: EnumMovement.MOVEMENT_PARK
+                    movement: EnumMovement.MOVEMENT_PARK,
+                    movementY: EnumMovement.MOVEMENT_PARK
                 },
                 trigger: function(key) {
                     var _triggers = {
@@ -69,12 +72,28 @@ define([
                                 Game.Controller.movement = EnumMovement.MOVEMENT_LEFT;
                             }
                         },
+                        onUp: function() {
+                            if (Game.Controller.movementY !== EnumMovement.MOVEMENT_UP) {
+                                socket.emit(EnumAction.ACTION_CONTROL, {
+                                    'y': -10
+                                });
+                                Game.Controller.movementY = EnumMovement.MOVEMENT_UP;
+                            }
+                        },
                         onRight: function() {
                             if (Game.Controller.movement !== EnumMovement.MOVEMENT_RIGHT) {
                                 socket.emit(EnumAction.ACTION_CONTROL, {
                                     'x': +10
                                 });
                                 Game.Controller.movement = EnumMovement.MOVEMENT_RIGHT;
+                            }
+                        },
+                        onDown: function() {
+                            if (Game.Controller.movementY !== EnumMovement.MOVEMENT_DOWN) {
+                                socket.emit(EnumAction.ACTION_CONTROL, {
+                                    'y': +10
+                                });
+                                Game.Controller.movementY = EnumMovement.MOVEMENT_DOWN;
                             }
                         },
                         onPark: function() {
@@ -85,7 +104,16 @@ define([
                                 Game.Controller.movement = EnumMovement.MOVEMENT_PARK;
                             }
                         },
+                        onParkY: function() {
+                            if (Game.Controller.movementY !== EnumMovement.MOVEMENT_PARK) {
+                                socket.emit(EnumAction.ACTION_CONTROL, {
+                                    'y': 0
+                                });
+                                Game.Controller.movementY = EnumMovement.MOVEMENT_PARK;
+                            }
+                        },
                         onStart: function() {
+                            console.log('TODO BLOCKING', Game.isAuthenticated);
                             if (!Game.isAuthenticated) {
                                 Game.trigger('authenticate');
                             }
@@ -134,6 +162,24 @@ define([
 
                         });
 
+                        RotateDevice.addGammaListener(function(y) {
+                           var direction;
+
+                            if (Game.isAuthenticated) {
+                                direction = parseInt(y*100);
+                                if (direction > 1000) {
+                                    Game.trigger('onUp');
+                                    setTimeout(function() {Game.trigger('onUp');},100); //Fallback
+                                } else if (direction < -1000) {
+                                    Game.trigger('onDown');
+                                    setTimeout(function() {Game.trigger('onDown');},100);
+                                } else {
+                                    Game.trigger('onParkY');
+                                    setTimeout(function() {Game.trigger('onParkY');},100);
+                                }
+                            }
+                        });
+
                         //For develop purposes
                         document.onkeydown = function(ev) {
                             switch (ev.keyCode) {
@@ -141,10 +187,25 @@ define([
                                     Game.trigger('onLeft');
                                     break;
                                 case 38:
-                                    Game.trigger('onPark');
+                                    Game.trigger('onUp');
                                     break;
                                 case 39:
                                     Game.trigger('onRight');
+                                    break;
+                                case 40:
+                                    Game.trigger('onDown');
+                                    break;
+                            }
+                        };
+                        document.onkeyup = function(ev) {
+                            switch (ev.keyCode) {
+                                case 37:
+                                case 39:
+                                    Game.trigger('onPark');
+                                    break;
+                                case 38:
+                                case 40:
+                                    Game.trigger('onParkY');
                                     break;
                             }
                         };

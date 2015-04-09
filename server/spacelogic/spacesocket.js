@@ -107,8 +107,16 @@ module.exports = function(ws, pingpong) {
                                 ws.emit('MOVE SHIP LEFT');
                             } else if (message.x > 0) {
                                 ws.emit('MOVE SHIP RIGHT');
-                            } else {
+                            } else if (message.x === 0) {
                                 ws.emit('PARK');
+                            }
+
+                            if (message.y < 0) {
+                                ws.emit('MOVE SHIP UP');
+                            } else if (message.y > 0) {
+                                ws.emit('MOVE SHIP DOWN');
+                            } else if (message.y === 0) {
+                                ws.emit('PARK Y');
                             }
 
                         } catch (ex) {

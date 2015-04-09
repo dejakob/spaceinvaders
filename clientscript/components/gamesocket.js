@@ -57,6 +57,18 @@ var GameSocket = function(scope, io) {
                     callbacks.onPark();
                 });
 
+                socket.on('MOVE SHIP UP', function() {
+                    callbacks.onUp();
+                });
+
+                socket.on('MOVE SHIP DOWN', function() {
+                    callbacks.onDown();
+                });
+
+                socket.on('PARK Y', function() {
+                    callbacks.onParkY();
+                });
+
                 socket.on('START LEVEL', function(data) {
                     callbacks.startLevel(data.levelId, data.speedX, data.speedY);
                 });
