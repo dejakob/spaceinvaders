@@ -1,0 +1,23 @@
+{
+  "name": "spaceinvaders",
+  "version": "2.0.0",
+  "description": "Invaders.js",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dejakob/spaceinvaders.git"
+  },
+  "keywords": [
+    "space",
+    "invaders"
+  ],
+  "author": "dejakob",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dejakob/spaceinvaders/issues"
+  },
+  "homepage": "https://github.com/dejakob/spaceinvaders#readme"
+}
