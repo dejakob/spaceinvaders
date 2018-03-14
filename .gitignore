@@ -1,7 +1,1 @@
-ideaSF/*
-ideaSF
-server/SECRET.js
-clientscript/presentation/*
-screen/presentation/*
-style/presentation/*
-CDN/presentation/*
+node_modules
