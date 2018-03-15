@@ -4,6 +4,7 @@
   "description": "Invaders.js",
   "main": "server/index.js",
   "scripts": {
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/dejakob/spaceinvaders/issues"
   },
-  "homepage": "https://github.com/dejakob/spaceinvaders#readme"
+  "homepage": "https://github.com/dejakob/spaceinvaders#readme",
+  "dependencies": {
+    "cuid": "2.1.0",
+    "qrcodejs": "github:dejakob/qrcodejs",
+    "redis": "2.8.0"
+  }
 }
